@@ -22,3 +22,5 @@ Planned features include:
             Typing a char name followed by a colon followed by more text and then pressing enter; 
                (ex. char1.char1surname: dialogue goes here!), 
             Returns: Char1 <br> "Dialogue goes here!".
+                Leaving char name blank defaults to Narrator
+                

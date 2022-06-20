@@ -2,7 +2,6 @@ Components are functions that return HTML elements (via JSX)
     Independent
     Reusable
 
-
 States to use:
     "Progress" through the story
         Updates at: 
@@ -16,6 +15,7 @@ States to use:
             (some) decision points
             (some) "Cutscenes"/ fixed events
             After (some) "levels/missions" (at various score thresholds)
+        
 
 List of components:
 c1
