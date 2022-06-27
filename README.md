@@ -24,3 +24,51 @@ Planned features include:
             Returns: Char1 <br> "Dialogue goes here!".
                 Leaving char name blank defaults to Narrator
                 
+        Example formats:
+            Hierarchy = Dialogue File > Chapters > Scenes > Choice Breaks, Dialogues/Conversation > Monologues (& character name) > Character-limited text (to fit)
+
+            Very compact ver.
+
+        Ch Title: Title
+        Ch 1:
+        [
+            Scene0:
+            [
+                Dialogue1: 
+                {
+                    Character1:
+                }
+                choiceBreak1
+                {
+
+                }
+                Dialogue2: 
+                {
+
+                }
+
+            ]
+            Scene1:
+            [
+                
+            ]
+        ]
+
+
+
+
+        {
+            Character: Name
+            Dialogue: Name
+            (Animations?): ?
+        }
+
+
+        {
+            Character: Character's speech?
+        }
+        { ChoiceBreak1 }
+        {
+            Character: Character's speech?
+        }
+        
