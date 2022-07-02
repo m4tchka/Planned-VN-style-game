@@ -9,8 +9,7 @@ function OneOffButton ( {OneOffButtonText, someSpecificFunction} ) {
             onClick = {someSpecificFunction} 
         >
             {OneOffButtonText}        
-        </button>
-            
+        </button>       
     )
-}
+};
 export {OneOffButton};

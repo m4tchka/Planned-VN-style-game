@@ -9,8 +9,7 @@ function ReusableButton ( {ReusableButtonText, someFunction} ) {
             onClick = {someFunction} 
         >
             {ReusableButtonText}        
-        </button>
-            
+        </button>            
     )
 }
 export {ReusableButton};

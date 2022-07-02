@@ -10,7 +10,7 @@ function ReusableButtonGroup ( {ListOfReusableButtons} ) {
                         someFunction="Function"
                     />
                 )
-            })}
+            })};
         </div>
     )
 }
