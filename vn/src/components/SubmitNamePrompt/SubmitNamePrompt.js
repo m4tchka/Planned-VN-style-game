@@ -13,7 +13,8 @@ function SubmitNamePrompt () {
         console.log(nameField);
         e.preventDefault();
         setPlayerName(nameField);
-    }
+    };
+    
     /* When rendering this, move onSubmit up into the component rendering SubmitNamePrompt, define a new state there, and pass onSubmit down to here as a prop. Add a line within onSubmit to set the new state to be the value of the name field. */
 
     return (
@@ -26,7 +27,21 @@ function SubmitNamePrompt () {
                 } else {
                     console.log("Please input a name!");
                 }
-            }}>
+            }}
+            >
+                <div className="name-form-title">Add name: </div>
+                <div className="input-field">
+                    <input
+                        className="input-box"
+                        value={nameField}
+                        onChange={changeNameField}
+                    />
+                    <input
+                        className="name-form-button"
+                        type="submit"
+                        value="Submit"
+                    />
+                </div>
 
         </form>
     )

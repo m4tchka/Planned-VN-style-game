@@ -1,13 +1,13 @@
 import "./ReusableButtonGroup.css"
-import { ReusableButton } from "./ReusableButton/ReusableButton";
-function ReusableButtonGroup ( {ListOfReusableButtons} ) {
+import { ReusableButton } from "./ReusableButton/ReusableButton.js";
+function ReusableButtonGroup ( {ButtonList} ) {
     return (
         <div className = "ReusableButtonGroup">
-            {ListOfReusableButtons.map(function(eachRButton) {
+            {ButtonList.map(function(eachRButton) {
                 return ( 
                     <ReusableButton 
-                        ReusableButtonText={eachRButton.text}
-                        someFunction="Function"
+                        ReusableButtonText={eachRButton.name}
+                        someFunction={eachRButton.function}
                     />
                 )
             })};
