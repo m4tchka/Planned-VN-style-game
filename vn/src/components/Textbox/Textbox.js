@@ -1,10 +1,12 @@
-import "./Textbox.css"
+import "./Textbox.css";
 
-function Textbox ( {Dialogue} ) {
-    return(
-        <div className="DialogueBox">
-            <p>{Dialogue}</p>
+function Textbox () {
+    
+    return (
+        <div className="Textbox">
+
+
         </div>
     )
 };
-export {Textbox};
+export { Textbox };

@@ -4,7 +4,7 @@ import { ReusableButtonGroup } from "../ReusableButtonGroup/ReusableButtonGroup.
 function App() {
     return (
         <div className="App">
-            <header className="App-header"></header>
+
             <ReusableButtonGroup ButtonList={ButtonList}/>
         </div>
     );
