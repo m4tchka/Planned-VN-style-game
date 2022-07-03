@@ -640,7 +640,7 @@
       "type": "text",
       "x": -496.00000000000034,
       "y": -467.7936507936507,
-      "width": 230,
+      "width": 247,
       "height": 100,
       "angle": 0,
       "strokeColor": "#000000",
@@ -656,8 +656,8 @@
       ],
       "strokeSharpness": "sharp",
       "seed": 2039129242,
-      "version": 220,
-      "versionNonce": 675184518,
+      "version": 266,
+      "versionNonce": 955349402,
       "isDeleted": false,
       "boundElements": [
         {
@@ -665,24 +665,24 @@
           "type": "arrow"
         }
       ],
-      "updated": 1656784339711,
+      "updated": 1656796552934,
       "link": null,
       "locked": false,
-      "text": "Sprites\n3 x <div>\n(v. big)\ncontains Sprite images ",
+      "text": "SpriteBox/ Boxes\n1 x Big <div> / 3 x <div>\n\ncontains Sprite images ",
       "fontSize": 20,
       "fontFamily": 1,
       "textAlign": "left",
       "verticalAlign": "top",
       "baseline": 93,
       "containerId": null,
-      "originalText": "Sprites\n3 x <div>\n(v. big)\ncontains Sprite images "
+      "originalText": "SpriteBox/ Boxes\n1 x Big <div> / 3 x <div>\n\ncontains Sprite images "
     },
     {
       "id": "KbE2H9CB2jFFxfAPpYY5Y",
       "type": "rectangle",
       "x": -517.2261904761908,
       "y": -485.4484126984128,
-      "width": 271.25,
+      "width": 281.99099790780485,
       "height": 133.75000000000006,
       "angle": 0,
       "strokeColor": "#000000",
@@ -698,11 +698,11 @@
       ],
       "strokeSharpness": "sharp",
       "seed": 65530266,
-      "version": 62,
-      "versionNonce": 1620026330,
+      "version": 68,
+      "versionNonce": 748763162,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1656784339711,
+      "updated": 1656796539024,
       "link": null,
       "locked": false
     },
@@ -780,10 +780,10 @@
     {
       "id": "5qmQUwfL4ox0KDTowhI7Q",
       "type": "arrow",
-      "x": -393.4997966151942,
+      "x": -384.0415622801386,
       "y": -351.6987476818158,
-      "width": 182.8937662676284,
-      "height": 100.21145910876493,
+      "width": 189.49862673364885,
+      "height": 100.21145910876487,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -797,11 +797,11 @@
       ],
       "strokeSharpness": "round",
       "seed": 496293722,
-      "version": 60,
-      "versionNonce": 962195802,
+      "version": 152,
+      "versionNonce": 2055419482,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1656784415367,
+      "updated": 1656796552934,
       "link": null,
       "locked": false,
       "points": [
@@ -810,8 +810,8 @@
           0
         ],
         [
-          -182.8937662676284,
-          100.21145910876493
+          -189.49862673364885,
+          100.21145910876487
         ]
       ],
       "lastCommittedPoint": null,
