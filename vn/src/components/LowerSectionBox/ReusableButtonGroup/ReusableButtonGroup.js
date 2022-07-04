@@ -10,8 +10,8 @@ function ReusableButtonGroup ( {ButtonList} ) {
                         someFunction={eachRButton.function}
                     />
                 )
-            })};
+            })}
         </div>
-    )
-}
+    );
+};
 export {ReusableButtonGroup};

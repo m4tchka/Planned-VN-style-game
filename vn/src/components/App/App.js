@@ -1,12 +1,14 @@
 import "./App.css";
-import { ButtonList } from "../ReusableButtonGroup/ButtonList/ButtonList.js";
-import { ReusableButtonGroup } from "../ReusableButtonGroup/ReusableButtonGroup.js";
+import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
+import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js" 
 function App() {
     return (
         <div className="App">
-
-            <ReusableButtonGroup ButtonList={ButtonList}/>
+            <LowerSectionBox 
+                CharacterName={"Ganyu"}
+                Dialogue={'"Roll for who you like"'}
+                ButtonList={ButtonList}/>
         </div>
     );
-}
+};
 export default App;
