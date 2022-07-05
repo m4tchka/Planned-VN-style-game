@@ -1,5 +1,8 @@
 .NameBox {
     border: 1px solid #ff00ff;
-    margin: 2% 80% 2% 10%;
-    padding: 2px 2px 2px 2px;
+    margin: 1% 80% 1% 10%;
+    padding: 1px 3px 1px 3px;
+    width: 16%;
+    height: 4%;
+    max-height: 10%;
 };

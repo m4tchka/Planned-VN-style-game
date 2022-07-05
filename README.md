@@ -32,7 +32,9 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
 - Leaving char name blank defaults to Narrator
 - Upon typing another predefined string, exports all current logs that were "stored" in the CL to a new external .json file on desktop (v. difficult)
     + Move this file into main repository to have it "fed in" as dialogue (v.v.difficult)
+<br>
 
+### Basic React-testing-library tests
 ## Files:
 ### plan.md
 ### README.md (will eventually contain instructions for launching & adding/editing dialogue files)       

@@ -1,5 +1,5 @@
 .ReusableButtonGroup {
-    border: 1px solid #ffc0cb;
+    border: 1px dashed #ffc0cb;
     /* padding: 5px 30% 0px 30%; */
     margin: 3px 30% 0px 30%
 }

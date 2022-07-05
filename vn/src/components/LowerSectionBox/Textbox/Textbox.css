@@ -1,3 +1,6 @@
 .Textbox {
-    border: 4px solid #ffa500;
+    max-height: 20%;
+    border: 2px solid #ffa500;
+    margin: 1% 10% 1% 10%; 
+    
 };
