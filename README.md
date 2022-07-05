@@ -35,10 +35,13 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
 <br>
 
 ### Basic React-testing-library tests
+<br>
+
 ## Files:
 ### plan.md
 ### README.md (will eventually contain instructions for launching & adding/editing dialogue files)       
-### Example dialogue file formats:
+### Dialogue file 
+#### Possible formats:
 
 Hierarchy:
     Dialogue File > Chapters > Scenes > Choice Breaks, Dialogues/Conversation > Monologues (& character name) > Character-limited text (to fit)
@@ -47,28 +50,35 @@ Hierarchy:
 ```js
         Ch Title: Title
         Ch 1: [
-            Scene0: [
-                 
-                    {   Dialogue1:"x",
-                        transitionInAnimations: ["some","numbers","here"],
-                        Name: "speech",
-                        transitionOutAnimations: ["some","numbers","here"]
-                    },
+                { 
+                    Scene0: [
+                        {   
+                            Dialogue1:"x",
+                            transitionInAnimations: ["some","numbers","here"],
+                            Name: "speech",
+                            transitionOutAnimations: ["some","numbers","here"]
+                        },
                 /* -----------------------ALTERNATIVELY------------------- */
-                    {
-                        Character: "Name",
-                        Dialogue: "Speech"
-                    };
+                        {
+                            Character: "Name",
+                            Dialogue: "Speech",
+                            Expression: "normal"
+                        };
                 /* ------------------------------------------------------- */
-                {
-                choiceBreak1
-                }
+                        {
+                            CB:"choiceBreak1",
+                            1: "Choice1Text",
+                            2: "Choice2Text",
+                            3: "Choice3Text"
+                        }
+
                 Dialogue2: 
                 {
 
                 }
 
-            ]
+                    ]
+                }
             Scene1:
             [
                 
