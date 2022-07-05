@@ -4,7 +4,7 @@ function NameBox ( {CharacterName} ) {
 
     return (
         <div className="NameBox">
-            <p>{CharacterName}</p>
+            <p className="NameBar">{CharacterName}</p>
         </div>
     )
 };

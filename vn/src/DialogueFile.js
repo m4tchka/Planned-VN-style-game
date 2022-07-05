@@ -23,10 +23,18 @@ let ch1 =
                 Name:"Person1",
                 Dialogue:"Now you may be wondering why I have gathered you here today... "
             },
-            
+            {
+                Name:"Narrator",
+                Dialogue: "And so began that fateful discussion, that would change the fates of every person in that room..."
+            },
+            {
+                Name:"4thWall",
+                Dialogue:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
         ],
     },
     {
+        Background: "someOtherImageFile.jpg",
         Scene2:[]
     },
     {

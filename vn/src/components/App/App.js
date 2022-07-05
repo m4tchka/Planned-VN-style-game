@@ -13,7 +13,6 @@ function App() {
     };
     function switchName () {
         setCurrentName(ch1[0].Scene1[sceneArrayEntry].Name)
-        console.log(ch1[0].Scene1[sceneArrayEntry].Name);
     };
 
     function handleClick () {
@@ -36,9 +35,16 @@ function App() {
 
     return (
         <div className="App">
-        <p> Hello </p>
-                <p onClick={handleClick}>Hello {currentName}</p>
-                <p>{currentDialogue}</p>
+            <p> Hello </p>
+            <p onClick = { handleClick }>Hello { currentName }</p>
+            <p>{ currentDialogue }</p>
+
+            <LowerSectionBox 
+                onClick = { handleClick }
+                //This handleClick func may be passed to the div above instead.
+                CharacterName = { currentName }
+                Dialogue = { currentDialogue }
+                ButtonList = { ButtonList }/>
         </div>
     );
 };
@@ -54,12 +60,6 @@ export default App;
     function switchName () {
         setCurrentName()
     }; 
-
-<LowerSectionBox 
-                onClick={ switchDialogue + switchName }
-                CharacterName={ currentName }
-                Dialogue={ currentDialogue }
-                ButtonList={ ButtonList }/>
 
 
 */
