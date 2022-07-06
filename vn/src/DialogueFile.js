@@ -6,6 +6,8 @@ let ch1 =
             {   
                 Name: "Person1",
                 Dialogue:"Greetings. My name is Person1 !",
+                Animations: ["some","numbers","here"],
+                Sprite: "Normal",
             },
             {
                 Name:"Person2",
@@ -17,7 +19,8 @@ let ch1 =
             },
             {
                 Name:"Person4",
-                Dialogue:"Hiyaa ~ People call me Person4, but I go by p4 ~"
+                Dialogue:"Hiyaa ~ People call me Person4, but I go by 4 ~"
+
             },
             {
                 Name:"Person1",

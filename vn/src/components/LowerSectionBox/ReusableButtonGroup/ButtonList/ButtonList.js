@@ -3,31 +3,31 @@ let ButtonList = [
         name:"Log",
         function: function LogFunction () {
             console.log("Log function called");
-        }
+        },
     },
     {
         name:"Skip",
-        function: function LogFunction () {
+        function: function SkipFunction () {
             console.log("Skip function called");
-            }
+        },
     },
     {
         name:"Auto",
-        function: function LogFunction () {
+        function: function AutoFunction () {
             console.log("Auto function called");
-        }
+        },
     },
     {
         name:"Save",
-        function: function LogFunction () {
+        function: function SaveFunction () {
             console.log("Save function called");
-            }
+        },
     },
     {
         name:"Load",
-        function: function LogFunction () {
+        function: function LoadFunction () {
             console.log("Load function called");
-        }
+        },
     }
 ];
 export { ButtonList };

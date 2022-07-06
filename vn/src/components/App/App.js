@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import "./App.css";
 import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js" 
@@ -7,6 +7,11 @@ function App() {
     const [sceneArrayEntry,setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState ("");
+    const [currentSceneObj,setCurrentSceneObj]= useState({});
+
+    const SceneObjContext= createContext(null);
+    const NameContext = createContext(null);
+    const DialogueContext = createContext(null);
 
     function switchDialogue () {
         setCurrentDialogue(ch1[0].Scene1[sceneArrayEntry].Dialogue)
@@ -14,30 +19,31 @@ function App() {
     function switchName () {
         setCurrentName(ch1[0].Scene1[sceneArrayEntry].Name)
     };
+    function switchCurrentSceneObj () {
+        setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
+    };
+    useEffect (()=> {
+        switchName();
+        switchDialogue();
+        switchCurrentSceneObj();
+    });// Maybe add back ', [sceneArrayEntry]' into useEffect
 
     function handleClick () {
-       
         if (sceneArrayEntry===ch1[0].Scene1.length-1) {
             setSceneArrayEntry(0);
-            switchName();
-            switchDialogue();
         }
         else {
             setSceneArrayEntry(sceneArrayEntry+1)
-            switchName();
-            switchDialogue();
         };
-    }
-
-
+    };
 
 /* >>> Wrap both onClick functions in a wrapping function <<< */
 
     return (
         <div className="App">
-            <p> Hello </p>
-            <p onClick = { handleClick }>Hello { currentName }</p>
-            <p>{ currentDialogue }</p>
+        <NameContext.Provider value = {currentName}>
+        <DialogueContext.Provider value = {currentDialogue}>
+        <SceneObjContext.Provider value = {currentSceneObj}>
 
             <LowerSectionBox 
                 onClick = { handleClick }
@@ -45,6 +51,10 @@ function App() {
                 CharacterName = { currentName }
                 Dialogue = { currentDialogue }
                 ButtonList = { ButtonList }/>
+
+        </SceneObjContext.Provider>
+        </DialogueContext.Provider>
+        </NameContext.Provider>
         </div>
     );
 };
