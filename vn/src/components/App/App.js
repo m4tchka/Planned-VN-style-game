@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "./App.css";
 import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js" 
@@ -7,26 +7,28 @@ function App() {
     const [sceneArrayEntry,setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState ("");
-    const [currentSceneObj,setCurrentSceneObj]= useState({});
-
+    //const [currentSceneObj,setCurrentSceneObj]= useState({});
+/* 
     const SceneObjContext= createContext(null);
     const NameContext = createContext(null);
     const DialogueContext = createContext(null);
-
+ */
     function switchDialogue () {
         setCurrentDialogue(ch1[0].Scene1[sceneArrayEntry].Dialogue)
     };
     function switchName () {
         setCurrentName(ch1[0].Scene1[sceneArrayEntry].Name)
     };
+/* 
     function switchCurrentSceneObj () {
         setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
     };
+ */    
     useEffect (()=> {
         switchName();
         switchDialogue();
-        switchCurrentSceneObj();
-    });// Maybe add back ', [sceneArrayEntry]' into useEffect
+        //switchCurrentSceneObj();
+    }); // Maybe add back ', [sceneArrayEntry]' into useEffect
 
     function handleClick () {
         if (sceneArrayEntry===ch1[0].Scene1.length-1) {
@@ -41,20 +43,22 @@ function App() {
 
     return (
         <div className="App">
+{/*         
         <NameContext.Provider value = {currentName}>
         <DialogueContext.Provider value = {currentDialogue}>
         <SceneObjContext.Provider value = {currentSceneObj}>
-
+*/}
             <LowerSectionBox 
                 onClick = { handleClick }
                 //This handleClick func may be passed to the div above instead.
                 CharacterName = { currentName }
                 Dialogue = { currentDialogue }
                 ButtonList = { ButtonList }/>
-
+{/* 
         </SceneObjContext.Provider>
         </DialogueContext.Provider>
-        </NameContext.Provider>
+        </NameContext.Provider> 
+*/}
         </div>
     );
 };

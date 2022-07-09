@@ -1,5 +1,4 @@
 # Planned-VN-style-game
-<br>
 
 This repository will contain the planning and (hopefully eventually) the code for a VN & accompanying game.
 <br>
@@ -9,22 +8,23 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
 <br>
 
 ## Planned features:
-<br>
+
 
 ### VN style UI for dialogue, with the usual buttons on/ near the dialogue box:
 
 - Autoplay
 - Hide
-- Archive/log/history (of recent?/all past dialogue)
+- Archive/ log/history (of recent?/ all past dialogue)
 - Options
-- Fastforward/skip
-- Save/Load
-- Single-click to finish animation/s (of text &/or character cutouts)
+- Fastforward/ skip
+- Save/ Load
+- Single-click to finish animation/s (of text &/ or character cutouts)
+- Full screen/ hide dialogue box
 <br>
 
-- Basic character cutouts & animations (entries/exits/interludes) (requires: Learning how to draw (again))
+- Basic character cutouts & animations (entries/ exits/ interludes) (requires: Learning how to draw (again))
 
-### CLI tool for writing dialogue (>>> Exact format TBD <<<)
+### CLI tool for writing dialogue: (>>> Exact format TBD <<<)
 #### (intended behaviour): 
 - Typing a string followed by a predefined string followed by another string and then pressing enter; 
     + (ex. char1char1surname ::: dialogue goes here!), 
@@ -34,7 +34,7 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
     + Move this file into main repository to have it "fed in" as dialogue (v.v.difficult)
 <br>
 
-### Basic React-testing-library tests
+### Basic react-testing-library tests:
 <br>
 
 ## Files:
@@ -47,7 +47,10 @@ Hierarchy:
     Dialogue File > Chapters > Scenes > Choice Breaks, Dialogues/Conversation > Monologues (& character name) > Character-limited text (to fit)
             Very compact ver.
 
-```js
+<details> 
+<summary>Drafting dialogue object structure</summary>
+
+```js 
         Ch Title: Title
         Ch 1: [
                 { 
@@ -63,7 +66,7 @@ Hierarchy:
                             Character: "Name",
                             Dialogue: "Speech",
                             Expression: "normal"
-                        };
+                        },
                 /* ------------------------------------------------------- */
                         {
                             CB:"choiceBreak1",
@@ -96,10 +99,51 @@ Hierarchy:
 
 
         {
-            Character: Character's speech?
-        }
+            Character: "Character's speech?"
+        },
         { ChoiceBreak1 }
         {
-            Character: Character's speech?
+            Character: "Character's speech?"
         }
 ```
+
+</details>
+
+<details> 
+<summary>Current dialogue object structure</summary>
+<br>
+
+### Each Chapter is an array of scene objects:
+- Each Scene object is an array of "dialogue" object (i.e. what changes on screen between each click")
+    + Each dialogue object contains several keys:
+        - Name
+        - Dialogue
+        - Sprite (url/ path) **TBD**
+        - Sprite type (i.e. The expression: normal, sad, angry etc) **TBD**
+        - Animations **TBD**
+```js
+let ch1 = 
+[
+    {
+        BG:bgImg.jpg
+        Scene1:[
+            {
+                Name:"John Doe",
+                Dialogue:"Hello World !",
+            },
+            {
+                Name:"World",
+                Dialogue:"Hello John !",
+            }
+        ]
+    },
+    {
+        BG:bgImg.jpg
+        Scene2:[ 
+            {
+            }
+        ]
+    },
+] 
+```
+</details>
