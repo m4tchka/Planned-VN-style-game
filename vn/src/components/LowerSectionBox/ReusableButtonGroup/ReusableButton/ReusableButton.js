@@ -1,10 +1,10 @@
 import "./ReusableButton.css"
 
-function ReusableButton ( {ReusableButtonText, someFunction} ) {
+function ReusableButton ( {ReusableButtonText, someFunction, className} ) {
 
     return (
         <button 
-            className = "RButton"
+            className={className}
             type = "button"
             onClick = {someFunction} 
         >

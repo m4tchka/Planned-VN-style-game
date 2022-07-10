@@ -4,6 +4,7 @@ import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/Bu
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js" 
 import { ch1 } from '../../DialogueFile.js'
 import { SpriteSectionBox } from '../SpriteSectionBox/SpriteSectionBox.js';
+import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js"
 function App() {
     const [sceneArrayEntry,setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
@@ -50,6 +51,7 @@ function App() {
         <SceneObjContext.Provider value = {currentSceneObj}>
 */}
             <SpriteSectionBox/>
+            <ChoiceBox/>
             <LowerSectionBox 
                 onClick = { handleClick }
                 //This handleClick func may be passed to the div above instead.

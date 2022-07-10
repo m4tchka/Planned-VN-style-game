@@ -6,6 +6,7 @@ function ReusableButtonGroup ( {ButtonList} ) {
             {ButtonList.map(function(eachRButton) {
                 return ( 
                     <ReusableButton 
+                        className = "FunctionButton"
                         ReusableButtonText={eachRButton.name}
                         someFunction={eachRButton.function}
                     />
@@ -14,4 +15,4 @@ function ReusableButtonGroup ( {ButtonList} ) {
         </div>
     );
 };
-export {ReusableButtonGroup};
+export { ReusableButtonGroup };

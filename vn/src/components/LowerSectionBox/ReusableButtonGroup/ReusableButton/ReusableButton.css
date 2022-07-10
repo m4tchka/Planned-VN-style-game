@@ -1,3 +1,8 @@
-.RButton {
+.FunctionButton {
     border: 1px dashed cyan;
+}
+.ChoiceButton {
+    border: 1px dashed cyan;
+    width: 25%;
+    height: 5%;
 }
