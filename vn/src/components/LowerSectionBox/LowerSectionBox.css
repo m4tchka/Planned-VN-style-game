@@ -1,3 +1,6 @@
 .LowerSectionBox {
     border: 1px dashed #00ff00;
+    position: fixed;
+    bottom:0;
+    width:100%
 };

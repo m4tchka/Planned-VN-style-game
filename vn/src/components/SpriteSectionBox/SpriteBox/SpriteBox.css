@@ -1,0 +1,5 @@
+.SpriteBox {
+    margin:0 4% 0 4%;
+    border: 1px dashed darkblue;
+    flex:1;
+}

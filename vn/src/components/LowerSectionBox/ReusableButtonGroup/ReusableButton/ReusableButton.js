@@ -12,4 +12,4 @@ function ReusableButton ( {ReusableButtonText, someFunction} ) {
         </button>            
     )
 }
-export {ReusableButton};
+export { ReusableButton };

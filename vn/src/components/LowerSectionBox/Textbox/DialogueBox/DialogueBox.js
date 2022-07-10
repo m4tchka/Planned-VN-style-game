@@ -7,4 +7,4 @@ function DialogueBox ( {Dialogue} ) {
         </div>
     )
 };
-export {DialogueBox};
+export { DialogueBox };
