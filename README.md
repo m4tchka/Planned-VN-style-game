@@ -8,7 +8,10 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
 <br>
 
 ## Planned features:
-
+### Branching dialogue "routes" and corresponding logic:
+- (Global?) State to hold Reputation/Karma/Bias: Alters choices availiable
+- Adding several more _key: value_ pairs to dialogue file objects
+    + Conditonally render ChoiceBox element if the key: value _type: Question/ Choice_ appears in dialogue object (as opposed to _type: Dialogue/ Speech_)
 
 ### VN style UI for dialogue, with the usual buttons on/ near the dialogue box:
 
@@ -138,7 +141,7 @@ let ch1 =
         ]
     },
     {
-        BG:bgImg.jpg
+        BG:bgImg2.jpg
         Scene2:[ 
             {
             }

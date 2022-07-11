@@ -3,8 +3,7 @@ import { ReusableButton } from "../LowerSectionBox/ReusableButtonGroup/ReusableB
 let choiceArray=[{text:"Choice 1",},
                     {text:"Choice 2",},
                     {text:"Choice 3",},
-                    {text:"Choice 4",},
-                    {text:"Choice 5",}];
+                    {text:"Choice 4",},];
 function ChoiceBox () {
     
     return (

@@ -6,8 +6,9 @@ let ch1 =
             {   
                 Name: "Person1",
                 Dialogue:"Greetings. My name is Person1 !",
-                Animations: ["some","numbers","here"],
-                Sprite: "Normal",
+
+                /* Animations: ["some","numbers","here"],
+                Sprite: "Normal", */
             },
             {
                 Name:"Person2",
@@ -70,3 +71,17 @@ Sprite: "Normal"
 
 */
 export { ch1, ch2 };
+
+/* 
+{
+    Name:"Person2",
+    Type: "Dialogue" | "Question",
+    Text:"The name's 2. Person 2.",
+    Route("if Type:Dialogue & after a question"): "a"/"b"/"c",
+    Choice("if Type:Question"):[
+        {text:"This is choice 1"},
+        {text:"This is choice 2"},
+        {text:"This is choice 3"},
+    ]
+}
+*/
