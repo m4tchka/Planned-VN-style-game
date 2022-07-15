@@ -1,6 +1,7 @@
 let ch1 = 
 [
     {
+        id:1,
         Background:"someImageFile.jpg",
         Scene1:[
             {   
@@ -20,12 +21,27 @@ let ch1 =
             },
             {
                 Name:"Person4",
-                Dialogue:"Hiyaa ~ People call me Person4, but I go by 4 ~"
-
+                Dialogue:"Hiyaa ~ People call me Person4, but I go by 4 ~",
+                Question: "What do I do now ?",
+                Options: [
+                            {
+                                text:"Go left, with Person2",
+                                route:"a"
+                            },
+                            {
+                                text:"Go center, with Person3",
+                                route:"b"
+                            },
+                            {
+                                text:"Go right, with Person4",
+                                route:"c"
+                            }
+                        ]
             },
             {
                 Name:"Person1",
-                Dialogue:"Now you may be wondering why I have gathered you here today... "
+                Dialogue:"Now you may be wondering why I have gathered you here today... ",
+                type:"Dialogue"
             },
             {
                 Name:"Narrator",
