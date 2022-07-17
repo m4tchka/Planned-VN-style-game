@@ -1,18 +1,23 @@
 import "./ChoiceBox.css"
-import { ReusableButton } from "../LowerSectionBox/ReusableButtonGroup/ReusableButton/ReusableButton"
 
-function ChoiceBox ( {choiceList} ) {
+function ChoiceBox ( {choiceList, question, handleChoice} ) {
     
     return (
         <div className = "ChoiceBox">
+            <p>{question}</p>
             {choiceList.map(function(eachChoice) {
                 return ( 
-                    <ReusableButton 
+                    <button 
                         className = "ChoiceButton"
-                        ReusableButtonText={eachChoice.text}
-                        someFunction={function(){console.log(`You picked ${eachChoice.text}`)}}
-                        
-                    />
+                        onClick={
+                            function(){
+                                handleChoice(eachChoice.next)
+                                console.log(eachChoice.next)
+                            }
+                        }   
+                    >
+                        {eachChoice.text}
+                    </button>
                 )
             })}
         </div>

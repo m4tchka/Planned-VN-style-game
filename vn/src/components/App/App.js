@@ -5,23 +5,21 @@ import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js"
 import { ch1 } from '../../DialogueFile.js'
 import { SpriteSectionBox } from '../SpriteSectionBox/SpriteSectionBox.js';
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js"
-let centerMenu;
 
+let centerMenu;
 function App() {
+    
     const [sceneArrayEntry, setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState ("");
     const [currentSceneObj, setCurrentSceneObj]= useState({});
-/* 
-    const SceneObjContext= createContext(null);
-    const NameContext = createContext(null);
-    const DialogueContext = createContext(null);
-*/
+    const [currentScene,setCurrentScene]= useState(0);
+
     function switchDialogue () {
-        setCurrentDialogue(ch1[0].Scene1[sceneArrayEntry].Dialogue)
+        setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue)
     };
     function switchName () {
-        setCurrentName(ch1[0].Scene1[sceneArrayEntry].Name)
+        setCurrentName(ch1[currentScene].scene[sceneArrayEntry].Name)
     };
 /* 
     function switchCurrentSceneObj () {
@@ -45,36 +43,39 @@ function App() {
        
     };
  */
-
     function switchCurrentSceneObj1 () {
-        setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
+        setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry])
             function checkType(obj) {
-                console.log(currentSceneObj)
                 console.log(obj)
-                if (// "Question" in currentSceneObj 
-                    obj.hasOwnProperty("Question")) {
-                    console.log(currentSceneObj)
-                    centerMenu=<ChoiceBox choiceList={currentSceneObj.Options}/>
+                if (obj.hasOwnProperty("Question")) {
+                    console.log(obj.Options)
+                    centerMenu=<ChoiceBox 
+                        choiceList = {obj.Options}
+                        question = {obj.Question}
+                        handleChoice = {setCurrentScene}
+                    />
                 }
                 else {
                     centerMenu=
                     console.log("Not a question")
                 }
             }
-            checkType(currentSceneObj)
-       
+            checkType(currentSceneObj)  
     };
-
-
-
+/*     
+    function switchScene (id) {
+        setCurrentScene(id)
+    } 
+*/
     useEffect (()=> {
+        switchCurrentSceneObj1()
         switchName();
         switchDialogue();
-        switchCurrentSceneObj1()
     }); // Maybe add back ', [sceneArrayEntry]' into useEffect
 
     function handleClick () {
-        if (sceneArrayEntry===ch1[0].Scene1.length-1) {
+        if (sceneArrayEntry===ch1[currentScene].scene.length-1) {
+            
             setSceneArrayEntry(0);
             //switchCurrentSceneObj()
         }
@@ -88,27 +89,16 @@ function App() {
 
     return (
         <div className="App">
-{/*         
-        <NameContext.Provider value = {currentName}>
-        <DialogueContext.Provider value = {currentDialogue}>
-        <SceneObjContext.Provider value = {currentSceneObj}>
-*/}
             <SpriteSectionBox/>
             <div>
                 {centerMenu}
-            </div>
-            
+            </div>            
             <LowerSectionBox 
                 onClick = { handleClick }
                 //This handleClick func may be passed to the div above instead.
                 CharacterName = { currentName }
                 Dialogue = { currentDialogue }
                 ButtonList = { ButtonList }/>
-{/* 
-        </SceneObjContext.Provider>
-        </DialogueContext.Provider>
-        </NameContext.Provider> 
-*/}
         </div>
     );
 };
