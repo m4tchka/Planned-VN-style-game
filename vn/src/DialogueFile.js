@@ -76,17 +76,17 @@ let ch1 =
                             {
                                 text:"Follow Person2's suggestion and stay close to the road.",
                                 route:"a",
-                                next:4,
+                                next:1,
                             },
                             {
                                 text:"Follow Person3's suggestion and go through the forest valley.",
                                 route:"b",
-                                next:5,
+                                next:2,
                             },
                             {
                                 text:"Follow Person4's suggestion and go around the edge of the forest.",
                                 route:"c",
-                                next:6,
+                                next:3,
                             },
                         ]
             },
@@ -99,7 +99,7 @@ let ch1 =
     },
     {
         id:4,
-        Background: "someOtherImageFile4.jpg",
+        background: "someOtherImageFile4.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -113,7 +113,7 @@ let ch1 =
     },
     {
         id:5,
-        Background: "someOtherImageFile5.jpg",
+        background: "someOtherImageFile5.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -127,7 +127,7 @@ let ch1 =
     },
     {
         id:6,
-        Background: "someOtherImageFile6.jpg",
+        background: "someOtherImageFile6.jpg",
         scene:[
             {
                 Name:"Person1",

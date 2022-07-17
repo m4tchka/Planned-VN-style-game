@@ -1,6 +1,6 @@
 import "./ChoiceBox.css"
 
-function ChoiceBox ( {choiceList, question, handleChoice} ) {
+function ChoiceBox ( {choiceList, question, handleChoice, resetScene} ) {
     
     return (
         <div className = "ChoiceBox">
@@ -13,6 +13,7 @@ function ChoiceBox ( {choiceList, question, handleChoice} ) {
                             function(){
                                 handleChoice(eachChoice.next)
                                 console.log(eachChoice.next)
+                                resetScene(0)
                             }
                         }   
                     >

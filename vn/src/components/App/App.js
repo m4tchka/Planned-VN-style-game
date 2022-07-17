@@ -53,7 +53,9 @@ function App() {
                         choiceList = {obj.Options}
                         question = {obj.Question}
                         handleChoice = {setCurrentScene}
+                        resetScene = {setSceneArrayEntry}
                     />
+                    // setSceneArrayEntry(0)
                 }
                 else {
                     centerMenu=
@@ -74,6 +76,8 @@ function App() {
     }); // Maybe add back ', [sceneArrayEntry]' into useEffect
 
     function handleClick () {
+        setSceneArrayEntry(sceneArrayEntry+1)
+        /* 
         if (sceneArrayEntry===ch1[currentScene].scene.length-1) {
             
             setSceneArrayEntry(0);
@@ -83,6 +87,7 @@ function App() {
             setSceneArrayEntry(sceneArrayEntry+1)
             //switchCurrentSceneObj();
         };
+         */
     };
 
 /* >>> Wrap both onClick functions in a wrapping function <<< */
@@ -127,3 +132,7 @@ export default App;
 
 */
 
+/* Intended behaviour:
+    onClick, change scene state to a different number according to options[choice].next
+
+*/
