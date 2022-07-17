@@ -12,7 +12,6 @@ function ChoiceBox ( {choiceList, question, handleChoice, resetScene} ) {
                         onClick={
                             function(){
                                 handleChoice(eachChoice.next)
-                                console.log(eachChoice.next)
                                 resetScene(0)
                             }
                         }   

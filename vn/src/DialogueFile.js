@@ -58,11 +58,11 @@ let ch1 =
             },
             {
                 Name:"Person4",
-                Dialogue:"If we're going to flee, can't we take the path along the cliff at the edge of the forest instead ? The forest is so spooky...",
+                Dialogue:"If we're going to flee, can't we take the path along the cliff by the edge of the forest instead ? The forest is so spooky...",
             },
             {
                 Name:"Person3",
-                Dialogue:"I would suggest we take a shortcut, straight through the forest valley. They won't think to search there, since it is considered impassable",
+                Dialogue:"I suggest we take the shortcut through the forest valley. They won't think to search there, given it was considered impassable",
             },
             {
                 Name:"Person2",
@@ -103,11 +103,11 @@ let ch1 =
         scene:[
             {
                 Name:"Person1",
-                Dialogue:"Alright, I agree with Person 2, lets stick close to the road so we don't get lost.",
+                Dialogue:"Alright, I agree with Person 2, lets go through the forest, but stick close to the road so we don't get lost.",
             },
             {
                 Name:"Person4",
-                Dialogue:"Alright then...",
+                Dialogue:"Aww, alright then...",
             },
         ],
     },
@@ -121,7 +121,7 @@ let ch1 =
             },
             {
                 Name:"Person2",
-                Dialogue:"I guess that makes sense. if we make good time, we could set up camp in the clearing at the end of the valley.",
+                Dialogue:"I guess that makes sense. if we make good time, we could set up camp along the river at the end of the valley.",
             },
         ],
     },

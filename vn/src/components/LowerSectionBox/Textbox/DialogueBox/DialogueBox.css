@@ -1,3 +1,7 @@
 .DialogueBox {
-    border: 1px solid red;
+    border: 3px solid red;
+    position: absolute;
+    top:30%;
+    max-height: 70%;
+    width: 100%;
 }
