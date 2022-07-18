@@ -1,4 +1,8 @@
 .ChoiceBox {
-    border: 1px dashed #495057;
-    margin:0 25% 0 25%
+    border: 3px dashed #495057;
+    margin:0 30% 0 30%;
+    width:50%;
+    position:fixed;
+    top:30%;
+
 }

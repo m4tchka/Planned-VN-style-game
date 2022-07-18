@@ -95,9 +95,7 @@ function App() {
     return (
         <div className="App">
             <SpriteSectionBox/>
-            <div>
-                {centerMenu}
-            </div>            
+                {centerMenu}         
             <LowerSectionBox 
                 onClick = { handleClick }
                 //This handleClick func may be passed to the div above instead.

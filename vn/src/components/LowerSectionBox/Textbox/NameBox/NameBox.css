@@ -1,13 +1,19 @@
 .NameBox {
     border: 3px solid #ff00ff;
-    margin: 2px 80% 2px 10%;
+    margin-right: 80%;
+    margin-left: 10%;
     padding: 1px 3px 1px 3px;
-    width: 16%;
-    height: 4%;
-    max-height: 10%;
+    position:absolute;
+    width: 25%;
+    height: 20%;
+    max-height: 20%;
+    top: 2.5%;
+    bottom: 77.5%;
+    /* The following lines are only for the <p> tag */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 };
-
-
 
 .NameBar {
     /* >>> aaaaaaaaaaaaah why doesn't this work <<< */
