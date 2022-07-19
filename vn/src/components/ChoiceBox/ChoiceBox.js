@@ -4,7 +4,7 @@ function ChoiceBox ( {choiceList, question, handleChoice, resetScene} ) {
     
     return (
         <div className = "ChoiceBox">
-            <p>{question}</p>
+            <p className="ChoiceQuestion">{question}</p>
             {choiceList.map(function(eachChoice) {
                 return ( 
                     <button 

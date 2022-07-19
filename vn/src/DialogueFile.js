@@ -2,7 +2,7 @@ let ch1 =
 [
     {
         id:1,
-        background:"someImageFile.jpg",
+        background:"https://wallpaperaccess.com/full/4113280.jpg",
         scene:[
 
 /*
@@ -99,7 +99,7 @@ let ch1 =
     },
     {
         id:4,
-        background: "someOtherImageFile4.jpg",
+        background: "https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -113,7 +113,7 @@ let ch1 =
     },
     {
         id:5,
-        background: "someOtherImageFile5.jpg",
+        background: "https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -127,7 +127,7 @@ let ch1 =
     },
     {
         id:6,
-        background: "someOtherImageFile6.jpg",
+        background: "https://wallpaperaccess.com/full/836696.jpg",
         scene:[
             {
                 Name:"Person1",

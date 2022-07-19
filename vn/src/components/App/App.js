@@ -8,18 +8,23 @@ import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js"
 
 let centerMenu;
 function App() {
-    
     const [sceneArrayEntry, setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState ("");
-    const [currentSceneObj, setCurrentSceneObj]= useState({});
-    const [currentScene,setCurrentScene]= useState(0);
+    const [currentSceneObj, setCurrentSceneObj] = useState({});
+    const [currentScene,setCurrentScene] = useState(0);
+    const [log, setLog] = useState([]); 
+    const [bg, setBg] = useState (`"${ch1[currentScene].background}"`);
 
+    function switchBackground () {
+        setBg(ch1[currentScene].background);
+    }
     function switchDialogue () {
-        setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue)
+        setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue);
+        console.log(`bg: ${bg}`);   
     };
     function switchName () {
-        setCurrentName(ch1[currentScene].scene[sceneArrayEntry].Name)
+        setCurrentName(ch1[currentScene].scene[sceneArrayEntry].Name);
     };
 /* 
     function switchCurrentSceneObj () {
@@ -44,38 +49,40 @@ function App() {
     };
  */
     function switchCurrentSceneObj1 () {
-        setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry])
-            function checkType(obj) {
-                console.log(obj)
-                if (obj.hasOwnProperty("Question")) {
-                    console.log(obj.Options)
-                    centerMenu=<ChoiceBox 
-                        choiceList = {obj.Options}
-                        question = {obj.Question}
-                        handleChoice = {setCurrentScene}
-                        resetScene = {setSceneArrayEntry}
-                    />
-                    // setSceneArrayEntry(0)
-                }
-                else {
-                    centerMenu=
-                    console.log("Not a question")
-                }
-            }
-            checkType(currentSceneObj)  
+        setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
+        setBg(ch1[currentScene].background);
+        checkType(currentSceneObj);  
     };
-/*     
-    function switchScene (id) {
-        setCurrentScene(id)
-    } 
-*/
+    function checkType(obj) {
+        if (obj.hasOwnProperty("Question")) {
+            console.log(obj.Options)
+            centerMenu=<ChoiceBox 
+                choiceList = {obj.Options}
+                question = {obj.Question}
+                handleChoice = {setCurrentScene}
+                resetScene = {setSceneArrayEntry}
+            />
+        }
+        else {
+            centerMenu=
+            console.log("Not a question")
+        }
+    };  
+    /* function updateLog (){
+        // setLog([...log,{[`${currentName}`]:currentDialogue}]);
+        // setLog([...log, {currentName: currentDialogue}]);
+        setLog([...log,`${currentName}:${currentDialogue}\n`])
+    }; */
     useEffect (()=> {
-        switchCurrentSceneObj1()
+        switchCurrentSceneObj1();
         switchName();
         switchDialogue();
+        console.log(bg);
+        // updateLog();
     }); // Maybe add back ', [sceneArrayEntry]' into useEffect
-
     function handleClick () {
+        setLog([...log,`${currentName}:${currentDialogue}\n`])
+        // console.log(`Log:\n${log}`)
         setSceneArrayEntry(sceneArrayEntry+1)
         /* 
         if (sceneArrayEntry===ch1[currentScene].scene.length-1) {
@@ -89,11 +96,18 @@ function App() {
         };
          */
     };
-
 /* >>> Wrap both onClick functions in a wrapping function <<< */
-
     return (
-        <div className="App">
+        <div 
+            className="App"
+            style={{backgroundImage:`url(${bg})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100vw',
+                    height: '100vh'
+                    }}
+        >
             <SpriteSectionBox/>
                 {centerMenu}         
             <LowerSectionBox 
