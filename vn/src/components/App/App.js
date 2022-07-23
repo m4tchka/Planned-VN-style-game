@@ -14,14 +14,13 @@ function App() {
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentScene,setCurrentScene] = useState(0);
     const [log, setLog] = useState([]); 
-    const [bg, setBg] = useState (`"${ch1[currentScene].background}"`);
-
+    const [bg, setBg] = useState (`"${ch1[currentScene].Background}"`);
+    //Initial bg different
     function switchBackground () {
-        setBg(ch1[currentScene].background);
+        setBg(ch1[currentScene].scene[sceneArrayEntry].Background);
     }
     function switchDialogue () {
         setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue);
-        console.log(`bg: ${bg}`);   
     };
     function switchName () {
         setCurrentName(ch1[currentScene].scene[sceneArrayEntry].Name);
@@ -50,7 +49,6 @@ function App() {
  */
     function switchCurrentSceneObj1 () {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-        setBg(ch1[currentScene].background);
         checkType(currentSceneObj);  
     };
     function checkType(obj) {
@@ -77,6 +75,9 @@ function App() {
         switchCurrentSceneObj1();
         switchName();
         switchDialogue();
+        if (ch1[currentScene].scene[sceneArrayEntry].Background){
+            switchBackground()
+        };
         console.log(bg);
         // updateLog();
     }); // Maybe add back ', [sceneArrayEntry]' into useEffect

@@ -2,9 +2,7 @@ let ch1 =
 [
     {
         id:1,
-        background:"https://wallpaperaccess.com/full/4113280.jpg",
         scene:[
-
 /*
             {   
                 Name: "Person1",
@@ -40,21 +38,21 @@ let ch1 =
             },
             {
                 Name:"Person3",
-                Dialogue:"So what does this mean for us? If we stay here in the Center, then we risk getting encircled and overrun if the East flank falls..",
+                Dialogue:"So what does this mean for us? If we stay here in the center, then we risk getting encircled and overrun if the eastern flank falls..",
             },
             {
                 Name:"Person1",
-                Dialogue:"Correct. If they are to fall, then it is inevitable that we will follow eventually.",
+                Dialogue:"Correct. If they are to fall, then it's inevitable that we will follow eventually.",
             },
             {
                 Name:"Person2",
-                Dialogue:"I'm guessing you're planning on fleeing through the forest to our South, tomorrow afternoon while the other units are busy.",
+                Dialogue:"Person1, I'm guessing you're planning on fleeing through the forest to our south, tomorrow afternoon while the other units are busy ?",
             },
-*/
-            
+*/          
             {
                 Name:"Person1",
                 Dialogue:"Yes, although I'm open to other ideas. We should decide quickly though.",
+                Background:"https://wallpaperaccess.com/full/4113280.jpg",
             },
             {
                 Name:"Person4",
@@ -94,12 +92,10 @@ let ch1 =
                 Name:"",
                 Dialogue:"",
             }
-
         ],
     },
     {
         id:4,
-        background: "https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -109,11 +105,19 @@ let ch1 =
                 Name:"Person4",
                 Dialogue:"Aww, alright then...",
             },
+            {
+                Name:"",
+                Dialogue:"Some time later...",
+                Background: "https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg"
+            },
+            {
+                Name:"Person3",
+                Dialogue:"It's been some time since I've been here, in the Southern forests...",
+            },
         ],
     },
     {
         id:5,
-        background: "https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
         scene:[
             {
                 Name:"Person1",
@@ -123,11 +127,24 @@ let ch1 =
                 Name:"Person2",
                 Dialogue:"I guess that makes sense. if we make good time, we could set up camp along the river at the end of the valley.",
             },
+            {
+                Name:"Person1",
+                Dialogue:"I guess we might as well set off now then. I think it's late enough.",
+            },
+            {
+                Name:"",
+                Dialogue:"...",
+            },
+            {
+                Background: "https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
+                Name:"Person1",
+                Dialogue:"Well, here we are, the forest valley",
+            },
         ],
     },
     {
         id:6,
-        background: "https://wallpaperaccess.com/full/836696.jpg",
+        
         scene:[
             {
                 Name:"Person1",
@@ -136,6 +153,31 @@ let ch1 =
             {
                 Name:"Person3",
                 Dialogue:"Mmm, that's a good point. Let's go with that then.",
+            },
+            {
+                Name:"Person4",
+                Dialogue:"Y-yeah, that's what I meant!",
+            },
+            {
+                Name:"Person1",
+                Dialogue:"Of course, naturally.",
+            },
+            {
+                Name:"Person4",
+                Dialogue:"...",
+            },
+            {
+                Name:"Person2",
+                Dialogue:"Enough bickering, we should get going",
+            },
+            {
+                Name:"",
+                Dialogue:"Several hours later...",
+            },
+            {
+                Background: "https://wallpaperaccess.com/full/836696.jpg",
+                Name:"Person4",
+                Dialogue:"Wow, look at the view!",
             },
         ],
     },
