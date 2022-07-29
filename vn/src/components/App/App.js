@@ -6,7 +6,7 @@ import { ch1 } from '../../DialogueFile.js'
 import { SpriteSectionBox } from '../SpriteSectionBox/SpriteSectionBox.js';
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js"
 
-let centerMenu;
+let centerMenu=<></>;
 function App() {
     const [sceneArrayEntry, setSceneArrayEntry,] = useState(0)
     const [currentName, setCurrentName] = useState("");
@@ -18,7 +18,7 @@ function App() {
     //Initial bg different
     function switchBackground () {
         setBg(ch1[currentScene].scene[sceneArrayEntry].Background);
-    }
+    };
     function switchDialogue () {
         setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue);
     };
@@ -62,7 +62,7 @@ function App() {
             />
         }
         else {
-            centerMenu=
+            centerMenu=<></>
             console.log("Not a question")
         }
     };  
@@ -73,11 +73,11 @@ function App() {
     }; */
     useEffect (()=> {
         switchCurrentSceneObj1();
-        switchName();
-        switchDialogue();
-        if (ch1[currentScene].scene[sceneArrayEntry].Background){
+        if (ch1[currentScene].scene[sceneArrayEntry].Background) {
             switchBackground()
         };
+        switchName();
+        switchDialogue();
         console.log(bg);
         // updateLog();
     }); // Maybe add back ', [sceneArrayEntry]' into useEffect

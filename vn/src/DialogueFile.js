@@ -143,8 +143,7 @@ let ch1 =
         ],
     },
     {
-        id:6,
-        
+        id:6,        
         scene:[
             {
                 Name:"Person1",
