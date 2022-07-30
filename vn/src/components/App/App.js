@@ -1,31 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import "./App.css";
 import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
-import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js" 
-import { ch1 } from '../../DialogueFile.js'
-import { SpriteSectionBox } from '../SpriteSectionBox/SpriteSectionBox.js';
-import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js"
+import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
+import { ch1 } from "../../DialogueFile.js";
+import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
+import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 
-let centerMenu=<></>;
 function App() {
-    const [sceneArrayEntry, setSceneArrayEntry,] = useState(0)
+    const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentName, setCurrentName] = useState("");
-    const [currentDialogue, setCurrentDialogue] = useState ("");
+    const [currentDialogue, setCurrentDialogue] = useState("");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
-    const [currentScene,setCurrentScene] = useState(0);
-    const [log, setLog] = useState([]); 
-    const [bg, setBg] = useState (`"${ch1[currentScene].Background}"`);
-    //Initial bg different
-    function switchBackground () {
-        setBg(ch1[currentScene].scene[sceneArrayEntry].Background);
-    };
-    function switchDialogue () {
-        setCurrentDialogue(ch1[currentScene].scene[sceneArrayEntry].Dialogue);
-    };
-    function switchName () {
-        setCurrentName(ch1[currentScene].scene[sceneArrayEntry].Name);
-    };
-/* 
+    const [currentScene, setCurrentScene] = useState(0);
+    const [log, setLog] = useState([]);
+    const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
+    function switchBackground() {
+        setBg(currentSceneObj.Background);
+    }
+    function switchDialogue() {
+        setCurrentDialogue(currentSceneObj.Dialogue);
+    }
+    function switchName() {
+        setCurrentName(currentSceneObj.Name);
+    }
+    /* 
     function switchCurrentSceneObj () {
         console.log("switchCurrentSceneObj called")
         setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
@@ -47,44 +45,31 @@ function App() {
        
     };
  */
-    function switchCurrentSceneObj1 () {
+    function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-        checkType(currentSceneObj);  
-    };
-    function checkType(obj) {
-        if (obj.hasOwnProperty("Question")) {
-            console.log(obj.Options)
-            centerMenu=<ChoiceBox 
-                choiceList = {obj.Options}
-                question = {obj.Question}
-                handleChoice = {setCurrentScene}
-                resetScene = {setSceneArrayEntry}
-            />
-        }
-        else {
-            centerMenu=<></>
-            console.log("Not a question")
-        }
-    };  
+    }
     /* function updateLog (){
         // setLog([...log,{[`${currentName}`]:currentDialogue}]);
         // setLog([...log, {currentName: currentDialogue}]);
         setLog([...log,`${currentName}:${currentDialogue}\n`])
     }; */
-    useEffect (()=> {
+    useEffect(() => {
         switchCurrentSceneObj1();
         if (ch1[currentScene].scene[sceneArrayEntry].Background) {
-            switchBackground()
-        };
+            switchBackground();
+        }
         switchName();
         switchDialogue();
         console.log(bg);
-        // updateLog();
-    }); // Maybe add back ', [sceneArrayEntry]' into useEffect
-    function handleClick () {
-        setLog([...log,`${currentName}:${currentDialogue}\n`])
-        // console.log(`Log:\n${log}`)
-        setSceneArrayEntry(sceneArrayEntry+1)
+    });
+    function handleClick() {
+        setLog([...log, `${currentName}:${currentDialogue}\n`]);
+        setSceneArrayEntry(sceneArrayEntry + 1);
+        console.log(`currentSceneObj: ${currentSceneObj}\n 
+                    currentName: ${currentName}\n 
+                    currentDialogue: ${currentDialogue}\n
+                    Log: ${log} 
+                    isQuestion? ${currentSceneObj.Question}`);
         /* 
         if (sceneArrayEntry===ch1[currentScene].scene.length-1) {
             
@@ -96,43 +81,52 @@ function App() {
             //switchCurrentSceneObj();
         };
          */
-    };
-/* >>> Wrap both onClick functions in a wrapping function <<< */
+    }
+    /* >>> Wrap both onClick functions in a wrapping function <<< */
     return (
-        <div 
+        <div
             className="App"
-            style={{backgroundImage:`url(${bg})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    width: '100vw',
-                    height: '100vh'
-                    }}
+            style={{
+                backgroundImage: `url(${bg})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                width: "100vw",
+                height: "100vh",
+            }}
         >
-            <SpriteSectionBox/>
-                {centerMenu}         
-            <LowerSectionBox 
-                onClick = { handleClick }
-                //This handleClick func may be passed to the div above instead.
-                CharacterName = { currentName }
-                Dialogue = { currentDialogue }
-                ButtonList = { ButtonList }/>
+            <SpriteSectionBox />
+            {currentSceneObj.Question ? (
+                <ChoiceBox
+                    choiceList={
+                        currentSceneObj.Options
+                    }
+                    question={currentSceneObj.Question}
+                    handleChoice={setCurrentScene}
+                    resetScene={setSceneArrayEntry}
+                />
+            ) : (
+                <></>
+            )}
+            {currentSceneObj.Question ? (
+                <LowerSectionBox
+                    CharacterName={currentName}
+                    Dialogue={currentDialogue}
+                    ButtonList={ButtonList}
+                />
+            ) : (
+                <LowerSectionBox
+                    onClick={handleClick}
+                    //This handleClick func may be passed to the div above instead.
+                    CharacterName={currentName}
+                    Dialogue={currentDialogue}
+                    ButtonList={ButtonList}
+                />
+            )}
         </div>
     );
-};
+}
 export default App;
-
-/*    
-    const [currentName, setCurrentName] = useState("");
-    const [currentDialogue, setCurrentDialogue] = useState ("");
-
-    function switchDialogue () {
-        setCurrentDialogue()
-    };
-    function switchName () {
-        setCurrentName()
-    }; 
-*/
 
 /* Intended behvaviour:
         - On click, increment array entry (which is a number)
