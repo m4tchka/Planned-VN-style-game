@@ -121,6 +121,8 @@ Hierarchy:
     + Each dialogue object contains several keys:
         - Name
         - Dialogue
+        - Background (optional, only when the background changes)
+        - Question & Options (optional, only at question moments)
         - Sprite (url/ path) **TBD**
         - Sprite type (i.e. The expression: normal, sad, angry etc) **TBD**
         - Animations **TBD**
@@ -128,15 +130,35 @@ Hierarchy:
 let ch1 = 
 [
     {
-        BG:bgImg.jpg
-        Scene1:[
+        id:1
+        scene:[
             {
                 Name:"John Doe",
                 Dialogue:"Hello World !",
+                Background: "background.jpg"
             },
             {
                 Name:"World",
                 Dialogue:"Hello John !",
+            }
+            {
+                Name:"Alien",
+                Dialogue:"Choose your demise !"
+                Question:"Which demise should we choose ?"
+                Options: [
+                    {
+                        Text:"Meteor strike",
+                        Next:1,
+                    },
+                    {
+                        Text:"Invasion",
+                        Next:2,
+                    },
+                    {
+                        Text:"Nanomachine plague",
+                        Next:3,
+                    },
+                ]
             }
         ]
     },

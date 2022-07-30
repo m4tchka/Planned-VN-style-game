@@ -71,22 +71,22 @@ let ch1 =
                 Dialogue:"",
                 Question: "Which route should we choose ?",
                 Options: [
-                            {
-                                text:"Follow Person2's suggestion and stay close to the road.",
-                                route:"a",
-                                next:1,
-                            },
-                            {
-                                text:"Follow Person3's suggestion and go through the forest valley.",
-                                route:"b",
-                                next:2,
-                            },
-                            {
-                                text:"Follow Person4's suggestion and go around the edge of the forest.",
-                                route:"c",
-                                next:3,
-                            },
-                        ]
+                    {
+                        Text:"Follow Person2's suggestion and stay close to the road.",
+                        Route:"a",
+                        Next:1,
+                    },
+                    {
+                        Text:"Follow Person3's suggestion and go through the forest valley.",
+                        Route:"b",
+                        Next:2,
+                    },
+                    {
+                        Text:"Follow Person4's suggestion and go arounthe edge of the forest.",
+                        Route:"c",
+                        Next:3,
+                    },
+                ]
             },
         ],
     },

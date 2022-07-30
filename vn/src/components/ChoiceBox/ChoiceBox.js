@@ -11,12 +11,12 @@ function ChoiceBox ( {choiceList, question, handleChoice, resetScene} ) {
                         className = "ChoiceButton"
                         onClick = {
                             function() {
-                                handleChoice(eachChoice.next)
+                                handleChoice(eachChoice.Next)
                                 resetScene(0)
                             }
                         }   
                     >
-                        {eachChoice.text}
+                        {eachChoice.Text}
                     </button>
                 )
             })}
