@@ -14,15 +14,17 @@ function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [log, setLog] = useState([]);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
+    const [luck, setLuck] = useState(0);
+
     function switchBackground() {
         setBg(currentSceneObj.Background);
-    }
+    };
     function switchDialogue() {
         setCurrentDialogue(currentSceneObj.Dialogue);
-    }
+    };
     function switchName() {
         setCurrentName(currentSceneObj.Name);
-    }
+    };
     /* 
     function switchCurrentSceneObj () {
         console.log("switchCurrentSceneObj called")
@@ -47,7 +49,7 @@ function App() {
  */
     function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-    }
+    };
     /* function updateLog (){
         // setLog([...log,{[`${currentName}`]:currentDialogue}]);
         // setLog([...log, {currentName: currentDialogue}]);
@@ -65,23 +67,14 @@ function App() {
     function handleClick() {
         setLog([...log, `${currentName}:${currentDialogue}\n`]);
         setSceneArrayEntry(sceneArrayEntry + 1);
-        console.log(`currentSceneObj: ${currentSceneObj}\n 
+        /* console.log(`currentSceneObj: ${currentSceneObj}\n 
                     currentName: ${currentName}\n 
                     currentDialogue: ${currentDialogue}\n
                     Log: ${log} 
-                    isQuestion? ${currentSceneObj.Question}`);
-        /* 
-        if (sceneArrayEntry===ch1[currentScene].scene.length-1) {
-            
-            setSceneArrayEntry(0);
-            //switchCurrentSceneObj()
-        }
-        else {
-            setSceneArrayEntry(sceneArrayEntry+1)
-            //switchCurrentSceneObj();
-        };
-         */
-    }
+                    isQuestion? ${currentSceneObj.Question}
+                    Luck: ${luck}`); */
+                    console.log(`Luck: ${luck}`)
+    };
     /* >>> Wrap both onClick functions in a wrapping function <<< */
     return (
         <div
@@ -97,31 +90,31 @@ function App() {
         >
             <SpriteSectionBox />
             {currentSceneObj.Question ? (
-                <ChoiceBox
-                    choiceList={
-                        currentSceneObj.Options
-                    }
-                    question={currentSceneObj.Question}
-                    handleChoice={setCurrentScene}
-                    resetScene={setSceneArrayEntry}
-                />
+                <>
+                    <ChoiceBox
+                        choiceList={currentSceneObj.Options}
+                        question={currentSceneObj.Question}
+                        handleChoice={setCurrentScene}
+                        resetScene={setSceneArrayEntry}
+                        incrementLuck={setLuck}
+                        luck = {luck}
+                    />
+                    <LowerSectionBox
+                        CharacterName={currentName}
+                        Dialogue={currentDialogue}
+                        ButtonList={ButtonList}
+                    />
+                </>
             ) : (
-                <></>
-            )}
-            {currentSceneObj.Question ? (
-                <LowerSectionBox
-                    CharacterName={currentName}
-                    Dialogue={currentDialogue}
-                    ButtonList={ButtonList}
-                />
-            ) : (
-                <LowerSectionBox
-                    onClick={handleClick}
-                    //This handleClick func may be passed to the div above instead.
-                    CharacterName={currentName}
-                    Dialogue={currentDialogue}
-                    ButtonList={ButtonList}
-                />
+                <>
+                    <LowerSectionBox
+                        //This handleClick func may be passed to the div above instead.
+                        onClick={handleClick}
+                        CharacterName={currentName}
+                        Dialogue={currentDialogue}
+                        ButtonList={ButtonList}
+                    />
+                </>
             )}
         </div>
     );

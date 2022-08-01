@@ -64,7 +64,7 @@ let ch1 =
             },
             {
                 Name:"Person2",
-                Dialogue:"Hmm... I think it would be best to take a path parallel to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+                Dialogue:"Hmm... I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
             },
             {
                 Name:"Person1",
@@ -75,16 +75,22 @@ let ch1 =
                         Text:"Follow Person2's suggestion and stay close to the road.",
                         Route:"a",
                         Next:1,
+                        LuckChange:+1,
+                        MinLuck: 0,
                     },
                     {
                         Text:"Follow Person3's suggestion and go through the forest valley.",
                         Route:"b",
                         Next:2,
+                        LuckChange:+2,
+                        MinLuck:0,
                     },
                     {
-                        Text:"Follow Person4's suggestion and go arounthe edge of the forest.",
+                        Text:"Follow Person4's suggestion and go around the edge of the forest.",
                         Route:"c",
                         Next:3,
+                        LuckChange:-1,
+                        MinLuck:10,
                     },
                 ]
             },
