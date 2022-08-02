@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
-import { ch1 } from "../../DialogueFile.js";
+import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 

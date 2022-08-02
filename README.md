@@ -1,50 +1,50 @@
 # Planned-VN-style-game
 
-This repository will contain the planning and (hopefully eventually) the code for a VN & accompanying game.
+This repository contains the planning and code for a VN & (hopefully eventually) accompanying game.
+
 <br>
 
 ## Overview:
 This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flash games from the mid-late 2000s, and will combine gameplay similar to those, with VN-style storytelling in between.
+
 <br>
 
-## Planned features:
-### Branching dialogue "routes" and corresponding logic:
-- (Global?) State to hold Reputation/Karma/Bias: Alters choices availiable
-- Adding several more _key: value_ pairs to dialogue file objects
-    + Conditonally render ChoiceBox element if the key: value _type: Question/ Choice_ appears in dialogue object (as opposed to _type: Dialogue/ Speech_)
+## Plan
+### Features list:
+- [x]  Choice breaks leading to different _"routes"_
+    + [x]  Each _"route"_ in _dialogueFile.js_ is scaleable(ish)
+    + [x]  Conditionally render a _choice box_ and map through an array of possible choices
+    + [x]  Luck/ Standing/ Reputation/ Karma etc
+        - [x]  Choices being locked based on current standing/ repuation/ luck
+        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?) 
+- [x]  Background switching
+- [x]  Skip (partly done, not robust)
+- [ ]  Log (Either lags 2 state behind with the lag increasing at each choice, or Infinite loop)
+- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
+    + [ ]  Different _expressions_ for same character (i.e. different sprites)
+- [ ]  Basic _react-testing-library_ tests
+- [ ]  Auto (setInterval probably)
+- [ ]  Save (take a snapshot of states and store in an object (or array ?))
+- [ ]  Load
+- [ ]  Main Menu
+- [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
+- [ ]  Options menu (to set auto speed, change player name etc)
+- [ ]  Some actual CSS
+- [ ]  Basic _cypress_ tests
+- [ ]  Backend
+    + [ ]  Store savefiles with current dialogue
+        - [ ]  Savefiles have current luck etc
+        - [ ]  Savefiles have player name
+        - [ ]  Savefiles have date
+        - [ ]  Savefiles can be fetched and loaded
+    + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
++ [ ]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
 
-### VN style UI for dialogue, with the usual buttons on/ near the dialogue box:
+### Component tree & Wireframe:
+See _"low-fid.excalidraw"_
 
-- Autoplay
-- Hide
-- Archive/ log/history (of recent?/ all past dialogue)
-- Options
-- Fastforward/ skip
-- Save/ Load
-- Single-click to finish animation/s (of text &/ or character cutouts)
-- Full screen/ hide dialogue box
-<br>
-
-- Basic character cutouts & animations (entries/ exits/ interludes) (requires: Learning how to draw (again))
-
-### CLI tool for writing dialogue: (>>> Exact format TBD <<<)
-#### (intended behaviour): 
-- Typing a string followed by a predefined string followed by another string and then pressing enter; 
-    + (ex. char1char1surname ::: dialogue goes here!), 
-- Returns: Char1: "Dialogue goes here!".
-- Leaving char name blank defaults to Narrator
-- Upon typing another predefined string, exports all current logs that were "stored" in the CL to a new external .json file on desktop (v. difficult)
-    + Move this file into main repository to have it "fed in" as dialogue (v.v.difficult)
-<br>
-
-### Basic react-testing-library tests:
-<br>
-
-## Files:
-### plan.md
-### README.md (will eventually contain instructions for launching & adding/editing dialogue files)       
-### Dialogue file 
-#### Possible formats:
+### Dialogue file: 
+#### Possible formats
 
 Hierarchy:
     Dialogue File > Chapters > Scenes > Choice Breaks, Dialogues/Conversation > Monologues (& character name) > Character-limited text (to fit)
