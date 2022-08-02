@@ -34,6 +34,7 @@ export { ChoiceBox };
 /* ---------------QUESTIONS-----------------
 
 disabled = {!luck >= eachChoice.MinLuck}  <<== Why doesn't this work ???
+(if (!luck >= minLuck) {} would be valid)
 
 How could I pass down a GENERIC comparison and its checker state instead of bloating line 3 with more props ???
 

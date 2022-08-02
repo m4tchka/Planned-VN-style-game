@@ -143,8 +143,8 @@ let ch1 =
             }
             {
                 Name:"Alien",
-                Dialogue:"Choose your demise !"
-                Question:"Which demise should we choose ?"
+                Dialogue:"Choose your demise !",
+                Question:"Which demise should we choose ?",
                 Options: [
                     {
                         Text:"Meteor strike",
@@ -158,7 +158,7 @@ let ch1 =
                         Text:"Nanomachine plague",
                         Next:3,
                     },
-                ]
+                ],
             }
         ]
     },

@@ -2,6 +2,7 @@ let ch1 =
 [
     {
         id:1,
+        lastBg:"https://wallpaperaccess.com/full/4113280.jpg",
         scene:[
 /*
             {   
@@ -98,6 +99,7 @@ let ch1 =
     },
     {
         id:4,
+        lastBg:"https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
         scene:[
             {
                 Name:"Person1",

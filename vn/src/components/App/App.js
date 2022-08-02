@@ -6,13 +6,13 @@ import { ch1 } from "../../DialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 
-function App() {
+function App() {   
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentScene, setCurrentScene] = useState(0);
-    const [log, setLog] = useState([]);
+//    const [log, setLog] = useState([]);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
 
@@ -25,7 +25,7 @@ function App() {
     function switchName() {
         setCurrentName(currentSceneObj.Name);
     };
-    /* 
+    /* Switch scene object function attempt (ancient)
     function switchCurrentSceneObj () {
         console.log("switchCurrentSceneObj called")
         setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
@@ -46,18 +46,45 @@ function App() {
         checkType()
        
     };
- */
+    */
     function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     };
-    /* function updateLog (){
+    /* updateLog attempt 2 (functional update)
+    function updateLog () {
+        setLog(currLog => {
+            let newLog = [...currLog,{Name:currentSceneObj.Name,Dialogue:currentSceneObj.Dialogue}]
+            return newLog
+        })
+    }
+    updateLog(); 
+    */
+    /* updateLog attempt 1
+    function updateLog (){
         // setLog([...log,{[`${currentName}`]:currentDialogue}]);
         // setLog([...log, {currentName: currentDialogue}]);
-        setLog([...log,`${currentName}:${currentDialogue}\n`])
-    }; */
+        // setLog([...log,`${currentName}:${currentDialogue}\n`])
+        setLog(log => {
+            return [...log,{Name:currentName,Dialogue:currentDialogue}]
+        })
+    }; 
+    */
+    function skipToEndOfCurrentScene () {
+        let endOfSceneEntry = ch1[currentScene].scene.length-1
+        setSceneArrayEntry(endOfSceneEntry)
+        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry])
+        setBg(ch1[currentScene].lastBg)
+    }
+    // ^^ CURRENTLY SKIPS OVER ANY BACKGROUND CHANGES --- lastBg = bad solution ^^
+    /*  skipToEndOfCurrentScene Function Shorter ver (worse convention ?)
+    function skipToEndOfCurrentScene () {
+        setSceneArrayEntry(ch1[currentScene].scene.length-1)
+        switchCurrentSceneObj1()
+    }
+    */
     useEffect(() => {
         switchCurrentSceneObj1();
-        if (ch1[currentScene].scene[sceneArrayEntry].Background) {
+        if (currentSceneObj.Background) {
             switchBackground();
         }
         switchName();
@@ -65,17 +92,11 @@ function App() {
         console.log(bg);
     });
     function handleClick() {
-        setLog([...log, `${currentName}:${currentDialogue}\n`]);
         setSceneArrayEntry(sceneArrayEntry + 1);
-        /* console.log(`currentSceneObj: ${currentSceneObj}\n 
-                    currentName: ${currentName}\n 
-                    currentDialogue: ${currentDialogue}\n
-                    Log: ${log} 
-                    isQuestion? ${currentSceneObj.Question}
-                    Luck: ${luck}`); */
                     console.log(`Luck: ${luck}`)
     };
-    /* >>> Wrap both onClick functions in a wrapping function <<< */
+/* >>> Wrap both onClick functions in a wrapping function <<< */
+    
     return (
         <div
             className="App"
@@ -89,6 +110,11 @@ function App() {
             }}
         >
             <SpriteSectionBox />
+            <button
+                onClick = {skipToEndOfCurrentScene}
+            >
+            --- Skip ---
+            </button>            
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
