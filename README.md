@@ -18,7 +18,7 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
         - [x]  Choices being locked based on current standing/ repuation/ luck
         - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?) 
 - [x]  Background switching
-- [x]  Skip (partly done, not robust)
+- [x]  Skip (done, robust)
 - [ ]  Log (Either lags 2 state behind with the lag increasing at each choice, or Infinite loop)
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
@@ -29,6 +29,7 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
 - [ ]  Main Menu
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
 - [ ]  Options menu (to set auto speed, change player name etc)
+- [ ]  Turn all components into TypeScript
 - [ ]  Some actual CSS
 - [ ]  Basic _cypress_ tests
 - [ ]  Backend

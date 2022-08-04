@@ -16,13 +16,13 @@ function App() {
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
 
-    function switchBackground() {
+    function switchBackground () {
         setBg(currentSceneObj.Background);
     };
-    function switchDialogue() {
+    function switchDialogue () {
         setCurrentDialogue(currentSceneObj.Dialogue);
     };
-    function switchName() {
+    function switchName () {
         setCurrentName(currentSceneObj.Name);
     };
     /* Switch scene object function attempt (ancient)
@@ -47,7 +47,7 @@ function App() {
        
     };
     */
-    function switchCurrentSceneObj1() {
+    function switchCurrentSceneObj1 () {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     };
     /* updateLog attempt 2 (functional update)
@@ -73,7 +73,7 @@ function App() {
         let endOfSceneEntry = ch1[currentScene].scene.length-1
         setSceneArrayEntry(endOfSceneEntry)
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry])
-        setBg(ch1[currentScene].lastBg)
+        setBg(ch1[currentScene].scene.findLast((element)=>element.Background).Background)
     }
     // ^^ CURRENTLY SKIPS OVER ANY BACKGROUND CHANGES --- lastBg = bad solution ^^
     /*  skipToEndOfCurrentScene Function Shorter ver (worse convention ?)
@@ -91,7 +91,7 @@ function App() {
         switchDialogue();
         console.log(bg);
     });
-    function handleClick() {
+    function handleClick () {
         setSceneArrayEntry(sceneArrayEntry + 1);
                     console.log(`Luck: ${luck}`)
     };
