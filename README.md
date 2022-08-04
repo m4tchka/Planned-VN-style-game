@@ -19,13 +19,15 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
         - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?) 
 - [x]  Background switching
 - [x]  Skip (done, robust)
-- [ ]  Log (Either lags 2 state behind with the lag increasing at each choice, or Infinite loop)
+- [-]  Log (partly done, not robust, not implemented visually - Requires use of throwaway variable "updatedLog", 
+    + [ ]  Add skipped dialogue to log state
+    + [ ]  Add chosen choices to log state
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Auto (setInterval probably)
 - [ ]  Save (take a snapshot of states and store in an object (or array ?))
-- [ ]  Load
+    + [ ]  Load
 - [ ]  Main Menu
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
 - [ ]  Options menu (to set auto speed, change player name etc)

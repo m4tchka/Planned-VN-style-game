@@ -6,25 +6,25 @@ import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 
-function App() {   
+function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentScene, setCurrentScene] = useState(0);
-//    const [log, setLog] = useState([]);
+    const [log, setLog] = useState([]);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
 
-    function switchBackground () {
+    function switchBackground() {
         setBg(currentSceneObj.Background);
-    };
-    function switchDialogue () {
+    }
+    function switchDialogue() {
         setCurrentDialogue(currentSceneObj.Dialogue);
-    };
-    function switchName () {
+    }
+    function switchName() {
         setCurrentName(currentSceneObj.Name);
-    };
+    }
     /* Switch scene object function attempt (ancient)
     function switchCurrentSceneObj () {
         console.log("switchCurrentSceneObj called")
@@ -47,9 +47,21 @@ function App() {
        
     };
     */
-    function switchCurrentSceneObj1 () {
+    function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-    };
+    }
+    function updateLog () {
+        let logCopy = [...log]
+        console.log("Before: ",logCopy)
+        let updatedLog = [...log,{Name:currentName,Dialogue: currentDialogue}];
+        setLog(updatedLog)
+        console.log("After: ",updatedLog)
+        /* setLog([...log,{Name:currentName,Dialogue: currentDialogue}])
+        console.log("After2: ",log) */
+    }
+    // >>> I have no idea why the upper setLog works as intended ("After") and we need a throwaway variable (updatedLog), but the lower setLog ("After2") does not <<< 
+    // >>> console.log(log) does not work even when using updatedLog
+
     /* updateLog attempt 2 (functional update)
     function updateLog () {
         setLog(currLog => {
@@ -69,13 +81,15 @@ function App() {
         })
     }; 
     */
-    function skipToEndOfCurrentScene () {
-        let endOfSceneEntry = ch1[currentScene].scene.length-1
-        setSceneArrayEntry(endOfSceneEntry)
-        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry])
-        setBg(ch1[currentScene].scene.findLast((element)=>element.Background).Background)
+    function skipToEndOfCurrentScene() {
+        let endOfSceneEntry = ch1[currentScene].scene.length - 1;
+        setSceneArrayEntry(endOfSceneEntry);
+        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
+        setBg(
+            ch1[currentScene].scene.findLast((element) => element.Background).Background
+        );
+        console.log("SkipToEnd function called")
     }
-    // ^^ CURRENTLY SKIPS OVER ANY BACKGROUND CHANGES --- lastBg = bad solution ^^
     /*  skipToEndOfCurrentScene Function Shorter ver (worse convention ?)
     function skipToEndOfCurrentScene () {
         setSceneArrayEntry(ch1[currentScene].scene.length-1)
@@ -91,12 +105,15 @@ function App() {
         switchDialogue();
         console.log(bg);
     });
-    function handleClick () {
-        setSceneArrayEntry(sceneArrayEntry + 1);
-                    console.log(`Luck: ${luck}`)
-    };
-/* >>> Wrap both onClick functions in a wrapping function <<< */
     
+    
+    function handleClick() {
+        updateLog()
+        setSceneArrayEntry(sceneArrayEntry + 1);
+        console.log(`Luck: ${luck}`);
+
+    };
+
     return (
         <div
             className="App"
@@ -110,11 +127,7 @@ function App() {
             }}
         >
             <SpriteSectionBox />
-            <button
-                onClick = {skipToEndOfCurrentScene}
-            >
-            --- Skip ---
-            </button>            
+            <button onClick={skipToEndOfCurrentScene}>--- Skip ---</button>
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -123,7 +136,7 @@ function App() {
                         handleChoice={setCurrentScene}
                         resetScene={setSceneArrayEntry}
                         incrementLuck={setLuck}
-                        luck = {luck}
+                        luck={luck}
                     />
                     <LowerSectionBox
                         CharacterName={currentName}
