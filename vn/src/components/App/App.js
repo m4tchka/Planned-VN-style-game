@@ -53,7 +53,7 @@ function App() {
     function updateLog () {
         let logCopy = [...log]
         console.log("Before: ",logCopy)
-        let updatedLog = [...log,{Name:currentName,Dialogue: currentDialogue}];
+        let updatedLog = [...log,{Name:currentName, Dialogue:currentDialogue}];
         setLog(updatedLog)
         console.log("After: ",updatedLog)
         /* setLog([...log,{Name:currentName,Dialogue: currentDialogue}])
@@ -61,7 +61,6 @@ function App() {
     }
     // >>> I have no idea why the upper setLog works as intended ("After") and we need a throwaway variable (updatedLog), but the lower setLog ("After2") does not <<< 
     // >>> console.log(log) does not work even when using updatedLog
-
     /* updateLog attempt 2 (functional update)
     function updateLog () {
         setLog(currLog => {
@@ -82,6 +81,15 @@ function App() {
     }; 
     */
     function skipToEndOfCurrentScene() {
+        //When skipping, updateLog above originally would NOT include any dialogue that was skipped
+        let remainingObjsInArr = ch1[currentScene].scene.slice(sceneArrayEntry, ch1[currentScene].scene.length - 1)
+        // ROiA is an array of the remaining objects in the array, including the current dialogue obj at which skip was pressed, but not including the last dialogue object of that scene (so that log remains 1 dialogue obj behind)
+        console.log("(After) remainingObjs: ",remainingObjsInArr)
+        setLog([...log,remainingObjsInArr].flat())
+        // Appends ROiA to the existing log, and sets the log state to be the result
+        //The flat() method is required since the slice method returns an array (wihout it, ROiA would be appended as a nested array in "log")
+        console.log("New Log: ",[...log,remainingObjsInArr].flat())
+
         let endOfSceneEntry = ch1[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
@@ -104,14 +112,11 @@ function App() {
         switchName();
         switchDialogue();
         console.log(bg);
-    });
-    
-    
+    });        
     function handleClick() {
         updateLog()
         setSceneArrayEntry(sceneArrayEntry + 1);
         console.log(`Luck: ${luck}`);
-
     };
 
     return (
