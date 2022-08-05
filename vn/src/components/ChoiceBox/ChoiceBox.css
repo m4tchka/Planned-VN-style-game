@@ -10,6 +10,7 @@
 
 }
 .ChoiceButton {
+    border: 1px dashed cyan;
     display: block;
     margin: 3% auto;
     width: 80%;

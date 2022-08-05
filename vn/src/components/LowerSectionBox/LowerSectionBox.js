@@ -1,7 +1,7 @@
 import "./LowerSectionBox.css"
 import { Textbox } from "./Textbox/Textbox.js";
-import { ReusableButtonGroup } from "./ReusableButtonGroup/ReusableButtonGroup.js";
-function LowerSectionBox ( { ButtonList, CharacterName, Dialogue, onClick } ) {
+
+function LowerSectionBox ( { CharacterName, Dialogue, onClick } ) {
 
     return (
         <section className="LowerSectionBox">
@@ -9,8 +9,6 @@ function LowerSectionBox ( { ButtonList, CharacterName, Dialogue, onClick } ) {
                 onClick={onClick} 
                 CharacterName={CharacterName}
                 Dialogue={Dialogue}
-            />
-            <ReusableButtonGroup ButtonList={ButtonList}
             />
         </section>
     );

@@ -1,12 +1,14 @@
 import "./SpriteBox.css";
-import { Sprite } from "./Sprite/Sprite.js";
 
-function SpriteBox () { 
-
+function SpriteBox() {
     return (
         <div className="SpriteBox">
-            <Sprite />
+            <img
+                className="Sprite"
+                src="https://static.wikia.nocookie.net/gensin-impact/images/a/a0/Character_Ganyu_Portrait.png/"
+                alt="Ganyu"
+            />
         </div>
-    )
-}; 
-export { SpriteBox }
+    );
+}
+export { SpriteBox };

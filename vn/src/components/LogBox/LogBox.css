@@ -1,0 +1,9 @@
+.log-box {
+    border: 2px solid #862e9c;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+.log-box-entry {
+    border: 1px dotted #ffffff;
+}

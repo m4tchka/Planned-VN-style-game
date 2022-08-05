@@ -8,3 +8,6 @@
     display: flex;
     justify-content: space-evenly;
 }
+.FunctionButton {
+    border: 1px dashed cyan;
+}

@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { ButtonList } from "../LowerSectionBox/ReusableButtonGroup/ButtonList/ButtonList.js";
+import { ButtonList } from "../ButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
-
+import  useLogBox  from "../../hooks/useLogBox.js";
+import { LogBox } from "../LogBox/LogBox";
+import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentScene, setCurrentScene] = useState(0);
-    const [log, setLog] = useState([]);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
+    const [log, setLog] = useState([]);
+    const {toggleLogVisibility}=useLogBox();
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
@@ -132,7 +135,7 @@ function App() {
             }}
         >
             <SpriteSectionBox />
-            <button onClick={skipToEndOfCurrentScene}>--- Skip ---</button>
+            <button onClick={skipToEndOfCurrentScene}>---Skip---</button>
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -146,7 +149,6 @@ function App() {
                     <LowerSectionBox
                         CharacterName={currentName}
                         Dialogue={currentDialogue}
-                        ButtonList={ButtonList}
                     />
                 </>
             ) : (
@@ -156,10 +158,14 @@ function App() {
                         onClick={handleClick}
                         CharacterName={currentName}
                         Dialogue={currentDialogue}
-                        ButtonList={ButtonList}
                     />
                 </>
             )}
+            <button className = "log-toggle-button" onClick={toggleLogVisibility}/>
+            <LogBox log={log}/>
+            <ButtonGroup 
+                ButtonList={ButtonList}
+            />
         </div>
     );
 }

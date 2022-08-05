@@ -15,12 +15,13 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
     + [x]  Each _"route"_ in _dialogueFile.js_ is scaleable(ish)
     + [x]  Conditionally render a _choice box_ and map through an array of possible choices
     + [x]  Luck/ Standing/ Reputation/ Karma etc
-        - [x]  Choices being locked based on current standing/ repuation/ luck
-        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?) 
+        - [x]  "Min" Luck check logic - Choices being locked based on current standing/ repuation/ luck
+        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?)
+        - [ ]  "Max" Luck check logic - More bad choices appear at lower luck
 - [x]  Background switching
 - [x]  Skip (done, robust)
 - [-]  Log (partly done, not robust, not implemented visually - Requires use of throwaway variable "updatedLog", 
-    + [ ]  Add skipped dialogue to log state
+    + [x]  Add skipped dialogue to log state
     + [ ]  Add chosen choices to log state
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
