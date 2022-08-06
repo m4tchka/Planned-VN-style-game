@@ -10,6 +10,6 @@ function useLogBox() {
         setLogVisibility((logVisibility) => !logVisibility);
     }
     console.log("logVisibility (useLogBox): ", logVisibility)
-    return { logVisibility, toggleLogVisibility};
-}
+    return {logVisibility, toggleLogVisibility};
+};
 export default useLogBox;

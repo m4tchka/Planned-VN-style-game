@@ -5,8 +5,9 @@ import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
-import  useLogBox  from "../../hooks/useLogBox.js";
 import { LogBox } from "../LogBox/LogBox";
+import useLogBox  from "../../hooks/useLogBox.js";
+import useLog from "../../hooks/useLog";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -17,7 +18,8 @@ function App() {
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
     const [log, setLog] = useState([]);
-    const {toggleLogVisibility, logVisibility}=useLogBox();
+    const {log2, makeEntry, makeQuestionEntry, addEntry} = useLog();
+    const {toggleLogVisibility, logVisibility} = useLogBox();
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
@@ -58,7 +60,7 @@ function App() {
         console.log("Before: ",logCopy)
         let updatedLog = [...log,{Name:currentName, Dialogue:currentDialogue}];
         setLog(updatedLog)
-        console.log("After: ",updatedLog)
+        console.log("After: ", updatedLog)
         /* setLog([...log,{Name:currentName,Dialogue: currentDialogue}])
         console.log("After2: ",log) */
     }
@@ -83,6 +85,10 @@ function App() {
         })
     }; 
     */
+    
+    let updateLog2 = (() => {
+        addEntry(makeEntry(currentName,currentDialogue))
+    })
     function skipToEndOfCurrentScene() {
         //When skipping, updateLog above originally would NOT include any dialogue that was skipped
         let remainingObjsInArr = ch1[currentScene].scene.slice(sceneArrayEntry, ch1[currentScene].scene.length - 1)
@@ -115,12 +121,14 @@ function App() {
         switchName();
         switchDialogue();
         console.log(bg);
+        
     });        
     function handleClick() {
         updateLog()
         setSceneArrayEntry(sceneArrayEntry + 1);
         console.log(`Luck: ${luck}`);
         console.log("logVisibility (App): ", logVisibility)
+        updateLog2()
     };
 
     return (
