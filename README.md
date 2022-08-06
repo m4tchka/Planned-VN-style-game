@@ -20,8 +20,10 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
         - [ ]  "Max" Luck check logic - More bad choices appear at lower luck
 - [x]  Background switching
 - [x]  Skip (done, robust)
-- [-]  Log (partly done, not robust, not implemented visually - Requires use of throwaway variable "updatedLog", 
+- [/]  Log (nearly done, not robust, can be implemented visually)
     + [x]  Add skipped dialogue to log state
+    + [x]  Move  logVisibility state & its logic  to a custom hook
+    + [ ]  Move log state & its logic to a custom hook
     + [ ]  Add chosen choices to log state
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)

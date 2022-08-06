@@ -17,7 +17,7 @@ function App() {
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
     const [log, setLog] = useState([]);
-    const {toggleLogVisibility}=useLogBox();
+    const {toggleLogVisibility, logVisibility}=useLogBox();
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
@@ -120,6 +120,7 @@ function App() {
         updateLog()
         setSceneArrayEntry(sceneArrayEntry + 1);
         console.log(`Luck: ${luck}`);
+        console.log("logVisibility (App): ", logVisibility)
     };
 
     return (
@@ -161,8 +162,8 @@ function App() {
                     />
                 </>
             )}
-            <button className = "log-toggle-button" onClick={toggleLogVisibility}/>
-            <LogBox log={log}/>
+            <button className = "log-toggle-button" onClick={toggleLogVisibility}>Toggle</button>
+            <LogBox log={log} logVisibility={logVisibility}/>
             <ButtonGroup 
                 ButtonList={ButtonList}
             />
@@ -179,7 +180,6 @@ export default App;
                     - Render a ChoiceBox component, 
                         + Pass down the array of choices from the currentSceneObj, as a prop to <ChoiceBox>
                         Map through the array of choice objects that came with the sceneArrayObj, and display those as choices within ChoiceBox, 
-
 */
 
 /* Intended behaviour:

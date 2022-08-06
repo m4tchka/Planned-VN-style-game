@@ -3,6 +3,6 @@
 }
 .log-toggle-button {
     border: 1px dashed cyan;
-    width: 30px;
-    height: 16px;
+    width: auto;
+    height: auto;
 }
