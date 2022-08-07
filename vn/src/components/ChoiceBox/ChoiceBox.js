@@ -7,7 +7,9 @@ function ChoiceBox({
     resetScene,
     incrementLuck,
     luck,
+    addChoiceToLog
 }) {
+    const {addEntry, makeQuestionEntry} = addChoiceToLog
     return (
         <div className="ChoiceBox">
             <p className="ChoiceQuestion">{question}</p>
@@ -19,6 +21,7 @@ function ChoiceBox({
                             handleChoice(eachChoice.Next);
                             resetScene(0);
                             incrementLuck(luck+eachChoice.LuckChange);
+                            addEntry(makeQuestionEntry(question,eachChoice.Text))
                         }}
                         disabled={luck < eachChoice.MinLuck} // Ternary approach
                     >

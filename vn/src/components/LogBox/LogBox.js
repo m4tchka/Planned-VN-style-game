@@ -1,8 +1,7 @@
 import "./LogBox.css";
 
 function LogBox({ log, logVisibility }) {
-  
-    console.log("logVisibility (LogBox): ", logVisibility)
+    console.log("logVisibility (LogBox): ", logVisibility);
     return (
         <>
             {logVisibility && (
@@ -10,7 +9,11 @@ function LogBox({ log, logVisibility }) {
                     {log.map((logEntry) => {
                         return (
                             <div className="log-box-entry">
-                                <p>{`${logEntry.Name}: ${logEntry.Dialogue}`}</p>
+                                {logEntry.Question ? (
+                                    <p>{`${logEntry.Question}: ${logEntry.Choice}`}</p>
+                                ) : (
+                                    <p>{`${logEntry.Name}: ${logEntry.Dialogue}`}</p>
+                                )}
                             </div>
                         );
                     })}

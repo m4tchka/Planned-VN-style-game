@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 function useLog () {
-    const [log2,setLog2] = useState([]);
+    const [log,setLog] = useState([]);
     function makeEntry (Name, Dialogue) {
         // let newEntry = {[`${Name}`]:Dialogue}
-        let newEntry = {Name2:Name, Dialogue2:Dialogue}
+        let newEntry = {Name:Name, Dialogue:Dialogue}
         return newEntry;
     };
     function makeQuestionEntry (Question, Choice) {
@@ -13,11 +13,16 @@ function useLog () {
         return newEntryQ;
     }
     function addEntry (newEntry) {
-        console.log(newEntry, " added to log2!")
-        setLog2([...log2,newEntry])
-        console.log("log2 is now: ",[...log2,newEntry])
+        console.log(newEntry, " added to log!")
+        if (!Array.isArray(newEntry)) {
+            setLog([...log,newEntry])   
+            console.log("log is now: ",[...log,newEntry])
+        } else {
+            setLog([...log,newEntry].flat())
+            console.log("log is now: ",[...log,newEntry].flat(),"and had to be flattened !")
+        }
     };
-    return {log2, makeEntry, makeQuestionEntry, addEntry};
+    return {log, makeEntry, makeQuestionEntry, addEntry};
 };
 export default useLog;
 

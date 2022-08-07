@@ -16,21 +16,21 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
     + [x]  Conditionally render a _choice box_ and map through an array of possible choices
     + [x]  Luck/ Standing/ Reputation/ Karma etc
         - [x]  "Min" Luck check logic - Choices being locked based on current standing/ repuation/ luck
-        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ?)
+        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
         - [ ]  "Max" Luck check logic - More bad choices appear at lower luck
 - [x]  Background switching
 - [x]  Skip (done, robust)
-- [/]  Log (nearly done, not robust, can be implemented visually)
+- [x]  Log (done, robust)
     + [x]  Add skipped dialogue to log state
     + [x]  Move  logVisibility state & its logic  to a custom hook
-    + [ ]  Move log state & its logic to a custom hook
-    + [ ]  Add chosen choices to log state
-- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
-    + [ ]  Different _expressions_ for same character (i.e. different sprites)
-- [ ]  Basic _react-testing-library_ tests
+    + [x]  Move log state & its logic to a custom hook
+    + [x]  Add chosen choices to log state
 - [ ]  Auto (setInterval probably)
 - [ ]  Save (take a snapshot of states and store in an object (or array ?))
     + [ ]  Load
+- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
+    + [ ]  Different _expressions_ for same character (i.e. different sprites)
+- [ ]  Basic _react-testing-library_ tests
 - [ ]  Main Menu
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
 - [ ]  Options menu (to set auto speed, change player name etc)
