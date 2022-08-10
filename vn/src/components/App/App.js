@@ -4,11 +4,13 @@ import { ButtonList } from "../ButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
-import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
-import { LogBox } from "../LogBox/LogBox";
-import useLogBox  from "../../hooks/useLogBox.js";
-import useLog from "../../hooks/useLog";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
+import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
+import { LogBox } from "../LogBox/LogBox.js";
+import useLogBox from "../../hooks/useLogBox.js";
+import useLog from "../../hooks/useLog.js";
+import useAuto from "../../hooks/useAuto.js";
+
 function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentName, setCurrentName] = useState("");
@@ -17,8 +19,10 @@ function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
-    const {log, makeEntry, makeQuestionEntry, addEntry} = useLog();
-    const {toggleLogVisibility, logVisibility} = useLogBox();
+    const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
+    const { logVisibility, toggleLogVisibility } = useLogBox();
+    const { toggleAutoMode, autoMode2, autoToggled } = useAuto();
+    //autoToggled not currently used, but can be used to conditionally render a visual indication of autoMode being toggled (ex. a loading spinner in screen corner)
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
@@ -54,15 +58,18 @@ function App() {
     function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     }
-    let updateLog2 = (() => {
-        addEntry(makeEntry(currentName,currentDialogue))
-    })
+    let updateLog = () => {
+        addEntry(makeEntry(currentName, currentDialogue));
+    };
     function skipToEndOfCurrentScene() {
         //When skipping, updateLog above originally would NOT include any dialogue that was skipped
-        let remainingObjsInArr = ch1[currentScene].scene.slice(sceneArrayEntry, ch1[currentScene].scene.length - 1)
+        let remainingObjsInArr = ch1[currentScene].scene.slice(
+            sceneArrayEntry,
+            ch1[currentScene].scene.length - 1
+        );
         // ROiA is an array of the remaining objects in the array, including the current dialogue obj at which skip was pressed, but not including the last dialogue object of that scene (so that log remains 1 dialogue obj behind)
-        console.log("(After) remainingObjs: ",remainingObjsInArr)
-        addEntry(remainingObjsInArr)
+        console.log("(After) remainingObjs: ", remainingObjsInArr);
+        addEntry(remainingObjsInArr);
         // Appends ROiA to the existing log, and sets the log state to be the result
         //The flat() method is required since the slice method returns an array (wihout it, ROiA would be appended as a nested array in "log")
 
@@ -70,9 +77,10 @@ function App() {
         setSceneArrayEntry(endOfSceneEntry);
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
         setBg(
-            ch1[currentScene].scene.findLast((element) => element.Background).Background
+            ch1[currentScene].scene.findLast((element) => element.Background)
+                .Background
         );
-        console.log("SkipToEnd function called")
+        console.log("SkipToEnd function called");
     }
     /*  skipToEndOfCurrentScene Function Shorter ver (worse convention ?)
     function skipToEndOfCurrentScene () {
@@ -87,14 +95,21 @@ function App() {
         }
         switchName();
         switchDialogue();
-        
-    });        
+    });
     function handleClick() {
-        setSceneArrayEntry(sceneArrayEntry + 1);
-        console.log(`Luck: ${luck}`);
-        console.log("logVisibility (App): ", logVisibility)
-        updateLog2()
-    };
+        if (
+            sceneArrayEntry <= ch1[currentScene].scene.length - 1 &&
+            !currentSceneObj.Question
+        ) {
+            setSceneArrayEntry(sceneArrayEntry + 1);
+            console.log(`Luck: ${luck}`);
+            console.log("logVisibility (App): ", logVisibility);
+            updateLog();
+        } else {
+            console.log("Please select a choice!");
+            toggleAutoMode();
+        }
+    }
 
     return (
         <div
@@ -119,7 +134,7 @@ function App() {
                         resetScene={setSceneArrayEntry}
                         incrementLuck={setLuck}
                         luck={luck}
-                        addChoiceToLog={{addEntry,makeQuestionEntry}}
+                        addChoiceToLog={{ addEntry, makeQuestionEntry }}
                     />
                     <LowerSectionBox
                         CharacterName={currentName}
@@ -136,11 +151,15 @@ function App() {
                     />
                 </>
             )}
-            <button className = "log-toggle-button" onClick={toggleLogVisibility}>Toggle</button>
-            <LogBox log={log} logVisibility={logVisibility}/>
-            <ButtonGroup 
-                ButtonList={ButtonList}
-            />
+            <button className="log-toggle-button" onClick={toggleLogVisibility}>
+                Toggle Log
+            </button>
+            <button className="auto-toggle-button" onClick={toggleAutoMode}>
+                Toggle Auto
+            </button>
+            {logVisibility ? <LogBox log={log} /> : <></>}
+
+            <ButtonGroup ButtonList={ButtonList} />
         </div>
     );
 }
