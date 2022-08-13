@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { ButtonList } from "../ButtonGroup/ButtonList/ButtonList.js";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
@@ -21,7 +20,7 @@ function App() {
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { toggleAutoMode, autoMode2, autoToggled } = useAuto();
+    const { autoToggled , toggleAutoMode } = useAuto();
     //autoToggled not currently used, but can be used to conditionally render a visual indication of autoMode being toggled (ex. a loading spinner in screen corner)
 
     function switchBackground() {
@@ -33,28 +32,6 @@ function App() {
     function switchName() {
         setCurrentName(currentSceneObj.Name);
     }
-    /* Switch scene object function attempt (ancient)
-    function switchCurrentSceneObj () {
-        console.log("switchCurrentSceneObj called")
-        setCurrentSceneObj(ch1[0].Scene1[sceneArrayEntry])
-        function checkType() {
-            console.log("checkType called")
-            console.log("sceneArrayEntry = "+ sceneArrayEntry)
-            console.log("currentSceneObj = "+ currentSceneObj)
-            if (currentSceneObj.type==="Dialogue") {
-                console.log("type: Dialogue detected")
-                centerMenu=
-                switchDialogue();
-                switchName();
-            } else if (currentSceneObj.type==="Question") {
-                centerMenu=<ChoiceBox/>
-                console.log("type: Question detected")
-            } 
-        }
-        checkType()
-       
-    };
-    */
     function switchCurrentSceneObj1() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     }
@@ -82,12 +59,6 @@ function App() {
         );
         console.log("SkipToEnd function called");
     }
-    /*  skipToEndOfCurrentScene Function Shorter ver (worse convention ?)
-    function skipToEndOfCurrentScene () {
-        setSceneArrayEntry(ch1[currentScene].scene.length-1)
-        switchCurrentSceneObj1()
-    }
-    */
     useEffect(() => {
         switchCurrentSceneObj1();
         if (currentSceneObj.Background) {
@@ -107,7 +78,6 @@ function App() {
             updateLog();
         } else {
             console.log("Please select a choice!");
-            toggleAutoMode();
         }
     }
 
@@ -124,7 +94,7 @@ function App() {
             }}
         >
             <SpriteSectionBox />
-            <button onClick={skipToEndOfCurrentScene}>---Skip---</button>
+           {/*  <button onClick={skipToEndOfCurrentScene}>---Skip---</button> */}
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -151,15 +121,9 @@ function App() {
                     />
                 </>
             )}
-            <button className="log-toggle-button" onClick={toggleLogVisibility}>
-                Toggle Log
-            </button>
-            <button className="auto-toggle-button" onClick={toggleAutoMode}>
-                Toggle Auto
-            </button>
             {logVisibility ? <LogBox log={log} /> : <></>}
 
-            <ButtonGroup ButtonList={ButtonList} />
+            <ButtonGroup toggleLog={toggleLogVisibility} skip={skipToEndOfCurrentScene} toggleAuto={toggleAutoMode}/>
         </div>
     );
 }
