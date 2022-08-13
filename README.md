@@ -155,14 +155,17 @@ let ch1 =
                     {
                         Text:"Meteor strike",
                         Next:1,
+                        Luck:+1,
                     },
                     {
                         Text:"Invasion",
                         Next:2,
+                        Luck:+2,
                     },
                     {
                         Text:"Nanomachine plague",
                         Next:3,
+                        Luck:-1,
                     },
                 ],
             }

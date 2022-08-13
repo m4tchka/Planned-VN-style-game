@@ -1,11 +1,19 @@
 .log-box {
     border: 2px solid #862e9c;
-    height: 100px;
-    width: 100px;
+    text-align: right;
+    height: 60%;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .log-box-entry {
     border: 2px dotted #ffffff;
     color:cyan;
+    text-align: left;
+    
 }
 .test-box {
     width:400px;

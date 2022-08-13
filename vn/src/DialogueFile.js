@@ -3,10 +3,11 @@ let ch1 =
     {
         id:1,
         scene:[
-/*
+
             {   
                 Name: "Person1",
                 Dialogue:"Greetings. My name is Person1. You all have met me at some point, but I do not believe you have met each other. Some introductions are in order.",
+                Background: "https://wallpaperaccess.com/full/1861934.jpg",
             },
             {
                 Name:"Person2",
@@ -26,19 +27,27 @@ let ch1 =
             },
             {
                 Name:"Person1",
-                Dialogue: "The long and short of it is, there are signs that the Eastern flank is about to collapse.",
+                Dialogue: "The long and short of it is, there are signs that the southern flank is about to collapse.",
             },
             {
                 Name:"Person4",
-                Dialogue:"Whaaaaat ?! Is this for real ? I thought that was the strongest part of the line !",
+                Dialogue:"Whaaaaat ?! Is this for real ? I thought that was where all the elite units were !",
             },
             {
                 Name:"Person2",
-                Dialogue:"It is indeed real. I have seen it for myself. The previous attack left them more mauled than initially thought. ",
+                Dialogue:"It is indeed real, I've seen it for myself. The previous massed attack left them more mauled than initially thought...",
+            },
+            {
+                Name:"Person2",
+                Dialogue:"Coupled with the previous skirmishes, and the illnesses running wild through their ranks due to not being properly acclimatised to the region...",
+            },
+            {
+                Name:"Person2",
+                Dialogue:"It was surely only a matter of time.",
             },
             {
                 Name:"Person3",
-                Dialogue:"So what does this mean for us? If we stay here in the center, then we risk getting encircled and overrun if the eastern flank falls..",
+                Dialogue:"So what does this mean for us? If we stay here in the northern part, then we risk getting encircled and overrun if the southern flank falls..",
             },
             {
                 Name:"Person1",
@@ -46,25 +55,64 @@ let ch1 =
             },
             {
                 Name:"Person2",
-                Dialogue:"Person1, I'm guessing you're planning on fleeing through the forest to our south, tomorrow afternoon while the other units are busy ?",
+                Dialogue:"Person1, I'm guessing you're planning on fleeing sometime around, tomorrow afternoon while the other units are busy partying ?",
             },
-*/          
             {
                 Name:"Person1",
-                Dialogue:"Yes, although I'm open to other ideas. We should decide quickly though.",
-                Background:"https://wallpaperaccess.com/full/4113280.jpg",
+                Dialogue:"Yes, although I'm open to other ideas. We should decide quickly though. Remember this is the last time for the forseeable future that the supply runs include alcohol.",
+                /* Background:"https://wallpaperaccess.com/full/4113280.jpg", */
             },
             {
                 Name:"Person4",
-                Dialogue:"If we're going to flee, can't we take the path along the cliff by the edge of the forest instead ? The forest is so spooky...",
+                Dialogue:"Well, if we have to flee, why can't we take the path along the cliff by the edge of the forest instead ? The forest is so spooky...",
+            },
+            {
+                Name:"Person1",
+                Dialogue:"Person4, you're not meant to take those stories seriously !",
+            },
+            {
+                Name:"Person4",
+                Dialogue:"But I swear I saw something when I was on watch the other night! A monster-looking thing moving through the forest !",
             },
             {
                 Name:"Person3",
-                Dialogue:"I suggest we take the shortcut through the forest valley. They won't think to search there, given it was considered impassable",
+                Dialogue:"Wasn't that the night you drank all of our alcohol as well ? I'm not sure I believe this...",
+            },
+            {
+                Name:"Person3",
+                Dialogue:"Moving on, I vote we take the shortcut through the forest valley. They won't think to search there, given it was considered impassable",
+            },
+            {
+                Name:"Person1",
+                Dialogue:"Not a bad suggestion honestly. I would be wary about getting lost though. That area of forest is particularly dense, regardless of Person4's 'stories'",
+            },
+            {
+                Name:"Person4",
+                Dialogue:"See you guys ! Person1 agrees with me !",
+            },
+            {
+                Name:"Person1",
+                Dialogue:"I ... didn't say anything about agreeing though...",
             },
             {
                 Name:"Person2",
-                Dialogue:"Hmm... I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+                Dialogue:"Person1, you raise a good point about getting lost in that valley. That part of the forest is particularly poorly mapped...",
+            },
+            {
+                Name:"Person2",
+                Dialogue:"Monsters aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+            },
+            {
+                Name: "Person4",
+                Dialogue:"Well, Person1 is the highest ranked of us all and has the most experience in the area ! We should let them decide !",
+            },
+            {
+                Name: "Person3",
+                Dialogue:"That's a good point... and you didn't put forward any suggestion of your own",
+            },
+            {
+                Name: "Person2",
+                Dialogue:"Those 3 options are really the only realistic ones based on the surrounding geography. Person1, you have the deciding vote.",
             },
             {
                 Name:"Person1",

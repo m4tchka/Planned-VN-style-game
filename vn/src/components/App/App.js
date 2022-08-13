@@ -20,7 +20,7 @@ function App() {
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { autoToggled , toggleAutoMode } = useAuto();
+    const { autoToggled, toggleAutoMode } = useAuto();
     //autoToggled not currently used, but can be used to conditionally render a visual indication of autoMode being toggled (ex. a loading spinner in screen corner)
 
     function switchBackground() {
@@ -94,7 +94,7 @@ function App() {
             }}
         >
             <SpriteSectionBox />
-           {/*  <button onClick={skipToEndOfCurrentScene}>---Skip---</button> */}
+            {/*  <button onClick={skipToEndOfCurrentScene}>---Skip---</button> */}
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -123,7 +123,11 @@ function App() {
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
 
-            <ButtonGroup toggleLog={toggleLogVisibility} skip={skipToEndOfCurrentScene} toggleAuto={toggleAutoMode}/>
+            <ButtonGroup
+                toggleLog={toggleLogVisibility}
+                skip={skipToEndOfCurrentScene}
+                toggleAuto={toggleAutoMode}
+            />
         </div>
     );
 }
