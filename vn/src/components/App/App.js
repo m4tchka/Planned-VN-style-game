@@ -11,11 +11,11 @@ import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
 
 function App() {
+    const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
+    const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
-    const [currentSceneObj, setCurrentSceneObj] = useState({});
-    const [currentScene, setCurrentScene] = useState(0);
     const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
@@ -80,6 +80,19 @@ function App() {
             console.log("Please select a choice!");
         }
     }
+    function save() {
+        console.log("currentScene: ", currentScene); //Pink object
+        console.log("sceneArrayEntry: ", sceneArrayEntry); //Index of currentSceneObj within blue sceneArray
+        console.log("bg: ", bg); // Current background displayed
+        console.log("luck: ", luck); // Current luck stat
+        console.log("log: ", log);
+
+        // Below values may not need to be stored - can be obtained from ch1[currentScene].scene[sceneArrayEntry]
+
+        console.log("currentSceneObj: ", currentSceneObj); //Yellow objects of scene array. Contains Name, Dialogue, ?Background, ?Question,?Options
+        console.log("currentName: ", currentName); // Current name displayed in the dialogue box
+        console.log("currentDialogue: ", currentDialogue); // Current dialogue displayed in the dialogue box
+    }
 
     return (
         <div
@@ -124,9 +137,10 @@ function App() {
             {logVisibility ? <LogBox log={log} /> : <></>}
 
             <ButtonGroup
-                toggleLog={toggleLogVisibility}
-                skip={skipToEndOfCurrentScene}
-                toggleAuto={toggleAutoMode}
+                Log={toggleLogVisibility}
+                Skip={skipToEndOfCurrentScene}
+                Auto={toggleAutoMode}
+                Save={save}
             />
         </div>
     );

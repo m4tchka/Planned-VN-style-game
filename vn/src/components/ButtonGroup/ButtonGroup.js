@@ -1,25 +1,23 @@
 import "./ButtonGroup.css";
 
-function ButtonGroup({ toggleLog, skip, toggleAuto }) {
+function ButtonGroup({ Log, Skip, Auto, Save }) {
 
     let ButtonList = [
         {
             name:"Log",
-            function: toggleLog,
+            function: Log,
         },
         {
             name:"Skip",
-            function: skip,
+            function: Skip,
         },
         {
             name:"Auto",
-            function: toggleAuto,
+            function: Auto,
         },
         {
             name:"Save",
-            function: function SaveFunction () {
-                console.log("Save function called");
-            },
+            function: Save,
         },
         {
             name:"Load",
