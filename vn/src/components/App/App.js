@@ -16,7 +16,7 @@ function App() {
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
-    const [bg, setBg] = useState(`"${ch1[currentScene].Background}"`);
+    const [bg, setBg] = useState(/* `"${ch1[currentScene].Background}"` */);
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
@@ -82,36 +82,28 @@ function App() {
         }
     }
     function save() {
-        console.log("currentScene: ", currentScene); //Pink object
-        console.log("sceneArrayEntry: ", sceneArrayEntry); //Index of currentSceneObj within blue sceneArray
-        console.log("bg: ", bg); // Current background displayed
-        console.log("luck: ", luck); // Current luck stat
-        console.log("log: ", log);
         let savedObj = {
             scene:currentScene,
             sceneEntry:sceneArrayEntry,
             background: bg,
             log: log,
         };
-        localStorage.setItem("saveFile0",savedObj)
-        console.log("SaveObj: ",savedObj, "successfully saved to localStorage!")
-        console.log(localStorage.getItem("saveFile0"))
-
+        localStorage.setItem("saveFile0",JSON.stringify(savedObj))
         // let pulledSaveFile = localStorage.getItem("key");
             // Takes k/v pair and stores it as a variable
         // localStorage.removeItem("saveFileX");
             // Removes specific k/v 
         // localStorage.clear();    
             // Clears all
-
-        // Below values may not need to be stored - can be obtained from ch1[currentScene].scene[sceneArrayEntry]
     }
     function load () {
-        let loadedObj = localStorage.getItem("saveFile0")
-        setBg(loadedObj.background)
-        setCurrentScene(loadedObj.currentScene)
-        setSceneArrayEntry(localStorage.sceneEntry)
+        let loadedObj = JSON.parse(localStorage.getItem("saveFile0"))
+        console.log("LoadedObj: ",loadedObj)
+        console.log("CurrentScene:",ch1[currentScene])
+        setCurrentScene(loadedObj.scene)
+        setSceneArrayEntry(loadedObj.sceneEntry)
         addEntry(loadedObj.log.flat())
+        // setBg(loadedObj.background)
     }
 /*         
         console.log("currentSceneObj: ", currentSceneObj); //Yellow objects of scene array. Contains Name, Dialogue, ?Background, ?Question,?Options

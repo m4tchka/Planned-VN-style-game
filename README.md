@@ -25,9 +25,9 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
     + [x]  Move  logVisibility state & its logic  to a custom hook
     + [x]  Move log state & its logic to a custom hook
     + [x]  Add chosen choices to log state
-- [ ]  Auto (setInterval probably)
-- [ ]  Save (take a snapshot of states and store in an object (or array ?))
-    + [ ]  Load
+- [x]  Auto (setInterval probably - Partly working, cannot stop once started except by entering new scene)
+- [x]  Save (take a snapshot of states and store in an object (or array ?))
+    + [ ]  Load - Partly working, adds duplicate log entries
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
 - [ ]  Basic _react-testing-library_ tests
