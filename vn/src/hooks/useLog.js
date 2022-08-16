@@ -8,7 +8,6 @@ function useLog () {
         return newEntry;
     };
     function makeQuestionEntry (Question, Choice) {
-        // let newEntryQ = {[`${Question}`]:Choice}
         let newEntryQ = {Question:Question, Choice:Choice}
         return newEntryQ;
     }

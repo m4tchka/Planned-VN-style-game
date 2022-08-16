@@ -1,4 +1,15 @@
 ## Inspired by:
+
+### VNs:
++ Baldr Sky 1/2
++ Muv Luv
++ NekoPara 
+    - UI (Settings menu)
++ Katawa Shoujo
+    - UI (Settings menu, "No buttons" approach (right click to bring up whole menu))
+
+<br>
+
 ### Browser/Flash games:
 + Starwish (SSS+ tier game)
     - Game-VN integration, economy
@@ -14,12 +25,3 @@
     - Movement, 
 + Juggerdome
     - Gunplay, Equipment system
-<br>
-
-### VNs:
-+ Baldr Sky 1/2
-+ Muv Luv
-+ NekoPara 
-    - UI (Settings menu)
-+ Katawa Shoujo
-    - UI (Settings menu, "No buttons" approach (right click to bring up whole menu))

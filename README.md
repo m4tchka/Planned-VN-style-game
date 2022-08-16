@@ -5,12 +5,15 @@ This repository contains the planning and code for a VN & (hopefully eventually)
 <br>
 
 ## Overview:
-This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flash games from the mid-late 2000s, and will combine gameplay similar to those, with VN-style storytelling in between.
+This is my attempt at a Visual Novel made in React. 
+Initially this will be just a VN, with a """"story"""", and this part specifically will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
+
+In the far future, this aims to be a VN-style shoot'em'up top-down game reminiscent of browser flash games from the mid-late 2000s, and will combine gameplay similar to those, with the VN-style storytelling in between. 
 
 <br>
 
 ## Plan
-### Features list:
+### VN Features list:
 - [x]  Choice breaks leading to different _"routes"_
     + [x]  Each _"route"_ in _dialogueFile.js_ is scaleable(ish)
     + [x]  Conditionally render a _choice box_ and map through an array of possible choices
@@ -27,7 +30,7 @@ This aims to be a VN-style shoot'em'up top-down game reminiscent of browser flas
     + [x]  Add chosen choices to log state
 - [x]  Auto (setInterval probably - Partly working, cannot stop once started except by entering new scene)
 - [x]  Save (take a snapshot of states and store in an object (or array ?))
-    + [x]  Load - PROVISONALLY working - Not really tested
+    + [x]  Load - PROVISIONALLY working - Not really tested
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
 - [ ]  Basic _react-testing-library_ tests
@@ -123,7 +126,7 @@ Hierarchy:
 <br>
 
 ### Each Chapter is an array of scene objects:
-- Each Scene object is an array of "dialogue" object (i.e. what changes on screen between each click")
+- In each Scene object is an array of "dialogue" object (i.e. what changes on screen between each click")
     + Each dialogue object contains several keys:
         - Name
         - Dialogue
@@ -181,3 +184,20 @@ let ch1 =
 ] 
 ```
 </details>
+<br>
+
+## Motivations:
+I enjoy playing through a route on a VN from time to time, and it is a real shame that they are no longer as popular/ successful as they once were, back in the early 2000s. 
+<details>
+<summary>Decline of Visual Novel Market Share (2005 - 2017)</summary>
+
+![Graph](https://i.imgur.com/76ukChN.jpeg)
+Yeah sorry the usual image translate websites didn't work ...
+</details>
+<br>
+
+I would like to attempt to make one myself to not only go some way towards truly appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat visually similar to a real VN.
+
+If you decide to try the app, which is linked at the top of the document, I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lol). 
+
+Feedback/ advice (especially on tech) is much appreciated ! 

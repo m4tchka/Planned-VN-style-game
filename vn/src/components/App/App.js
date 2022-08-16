@@ -16,7 +16,7 @@ function App() {
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
-    const [bg, setBg] = useState(/* `"${ch1[currentScene].Background}"` */);
+    const [bg, setBg] = useState("");
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();

@@ -3,7 +3,7 @@ let ch1 =
     {
         id:1,
         scene:[
-/* 
+/*      
             {   
                 Name: "Person1",
                 Dialogue:"Greetings. My name is Person1. You all have met me at some point, but I do not believe you have met each other. Some introductions are in order.",
@@ -88,28 +88,28 @@ let ch1 =
 */
             {
                 Name:"Person4",
-                Dialogue:"See you guys ! Person1 agrees with me !",
+                Dialogue:"See, you guys ! Person1 agrees with me !",
                 Background: "https://wallpaperaccess.com/full/1861934.jpg",
             },
             {
                 Name:"Person1",
-                Dialogue:"I ... didn't say anything about agreeing though...",
+                Dialogue:"I ... didn't say anything about agreeing though ...",
             },
             {
                 Name:"Person2",
-                Dialogue:"Person1, you raise a good point about getting lost. That part of the forest is particularly poorly mapped...",
+                Dialogue:"Person1, you raise a good point about getting lost. That part of the forest is particularly poorly mapped ...",
             },
             {
                 Name:"Person2",
-                Dialogue:"Stories aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+                Dialogue:"... Stories aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
             },
             {
                 Name: "Person4",
-                Dialogue:"Well, Person1 is the highest ranked of us all and has the most experience in the area ! We should let them decide !",
+                Dialogue:"Well, Person1's the veteran here and has the most experience in the area ! We should let them decide !",
             },
             {
                 Name: "Person3",
-                Dialogue:"That's a good point... and you didn't put forward any suggestion of your own",
+                Dialogue:"That's a good point... and you didn't put forward any suggestion of your own...",
             },
             {
                 Name: "Person2",
@@ -154,7 +154,7 @@ let ch1 =
             },
             {
                 Name:"Person4",
-                Dialogue:"Aww, alright then...",
+                Dialogue:"Aww, alright then ... you guys better save me from any monsters !",
             },
             {
                 Name:"",
