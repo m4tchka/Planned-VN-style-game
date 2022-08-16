@@ -1,6 +1,6 @@
 import "./ButtonGroup.css";
 
-function ButtonGroup({ Log, Skip, Auto, Save }) {
+function ButtonGroup({ Log, Skip, Auto, Save, Load }) {
 
     let ButtonList = [
         {
@@ -21,9 +21,7 @@ function ButtonGroup({ Log, Skip, Auto, Save }) {
         },
         {
             name:"Load",
-            function: function LoadFunction () {
-                console.log("Load function called");
-            },
+            function: Load,
         }
     ];
     return (

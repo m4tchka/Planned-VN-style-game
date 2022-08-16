@@ -20,7 +20,8 @@ function App() {
     const [luck, setLuck] = useState(0);
     const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { autoToggled, toggleAutoMode } = useAuto();
+    const { toggleAutoModeV2, autoToggled } = useAuto();
+    // const { setLog } = useLog
     //autoToggled not currently used, but can be used to conditionally render a visual indication of autoMode being toggled (ex. a loading spinner in screen corner)
 
     function switchBackground() {
@@ -67,14 +68,14 @@ function App() {
         switchName();
         switchDialogue();
     });
+    // autoMode2(handleClick,2000)
     function handleClick() {
         if (
-            sceneArrayEntry <= ch1[currentScene].scene.length - 1 &&
+            sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
             console.log(`Luck: ${luck}`);
-            console.log("logVisibility (App): ", logVisibility);
             updateLog();
         } else {
             console.log("Please select a choice!");
@@ -86,14 +87,38 @@ function App() {
         console.log("bg: ", bg); // Current background displayed
         console.log("luck: ", luck); // Current luck stat
         console.log("log: ", log);
+        let savedObj = {
+            scene:currentScene,
+            sceneEntry:sceneArrayEntry,
+            background: bg,
+            log: log,
+        };
+        localStorage.setItem("saveFile0",savedObj)
+        console.log("SaveObj: ",savedObj, "successfully saved to localStorage!")
+        console.log(localStorage.getItem("saveFile0"))
+
+        // let pulledSaveFile = localStorage.getItem("key");
+            // Takes k/v pair and stores it as a variable
+        // localStorage.removeItem("saveFileX");
+            // Removes specific k/v 
+        // localStorage.clear();    
+            // Clears all
 
         // Below values may not need to be stored - can be obtained from ch1[currentScene].scene[sceneArrayEntry]
-
+    }
+    function load () {
+        let loadedObj = localStorage.getItem("saveFile0")
+        setBg(loadedObj.background)
+        setCurrentScene(loadedObj.currentScene)
+        setSceneArrayEntry(localStorage.sceneEntry)
+        addEntry(loadedObj.log.flat())
+    }
+/*         
         console.log("currentSceneObj: ", currentSceneObj); //Yellow objects of scene array. Contains Name, Dialogue, ?Background, ?Question,?Options
         console.log("currentName: ", currentName); // Current name displayed in the dialogue box
-        console.log("currentDialogue: ", currentDialogue); // Current dialogue displayed in the dialogue box
-    }
-
+        console.log("currentDialogue: ", currentDialogue); // Current dialogue displayed in the dialogue box 
+*/
+    
     return (
         <div
             className="App"
@@ -135,12 +160,12 @@ function App() {
                 </>
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
-
             <ButtonGroup
                 Log={toggleLogVisibility}
                 Skip={skipToEndOfCurrentScene}
-                Auto={toggleAutoMode}
+                Auto={()=>{toggleAutoModeV2(3000);console.log("Is auto toggled? ", autoToggled)}}
                 Save={save}
+                Load={load}
             />
         </div>
     );

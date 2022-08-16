@@ -3,7 +3,7 @@ let ch1 =
     {
         id:1,
         scene:[
-
+/* 
             {   
                 Name: "Person1",
                 Dialogue:"Greetings. My name is Person1. You all have met me at some point, but I do not believe you have met each other. Some introductions are in order.",
@@ -60,7 +60,6 @@ let ch1 =
             {
                 Name:"Person1",
                 Dialogue:"Yes, although I'm open to other ideas. We should decide quickly though. Remember this is the last time for the forseeable future that the supply runs include alcohol.",
-                /* Background:"https://wallpaperaccess.com/full/4113280.jpg", */
             },
             {
                 Name:"Person4",
@@ -85,10 +84,12 @@ let ch1 =
             {
                 Name:"Person1",
                 Dialogue:"Not a bad suggestion honestly. I would be wary about getting lost though. That area of forest is particularly dense, regardless of Person4's 'stories'",
-            },
+            }, 
+*/
             {
                 Name:"Person4",
                 Dialogue:"See you guys ! Person1 agrees with me !",
+                Background: "https://wallpaperaccess.com/full/1861934.jpg",
             },
             {
                 Name:"Person1",
@@ -96,11 +97,11 @@ let ch1 =
             },
             {
                 Name:"Person2",
-                Dialogue:"Person1, you raise a good point about getting lost in that valley. That part of the forest is particularly poorly mapped...",
+                Dialogue:"Person1, you raise a good point about getting lost. That part of the forest is particularly poorly mapped...",
             },
             {
                 Name:"Person2",
-                Dialogue:"Monsters aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+                Dialogue:"Stories aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
             },
             {
                 Name: "Person4",
@@ -289,3 +290,4 @@ export { ch1, ch2 };
                 Dialogue:"",
             },
 */
+/* Background:"https://wallpaperaccess.com/full/4113280.jpg", */
