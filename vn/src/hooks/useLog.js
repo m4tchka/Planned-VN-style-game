@@ -22,7 +22,7 @@ function useLog () {
             console.log("log is now: ",[...log,newEntry].flat(),"and had to be flattened !")
         }
     };
-    return {log, makeEntry, makeQuestionEntry, addEntry};
+    return {log, makeEntry, makeQuestionEntry, addEntry, setLog};
 };
 export default useLog;
 

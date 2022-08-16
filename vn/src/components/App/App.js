@@ -18,7 +18,7 @@ function App() {
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [bg, setBg] = useState(/* `"${ch1[currentScene].Background}"` */);
     const [luck, setLuck] = useState(0);
-    const { log, makeEntry, makeQuestionEntry, addEntry } = useLog();
+    const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
     // const { setLog } = useLog
@@ -102,7 +102,7 @@ function App() {
         console.log("CurrentScene:",ch1[currentScene])
         setCurrentScene(loadedObj.scene)
         setSceneArrayEntry(loadedObj.sceneEntry)
-        addEntry(loadedObj.log.flat())
+        setLog(loadedObj.log/* .flat */)
         // setBg(loadedObj.background)
     }
 /*         
