@@ -10,7 +10,7 @@
     top: 2.5%;
     bottom: 77.5%;
     /* The following lines are only for the <p> tag */
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center; 
     color:white;

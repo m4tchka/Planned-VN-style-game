@@ -1,16 +1,29 @@
 # Planned-VN-style-game
 
-This repository contains the planning and code for a VN & (hopefully eventually) accompanying game.
+This repository contains the planning and code for a Visual Novel made in React
 
 <br>
 
 ## Overview:
 This is my attempt at a Visual Novel made in React. 
-Initially this will be just a VN, with a """"story"""", and this part specifically will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
+Initially this will be just a VN, with a """"story""""; this part specifically will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
 
-In the far future, this aims to be a VN-style shoot'em'up top-down game reminiscent of browser flash games from the mid-late 2000s, and will combine gameplay similar to those, with the VN-style storytelling in between. 
+In the far future, this may include a game element reminiscent of browser flash games from the mid-late 2000s, combining gameplay similar to those, with the VN-style storytelling in between. 
 
 <br>
+
+## Usage: 
+A visual novel is typically a way of telling a story, with some level of interaction and _choice_ on the part of the reader, whilst also typically having sprites representing the characters appearing/ disappearing based on which character is currently "talking", as well as several buttons to view what was previously said, skip to the end of scene ...
+
+- Clicking on the textbox advances the dialogue,
+
+- Clicking on a choice (if/ when they appear)
+
+- Pressing skip skips to the end of the current scene
+
+- Pressing auto automatically clicks through the dialogue until it reaches a choice
+
+- Save/ Load will save the current progress to a localStorage object. Load will change the current state to be that localStorage object - i.e. jump to the point in the story when save was pressed.
 
 ## Plan
 ### VN Features list:
@@ -187,17 +200,17 @@ let ch1 =
 <br>
 
 ## Motivations:
-I enjoy playing through a route on a VN from time to time, and it is a real shame that they are no longer as popular/ successful as they once were, back in the early 2000s. 
+I enjoy playing through a route on a VN from time to time, and it is a real shame that they are no longer as popular/ successful as they once were back in the early 2000s. 
 <details>
 <summary>Decline of Visual Novel Market Share (2005 - 2017)</summary>
 
 ![Graph](https://i.imgur.com/76ukChN.jpeg)
-Yeah sorry the usual image translate websites didn't work ...
+(Yeah sorry the usual image translate websites didn't work ...)
 </details>
 <br>
 
-I would like to attempt to make one myself to not only go some way towards truly appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat visually similar to a real VN.
+I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat visually similar to a real VN.
 
-If you decide to try the app, which is linked at the top of the document, I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lol). 
+If you decide to try the app, which is linked at the top of the document, I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lmao). 
 
 Feedback/ advice (especially on tech) is much appreciated ! 
