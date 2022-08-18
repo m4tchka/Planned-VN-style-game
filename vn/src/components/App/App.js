@@ -21,8 +21,6 @@ function App() {
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
-    // const { setLog } = useLog
-    //autoToggled not currently used, but can be used to conditionally render a visual indication of autoMode being toggled (ex. a loading spinner in screen corner)
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
@@ -40,7 +38,6 @@ function App() {
         addEntry(makeEntry(currentName, currentDialogue));
     };
     function skipToEndOfCurrentScene() {
-        //When skipping, updateLog above originally would NOT include any dialogue that was skipped
         let remainingObjsInArr = ch1[currentScene].scene.slice(
             sceneArrayEntry,
             ch1[currentScene].scene.length - 1
@@ -68,7 +65,6 @@ function App() {
         switchName();
         switchDialogue();
     });
-    // autoMode2(handleClick,2000)
     function handleClick() {
         if (
             sceneArrayEntry < ch1[currentScene].scene.length &&
@@ -105,12 +101,6 @@ function App() {
         setLog(loadedObj.log/* .flat */)
         // setBg(loadedObj.background)
     }
-/*         
-        console.log("currentSceneObj: ", currentSceneObj); //Yellow objects of scene array. Contains Name, Dialogue, ?Background, ?Question,?Options
-        console.log("currentName: ", currentName); // Current name displayed in the dialogue box
-        console.log("currentDialogue: ", currentDialogue); // Current dialogue displayed in the dialogue box 
-*/
-    
     return (
         <div
             className="App"
@@ -124,7 +114,6 @@ function App() {
             }}
         >
             <SpriteSectionBox />
-            {/*  <button onClick={skipToEndOfCurrentScene}>---Skip---</button> */}
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -144,7 +133,6 @@ function App() {
             ) : (
                 <>
                     <LowerSectionBox
-                        //This handleClick func may be passed to the div above instead.
                         onClick={handleClick}
                         CharacterName={currentName}
                         Dialogue={currentDialogue}

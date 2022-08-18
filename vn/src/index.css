@@ -11,12 +11,12 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-p {
+/* p {
    display:flex; 
-}
-section {
+} */
+/* section {
     display:flex;
-}
+} */
 *,
 *::before,
 *::after {

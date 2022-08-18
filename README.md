@@ -17,7 +17,7 @@ A visual novel is typically a way of telling a story, with some level of interac
 
 - Clicking on the textbox advances the dialogue,
 
-- Clicking on a choice (if/ when they appear)
+- Clicking on a choice (if/ when they appear) goes down that "route" of the story
 
 - Pressing skip skips to the end of the current scene
 
