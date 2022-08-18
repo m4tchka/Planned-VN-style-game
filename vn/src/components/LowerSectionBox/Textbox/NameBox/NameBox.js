@@ -1,9 +1,9 @@
-import "./NameBox.css";
+import styles from "./NameBox.module.css";
 
 function NameBox ( {CharacterName} ) {
 
     return (
-        <div className="NameBox">
+        <div className={styles.NameBox}>
             <p className="NameBar">{CharacterName}</p>
         </div>
     )
