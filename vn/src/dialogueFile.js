@@ -1,3 +1,4 @@
+import testimg from "../src/Character_Ganyu_Portrait.webp"
 let ch1 = 
 [
     {
@@ -92,16 +93,16 @@ let ch1 =
                 Background: "https://wallpaperaccess.com/full/1861934.jpg",
                 Sprites: [ 
                     {
-                       /*  Name: "ScaryMan",
-                        Path: "/vn/src/sprites/brutal_looking_dude/my_character.png", */
+                        Name: "test",
+                        Path: {testimg},
                     }, 
                     {
                         Name: "Aiko",
                         Path: "/vn/public/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png",
                     }, 
                     {
-                        Name: "",
-                        Path: "",
+                        Name: "x",
+                        Path: "https://static.wikia.nocookie.net/gensin-impact/images/a/a0/Character_Ganyu_Portrait.png/",
                     }
                 ],
             },

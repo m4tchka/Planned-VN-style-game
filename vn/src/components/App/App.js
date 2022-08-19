@@ -90,6 +90,7 @@ function App() {
             sceneEntry: sceneArrayEntry,
             background: bg,
             log: log,
+            luck: luck,
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         // let pulledSaveFile = localStorage.getItem("key");
@@ -112,6 +113,7 @@ function App() {
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
+        setLuck(loadedObj.luck)
     }
     return (
         <div

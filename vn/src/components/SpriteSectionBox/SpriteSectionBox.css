@@ -17,5 +17,10 @@
     object-fit: cover;
 }
 #Aiko {
-    
+    border: 3px solid hotpink;
+}
+.test{
+    border: 3px solid maroon;
+    max-height: 30%;
+    max-width: 30%;
 }
