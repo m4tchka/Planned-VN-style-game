@@ -24,6 +24,7 @@ function App() {
 
     function switchBackground() {
         setBg(currentSceneObj.Background);
+        console.log("switchbg called")
     }
     function switchDialogue() {
         setCurrentDialogue(currentSceneObj.Dialogue);
@@ -93,13 +94,18 @@ function App() {
             // Clears all
     }
     function load () {
+        console.log(bg)
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"))
         console.log("LoadedObj: ",loadedObj)
-        console.log("CurrentScene:",ch1[currentScene])
+        console.log("CurrentBG: ", loadedObj.background)
+        setBg(loadedObj.background)
+        setBg(
+            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
+                .Background
+        );
         setCurrentScene(loadedObj.scene)
         setSceneArrayEntry(loadedObj.sceneEntry)
         setLog(loadedObj.log/* .flat */)
-        // setBg(loadedObj.background)
     }
     return (
         <div

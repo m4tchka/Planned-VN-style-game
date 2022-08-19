@@ -90,6 +90,11 @@ let ch1 =
                 Name:"Person4",
                 Dialogue:"See, you guys ! Person1 agrees with me !",
                 Background: "https://wallpaperaccess.com/full/1861934.jpg",
+                Sprites:{
+                    left:"",
+                    center:"",
+                    right:"",
+                },
             },
             {
                 Name:"Person1",
@@ -139,7 +144,7 @@ let ch1 =
                         Route:"c",
                         Next:3,
                         LuckChange:-1,
-                        MinLuck:10,
+                        MinLuck:0,
                     },
                 ]
             },

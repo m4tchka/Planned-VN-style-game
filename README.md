@@ -1,4 +1,6 @@
-# Planned-VN-style-game
+# Planned-VN-style-game 
+
+(Deployment is broken atm :sob: )
 
 This repository contains the planning and code for a Visual Novel made in React
 
@@ -8,7 +10,7 @@ This repository contains the planning and code for a Visual Novel made in React
 This is my attempt at a Visual Novel made in React. 
 Initially this will be just a VN, with a """"story""""; this part specifically will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
 
-In the far future, this may include a game element reminiscent of browser flash games from the mid-late 2000s, combining gameplay similar to those, with the VN-style storytelling in between. 
+In the far far future, this _may_ include a game element reminiscent of browser flash games from the mid-late 2000s, combining gameplay similar to those, with the VN-style storytelling in between. 
 
 <br>
 
@@ -33,7 +35,7 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Luck/ Standing/ Reputation/ Karma etc
         - [x]  "Min" Luck check logic - Choices being locked based on current standing/ repuation/ luck
         - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
-        - [ ]  "Max" Luck check logic - More bad choices appear at lower luck
+        - [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [x]  Background switching
 - [x]  Skip (done, robust)
 - [x]  Log (done, robust)
@@ -42,9 +44,9 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Move log state & its logic to a custom hook
     + [x]  Add chosen choices to log state
 - [x]  Auto (setInterval probably - Partly working, cannot stop once started except by entering new scene)
-- [x]  Save (take a snapshot of states and store in an object (or array ?))
-    + [x]  Load - PROVISIONALLY working - Not really tested
-- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult**
+- [x]  Save (LOCAL ONLY) - Take a snapshot of states and store in an object (or array ?)
+    + [x]  Load (LOCAL ONLY) - Mostly done, bg not correctly switching when loading a previous scene on first click - second click correctly switches it back though... (works when loading a scene ahead of current position though...)
+- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.V.Difficult...** (using free sprites from itch.io)
     + [ ]  Different _expressions_ for same character (i.e. different sprites)
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Main Menu
@@ -211,6 +213,6 @@ I enjoy playing through a route on a VN from time to time, and it is a real sham
 
 I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat visually similar to a real VN.
 
-If you decide to try the app, which is linked at the top of the document, I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lmao). 
+If you decide to try the app through the deployment (which is linked at the top of the document), I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lmao). 
 
 Feedback/ advice (especially on tech) is much appreciated ! 
