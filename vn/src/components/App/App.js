@@ -18,13 +18,17 @@ function App() {
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [bg, setBg] = useState("");
     const [luck, setLuck] = useState(0);
+    const [sprites, setSprites] = useState([]);
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
 
+    function switchSprites() {
+        setSprites(currentSceneObj.Sprites);
+        console.log("switchSprites called");
+    }
     function switchBackground() {
         setBg(currentSceneObj.Background);
-        console.log("switchbg called")
     }
     function switchDialogue() {
         setCurrentDialogue(currentSceneObj.Dialogue);
@@ -63,6 +67,9 @@ function App() {
         if (currentSceneObj.Background) {
             switchBackground();
         }
+        if (currentSceneObj.Sprites) {
+            switchSprites();
+        }
         switchName();
         switchDialogue();
     });
@@ -72,7 +79,6 @@ function App() {
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
-            console.log(`Luck: ${luck}`);
             updateLog();
         } else {
             console.log("Please select a choice!");
@@ -80,32 +86,32 @@ function App() {
     }
     function save() {
         let savedObj = {
-            scene:currentScene,
-            sceneEntry:sceneArrayEntry,
+            scene: currentScene,
+            sceneEntry: sceneArrayEntry,
             background: bg,
             log: log,
         };
-        localStorage.setItem("saveFile0",JSON.stringify(savedObj))
+        localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         // let pulledSaveFile = localStorage.getItem("key");
-            // Takes k/v pair and stores it as a variable
+        // Takes k/v pair and stores it as a variable
         // localStorage.removeItem("saveFileX");
-            // Removes specific k/v 
-        // localStorage.clear();    
-            // Clears all
+        // Removes specific k/v
+        // localStorage.clear();
+        // Clears all
     }
-    function load () {
-        console.log(bg)
-        let loadedObj = JSON.parse(localStorage.getItem("saveFile0"))
-        console.log("LoadedObj: ",loadedObj)
-        console.log("CurrentBG: ", loadedObj.background)
-        setBg(loadedObj.background)
+    function load() {
+        console.log(bg);
+        let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
+        console.log("LoadedObj: ", loadedObj);
+        console.log("CurrentBG: ", loadedObj.background);
+        setBg(loadedObj.background);
         setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
         );
-        setCurrentScene(loadedObj.scene)
-        setSceneArrayEntry(loadedObj.sceneEntry)
-        setLog(loadedObj.log/* .flat */)
+        setCurrentScene(loadedObj.scene);
+        setSceneArrayEntry(loadedObj.sceneEntry);
+        setLog(loadedObj.log /* .flat */);
     }
     return (
         <div
@@ -119,7 +125,7 @@ function App() {
                 height: "100vh",
             }}
         >
-            <SpriteSectionBox />
+            <SpriteSectionBox spriteList={sprites}/>
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -129,7 +135,7 @@ function App() {
                         resetScene={setSceneArrayEntry}
                         incrementLuck={setLuck}
                         luck={luck}
-                        addChoiceToLog={{ addEntry, makeQuestionEntry }}
+                        addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring 
                     />
                     <LowerSectionBox
                         CharacterName={currentName}
@@ -149,7 +155,10 @@ function App() {
             <ButtonGroup
                 Log={toggleLogVisibility}
                 Skip={skipToEndOfCurrentScene}
-                Auto={()=>{toggleAutoModeV2(3000);console.log("Is auto toggled? ", autoToggled)}}
+                Auto={() => {
+                    toggleAutoModeV2(3000);
+                    console.log("Is auto toggled? ", autoToggled);
+                }}
                 Save={save}
                 Load={load}
             />

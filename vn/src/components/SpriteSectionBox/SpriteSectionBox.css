@@ -5,3 +5,17 @@
     /* justify-content: space-evenly; */
     /* Fix position to bottom just as in LSB.css - sprites are only visible from waist/thighs up (cut off by bottom of screen) */
 }
+.SpriteBox {
+    margin:0 4% 0 4%;
+    border: 1px dashed darkblue;
+    flex:1;
+}
+.Sprite {
+    max-width: 100%;
+    max-height: 100%;
+    border: 2.5px solid black;
+    object-fit: cover;
+}
+#Aiko {
+    
+}

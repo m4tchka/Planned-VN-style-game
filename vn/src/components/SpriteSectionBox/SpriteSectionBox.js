@@ -1,13 +1,23 @@
 import "./SpriteSectionBox.css";
-import { SpriteBox } from "./SpriteBox/SpriteBox.js";
+/* import { SpriteBox } from "./SpriteBox/SpriteBox.js"; */
 
-function SpriteSectionBox () {
+function SpriteSectionBox({ spriteList }) {
     return (
         <section className="SpriteSectionBox">
-            <SpriteBox/>
-            <SpriteBox/>
-            <SpriteBox/>
+            {spriteList.map((sprite) => (
+                <div className="SpriteBox">
+                    <img
+                        id={sprite.Name}
+                        className="Sprite"
+                        alt={sprite.Name}
+                        src={sprite.Path}
+                    />
+                </div>
+            ))}
+{/*             <SpriteBox />
+            <SpriteBox />
+            <SpriteBox /> */}
         </section>
-    )
-};
+    );
+}
 export { SpriteSectionBox };

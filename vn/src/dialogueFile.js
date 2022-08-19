@@ -90,11 +90,20 @@ let ch1 =
                 Name:"Person4",
                 Dialogue:"See, you guys ! Person1 agrees with me !",
                 Background: "https://wallpaperaccess.com/full/1861934.jpg",
-                Sprites:{
-                    left:"",
-                    center:"",
-                    right:"",
-                },
+                Sprites: [ 
+                    {
+                       /*  Name: "ScaryMan",
+                        Path: "/vn/src/sprites/brutal_looking_dude/my_character.png", */
+                    }, 
+                    {
+                        Name: "Aiko",
+                        Path: "/vn/public/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png",
+                    }, 
+                    {
+                        Name: "",
+                        Path: "",
+                    }
+                ],
             },
             {
                 Name:"Person1",

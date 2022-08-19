@@ -1,6 +1,6 @@
 # Planned-VN-style-game 
 
-(Deployment is broken atm :sob: )
+( Deployment is broken atm :sob: )
 
 This repository contains the planning and code for a Visual Novel made in React
 
