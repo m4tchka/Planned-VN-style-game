@@ -14,11 +14,11 @@
     justify-content: center;
     align-items: center; 
     color:white;
-};
+}
 
 .NameBar {
     /* >>> aaaaaaaaaaaaah why doesn't this work <<< */
     margin-top: 6px;
     margin-bottom: 6px;
     max-height: 5%;
-};
+}
