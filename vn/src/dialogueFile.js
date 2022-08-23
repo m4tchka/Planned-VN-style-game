@@ -10,14 +10,14 @@ let ch1 =
                 Sprites: [ 
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                        Path: `/sprites/Aiko/A_All/Blazer Uniform/Aiko_Blazer_Smile.png`,
                     },
                     {
-                        /* Name: "Aikoooooooooooooo",
+                        /* Name: "Aiko2",
                         Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`, */
                     },
                     {
-/*                         Name: "Aikoooooooooooooo",
+/*                         Name: "AikoTest",
                         Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`, */
                     }, 
                 ],
@@ -25,14 +25,41 @@ let ch1 =
             {
                 Name:"Aiko ?",
                 Dialogue:"Hey there ! I'm Aiko, but with cat ears! You can call me Aico.",
+                Sprites: [
+                    {},
+                    {},
+                    {
+                        Name: "Aico",
+                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`
+                    }
+                ],
             },
             {
                 Name:"Aiko",
                 Dialogue:"Well Aico, why don't we go have a picnic ?",
+                Sprites: [
+                    {
+                        Name: "Aiko",
+                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Smile.png`,
+                    },
+                    {},
+                    {},
+                ],
             },
             {
                 Name:"Aico",
                 Dialogue:"Sure, sounds fun ! Lets do it",
+                Sprites: [
+                    {
+                        Name: "Aiko",
+                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Smile.png`,
+                    },
+                    {},
+                    {
+                        Name:"Aico",
+                        Path:`/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Open.png`
+                    },
+                ],
             },
             {
                 Name:"Aiko",
@@ -74,10 +101,29 @@ let ch1 =
             {
                 Name:"Aico",
                 Dialogue:"Lets go to the forest valley !",
+                Sprites: [
+                    {},
+                    {
+                        Name:"Aico",
+                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
+                    },
+                    {},
+                ],
             },
             {
                 Name:"Aiko",
                 Dialogue:"Alright then... I find it pretty scary though...",
+                Sprites: [
+                    {
+                        Name: "Aiko",
+                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`
+                    },
+                    {
+                        Name:"Aico",
+                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
+                    },
+                    {},
+                ],
             },
             {
                 Name:"Aico",
