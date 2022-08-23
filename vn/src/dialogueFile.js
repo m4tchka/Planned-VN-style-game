@@ -1,109 +1,19 @@
 import testimg from "../src/Character_Ganyu_Portrait.webp"
+
 let ch1 = 
 [
     {
         id:1,
         scene:[
-/*      
-            {   
-                Name: "Person1",
-                Dialogue:"Greetings. My name is Person1. You all have met me at some point, but I do not believe you have met each other. Some introductions are in order.",
-                Background: "https://wallpaperaccess.com/full/1861934.jpg",
-            },
-            {
-                Name:"Person2",
-                Dialogue:"The name's 2. Person 2."
-            },     
-            {
-                Name:"Person3",
-                Dialogue:"Howdy ! I'm Person3"
-            },
-            {
-                Name:"Person4",
-                Dialogue:"Hiyaa ~ People call me Person4, but I go by 4 ~",
-            },
-            {
-                Name:"Person1",
-                Dialogue:"Now you may be wondering why I have gathered you here today... ",
-            },
-            {
-                Name:"Person1",
-                Dialogue: "The long and short of it is, there are signs that the southern flank is about to collapse.",
-            },
-            {
-                Name:"Person4",
-                Dialogue:"Whaaaaat ?! Is this for real ? I thought that was where all the elite units were !",
-            },
-            {
-                Name:"Person2",
-                Dialogue:"It is indeed real, I've seen it for myself. The previous massed attack left them more mauled than initially thought...",
-            },
-            {
-                Name:"Person2",
-                Dialogue:"Coupled with the previous skirmishes, and the illnesses running wild through their ranks due to not being properly acclimatised to the region...",
-            },
-            {
-                Name:"Person2",
-                Dialogue:"It was surely only a matter of time.",
-            },
-            {
-                Name:"Person3",
-                Dialogue:"So what does this mean for us? If we stay here in the northern part, then we risk getting encircled and overrun if the southern flank falls..",
-            },
-            {
-                Name:"Person1",
-                Dialogue:"Correct. If they are to fall, then it's inevitable that we will follow eventually.",
-            },
-            {
-                Name:"Person2",
-                Dialogue:"Person1, I'm guessing you're planning on fleeing sometime around, tomorrow afternoon while the other units are busy partying ?",
-            },
-            {
-                Name:"Person1",
-                Dialogue:"Yes, although I'm open to other ideas. We should decide quickly though. Remember this is the last time for the forseeable future that the supply runs include alcohol.",
-            },
-            {
-                Name:"Person4",
-                Dialogue:"Well, if we have to flee, why can't we take the path along the cliff by the edge of the forest instead ? The forest is so spooky...",
-            },
-            {
-                Name:"Person1",
-                Dialogue:"Person4, you're not meant to take those stories seriously !",
-            },
-            {
-                Name:"Person4",
-                Dialogue:"But I swear I saw something when I was on watch the other night! A monster-looking thing moving through the forest !",
-            },
-            {
-                Name:"Person3",
-                Dialogue:"Wasn't that the night you drank all of our alcohol as well ? I'm not sure I believe this...",
-            },
-            {
-                Name:"Person3",
-                Dialogue:"Moving on, I vote we take the shortcut through the forest valley. They won't think to search there, given it was considered impassable",
-            },
-            {
-                Name:"Person1",
-                Dialogue:"Not a bad suggestion honestly. I would be wary about getting lost though. That area of forest is particularly dense, regardless of Person4's 'stories'",
-            }, 
-*/
             {
                 Name:"Person4",
                 Dialogue:"See, you guys ! Person1 agrees with me !",
                 Background: "https://wallpaperaccess.com/full/1861934.jpg",
                 Sprites: [ 
                     {
-                        Name: "test",
-                        Path: {testimg},
+                        Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
                     }, 
-                    {
-                        Name: "Aiko",
-                        Path: "/vn/public/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png",
-                    }, 
-                    {
-                        Name: "x",
-                        Path: "https://static.wikia.nocookie.net/gensin-impact/images/a/a0/Character_Ganyu_Portrait.png/",
-                    }
                 ],
             },
             {

@@ -1,5 +1,5 @@
 import "./SpriteSectionBox.css";
-import testImg from "../../Character_Ganyu_Portrait.webp";
+/* import testImg from "../../Character_Ganyu_Portrait.webp"; */
 
 function SpriteSectionBox({ spriteList }) {
     return (
@@ -14,7 +14,7 @@ function SpriteSectionBox({ spriteList }) {
                     />
                 </div>
             ))}
-            <img alt="testImg" src={testImg} className="test" />
+            {/* <img alt="testImg" src={testImg} className="test" /> */}
         </section>
     );
 }
