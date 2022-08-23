@@ -10,15 +10,15 @@ let ch1 =
                 Sprites: [ 
                     {
                         Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                    },
+                    {
+                        /* Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`, */
                     },
                     {
                         Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
-                    },
-                    {
-                        Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
                     }, 
 
                 ],
@@ -26,6 +26,21 @@ let ch1 =
             {
                 Name:"Person1",
                 Dialogue:"I ... didn't say anything about agreeing though ...",
+                Sprites: [ 
+                    {
+                        /* Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
+                    },
+                    {
+                        Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                    },
+                    {
+                        /* Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
+                    },
+
+                ],
             },
             {
                 Name:"Person2",

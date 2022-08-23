@@ -49,8 +49,8 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [x]  Auto (setInterval probably - Partly working, cannot stop once started except by entering new scene)
 - [x]  Save (LOCAL ONLY) - Take a snapshot of states and store in an object (or array ?)
     + [x]  Load (LOCAL ONLY) - Mostly done, bg not correctly switching when loading a previous scene on first click - second click correctly switches it back though... (works when loading a scene ahead of current position though...)
-- [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult...** (using free sprites from itch.io)
-    + [ ]  Different _expressions_ for same character (i.e. different sprites - maybe?)
+- [x]  Sprite switching (WORKING - Add sprite key to dialogue obj if changing sprites/ slot order)
+    + [x]  Different _expressions_ for same character (Done but not implemented (just change filepath for sprite obj in sprites array to a different .png easy))
 -----
 > ### Additional features
 - [ ]  Basic _react-testing-library_ tests

@@ -17,4 +17,16 @@
     -   A: chrome: f12 (console) -> application (top bar) -> Storage -> Local Storage
 
 -   Q: How to update list of branches from remotes/origin ?
+
     -   A: git remote update origin --prune
+
+-   Q: How to get local images to display on deploy AND make them able to added in via a map of an array of a separate file ?
+    -   A: Add the images to a folder in /public and access the images in that folder from wherever the images are actually rendered by setting the src in the following format as a prop:
+    ```jsx
+    ...app.js
+    <renderLocalImage imgsrc=`${process.env.PUBLIC_URL}/imagesFolder/.../x.png`/>
+    ...renderLocalImage.js
+    function renderLocalImage(imgsrc) {
+        return <img src={imgsrc} />;
+    }
+    ```
