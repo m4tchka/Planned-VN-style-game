@@ -10,7 +10,7 @@ let ch1 =
                 Sprites: [ 
                     {
                         Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                        Path: `/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
                     },
                     {
                         /* Name: "Aikoooooooooooooo",
@@ -18,7 +18,7 @@ let ch1 =
                     },
                     {
                         Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`,
                     }, 
 
                 ],
@@ -34,6 +34,7 @@ let ch1 =
                     {
                         Name: "Aikoooooooooooooo",
                         Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                        Path2: "/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png"
                     },
                     {
                         /* Name: "Aikoooooooooooooo",
@@ -45,6 +46,21 @@ let ch1 =
             {
                 Name:"Person2",
                 Dialogue:"Person1, you raise a good point about getting lost. That part of the forest is particularly poorly mapped ...",
+                Sprites: [ 
+                    {
+                        Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
+                    },
+                    {
+                        /* Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
+                    },
+                    {
+                        /* Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
+                    },
+
+                ],
             },
             {
                 Name:"Person2",
