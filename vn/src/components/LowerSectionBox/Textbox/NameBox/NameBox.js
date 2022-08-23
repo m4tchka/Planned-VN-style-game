@@ -4,7 +4,7 @@ function NameBox ( {CharacterName} ) {
 
     return (
         <div className={styles.NameBox}>
-            <p className={styles.NameBar}>{CharacterName}</p>
+            <p className="NameBar">{CharacterName}</p>
         </div>
     )
 };

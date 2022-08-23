@@ -1,5 +1,3 @@
-import testimg from "../src/Character_Ganyu_Portrait.webp"
-
 let ch1 = 
 [
     {
@@ -13,7 +11,16 @@ let ch1 =
                     {
                         Name: "Aikoooooooooooooo",
                         Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
+                    },
+                    {
+                        Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
+                    },
+                    {
+                        Name: "Aikoooooooooooooo",
+                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
                     }, 
+
                 ],
             },
             {
