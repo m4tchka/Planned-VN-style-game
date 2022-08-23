@@ -93,6 +93,7 @@ function App() {
             luck: luck,
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
+        console.log(savedObj,"Saved to localStorage !")
         // let pulledSaveFile = localStorage.getItem("key");
         // Takes k/v pair and stores it as a variable
         // localStorage.removeItem("saveFileX");

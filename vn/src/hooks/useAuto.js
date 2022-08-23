@@ -27,21 +27,10 @@ let useAuto = () => {
             setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         }
     }
-/*     
-    function autoMode2(func, delay) {
-        console.log("Automode2 called") 
-        if (autoToggled) {
-            setInterval(func, delay)
-        } else {
-            clearInterval(func)
-        }
-    } 
-*/
     return {
         autoToggled,
         toggleAutoMode,
         toggleAutoModeV2
-        /* autoMode2, simulateClick, */
     };
 };
 export default useAuto;

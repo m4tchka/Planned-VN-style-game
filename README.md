@@ -29,6 +29,9 @@ A visual novel is typically a way of telling a story, with some level of interac
 
 ## Plan
 ### VN Features list:
+---
+> ### MVP
+
 - [x]  Choice breaks leading to different _"routes"_
     + [x]  Each _"route"_ in _dialogueFile.js_ is scaleable(ish)
     + [x]  Conditionally render a _choice box_ and map through an array of possible choices
@@ -42,12 +45,14 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Add skipped dialogue to log state
     + [x]  Move  logVisibility state & its logic  to a custom hook
     + [x]  Move log state & its logic to a custom hook
-    + [x]  Add chosen choices to log state
+    + [x]  Add chosen choices to log state - instead of "Name" & "Dialogue", choices appear as "Question" & "Choice" keys
 - [x]  Auto (setInterval probably - Partly working, cannot stop once started except by entering new scene)
 - [x]  Save (LOCAL ONLY) - Take a snapshot of states and store in an object (or array ?)
     + [x]  Load (LOCAL ONLY) - Mostly done, bg not correctly switching when loading a previous scene on first click - second click correctly switches it back though... (works when loading a scene ahead of current position though...)
 - [ ]  Sprite switching (Based on _name_ key of dialogue object ?) - **V.Difficult...** (using free sprites from itch.io)
     + [ ]  Different _expressions_ for same character (i.e. different sprites - maybe?)
+-----
+> ### Additional features
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Main Menu
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
