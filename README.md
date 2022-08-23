@@ -1,6 +1,6 @@
 # Planned-VN-style-game 
 
-( Deployment is broken atm :sob: )
+Take a look at the deployed app [here !](https://react-visual-novel.netlify.app/)
 
 This repository contains the planning and code for a Visual Novel made in React
 
@@ -51,6 +51,7 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Load (LOCAL ONLY) - Mostly done, bg not correctly switching when loading a previous scene on first click - second click correctly switches it back though... (works when loading a scene ahead of current position though...)
 - [x]  Sprite switching (WORKING - Add sprite key to dialogue obj if changing sprites/ slot order)
     + [x]  Different _expressions_ for same character (Done but not implemented (just change filepath for sprite obj in sprites array to a different .png easy))
+    + [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
 -----
 > ### Additional features
 - [ ]  Write an actual story
@@ -153,9 +154,8 @@ Hierarchy:
         - Name
         - Dialogue
         - Background (optional, only when the background changes)
-        - Question & Options (optional, only at question moments)
-        - Sprite (url/ path) **TBD**
-        - Sprite type (i.e. The expression: normal, sad, angry etc) **TBD**
+        - Question [] & Options {} (optional, only at question moments)
+        - Sprites [] and sprite {} (url/ path) (optional, only when a sprite is to change)
         - Animations **TBD**
 ```js
 let ch1 = 
@@ -166,7 +166,13 @@ let ch1 =
             {
                 Name:"John Doe",
                 Dialogue:"Hello World !",
-                Background: "background.jpg"
+                Background: "background.jpg",
+                Sprites: [
+                    {
+                        Path:"/.../john.png"
+                        Name:"John"
+                    }
+                ]
             },
             {
                 Name:"World",
@@ -209,7 +215,7 @@ let ch1 =
 <br>
 
 ## Motivations:
-I enjoy playing through a route on a VN from time to time, and I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat visually similar to a real VN.
+I enjoy playing through a route on a VN from time to time, and I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat functionally & visually similar to a real VN.
 
 If you decide to try the app through the deployment (which is linked at the top of the document), I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lmao). 
 

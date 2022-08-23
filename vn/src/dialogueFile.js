@@ -4,12 +4,12 @@ let ch1 =
         id:1,
         scene:[
             {
-                Name:"Person4",
-                Dialogue:"See, you guys ! Person1 agrees with me !",
-                Background: "https://wallpaperaccess.com/full/1861934.jpg",
+                Name:"Aiko",
+                Dialogue:"Greetings ! I'm Aiko",
+                Background:"https://wallpaperaccess.com/full/259711.jpg",
                 Sprites: [ 
                     {
-                        Name: "Aikoooooooooooooo",
+                        Name: "Aiko",
                         Path: `/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
                     },
                     {
@@ -17,116 +17,84 @@ let ch1 =
                         Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`, */
                     },
                     {
-                        Name: "Aikoooooooooooooo",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`,
+/*                         Name: "Aikoooooooooooooo",
+                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`, */
                     }, 
-
                 ],
             },
             {
-                Name:"Person1",
-                Dialogue:"I ... didn't say anything about agreeing though ...",
-                Sprites: [ 
-                    {
-                        /* Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
-                    },
-                    {
-                        Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
-                        Path2: "/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png"
-                    },
-                    {
-                        /* Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
-                    },
-
-                ],
+                Name:"Aiko ?",
+                Dialogue:"Hey there ! I'm Aiko, but with cat ears! You can call me Aico.",
             },
             {
-                Name:"Person2",
-                Dialogue:"Person1, you raise a good point about getting lost. That part of the forest is particularly poorly mapped ...",
-                Sprites: [ 
-                    {
-                        Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`,
-                    },
-                    {
-                        /* Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
-                    },
-                    {
-                        /* Name: "Aikoooooooooooooo",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/A_All/Winter Uniform/Aiko_WinterSera_Frown.png`, */
-                    },
-
-                ],
+                Name:"Aiko",
+                Dialogue:"Well Aico, why don't we go have a picnic ?",
             },
             {
-                Name:"Person2",
-                Dialogue:"... Stories aside, I think it would be best to take a path close to the main road. We can orient ourselves that way, instead of risking getting lost in the valley",
+                Name:"Aico",
+                Dialogue:"Sure, sounds fun ! Lets do it",
             },
             {
-                Name: "Person4",
-                Dialogue:"Well, Person1's the veteran here and has the most experience in the area ! We should let them decide !",
+                Name:"Aiko",
+                Dialogue:"But first, lets decide where we'll go !",
             },
             {
-                Name: "Person3",
-                Dialogue:"That's a good point... and you didn't put forward any suggestion of your own...",
-            },
-            {
-                Name: "Person2",
-                Dialogue:"Those 3 options are really the only realistic ones based on the surrounding geography. Person1, you have the deciding vote.",
-            },
-            {
-                Name:"Person1",
+                Name:"",
                 Dialogue:"",
-                Question: "Which route should we choose ?",
+                Question:"Where should we go ?",
                 Options: [
                     {
-                        Text:"Follow Person2's suggestion and stay close to the road.",
-                        Route:"a",
+                        Text:"Visit the densely forested valley",
                         Next:1,
                         LuckChange:+1,
                         MinLuck: 0,
+                    
                     },
                     {
-                        Text:"Follow Person3's suggestion and go through the forest valley.",
-                        Route:"b",
+                        Text:"Take the meandering path along the cliffside",
                         Next:2,
                         LuckChange:+2,
-                        MinLuck:0,
+                        MinLuck: 0,
                     },
                     {
-                        Text:"Follow Person4's suggestion and go around the edge of the forest.",
-                        Route:"c",
+                        Text:"Follow the road straight through the forest",
                         Next:3,
                         LuckChange:-1,
-                        MinLuck:0,
+                        MinLuck: 0,
                     },
+                
                 ]
+                
             },
         ],
     },
     {
-        id:4,
+        id:3,
         scene:[
             {
-                Name:"Person1",
-                Dialogue:"Alright, I agree with Person 2, lets go through the forest, but stick close to the road so we don't get lost.",
+                Name:"Aico",
+                Dialogue:"Lets go to the forest valley !",
             },
             {
-                Name:"Person4",
-                Dialogue:"Aww, alright then ... you guys better save me from any monsters !",
+                Name:"Aiko",
+                Dialogue:"Alright then... I find it pretty scary though...",
+            },
+            {
+                Name:"Aico",
+                Dialogue:"Don't worry Aiko, it'll be fiiine...",
             },
             {
                 Name:"",
                 Dialogue:"Some time later...",
-                Background: "https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg"
+                Background:"https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
             },
             {
-                Name:"Person3",
-                Dialogue:"It's been some time since I've been here, in the Southern forests...",
+                Name:"Aico",
+                Dialogue:"We finally arrived ! Lets go find a nice clearing and have a picnic or something !",
+            },
+            {
+                Name:"Aiko",
+                Dialogue:"Ufff sounds good... I'm exhausted...",
             },
         ],
     },
@@ -134,25 +102,45 @@ let ch1 =
         id:5,
         scene:[
             {
-                Name:"Person1",
-                Dialogue:"I think Person3 makes a good point, we should take the route they least expect. We all know what happens to deserters...",
+                Name:"Aico",
+                Dialogue:"Hmm, why don't we take the path along the cliffside ? We haven't gone that way in a while ",
             },
             {
-                Name:"Person2",
-                Dialogue:"I guess that makes sense. if we make good time, we could set up camp along the river at the end of the valley.",
+                Name:"Aiko",
+                Dialogue:"As you wish Aico, lead the way...",
             },
             {
-                Name:"Person1",
-                Dialogue:"I guess we might as well set off now then. I think it's late enough.",
+                Name:"Aico",
+                Dialogue:"Woweeeee we're here",
+                Background:"https://wallpaperaccess.com/full/836696.jpg",
             },
             {
-                Name:"",
-                Dialogue:"...",
+                Name:"Aico",
+                Dialogue:"Look, look ! It's so pretty !",
             },
             {
-                Background: "https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
-                Name:"Person1",
-                Dialogue:"Well, here we are, the forest valley",
+                Name:"Aiko",
+                Dialogue:"Goodness me, the forest really does look pretty from here ! I've missed this view",
+            },
+            {
+                Name:"Aico",
+                Dialogue:"Lets go to the top of that hill ! The view'll be even better from there !",
+            },
+            {
+                Name:"Aico",
+                Dialogue:"Aiko ? Come on, we won't be able to see the view if it gets too dark...",
+            },
+            {
+                Name:"Aico",
+                Dialogue:"Aikoooooo you're so slowwwww, hurry up ! I'm all the way over here and you're over there !",
+            },
+            {
+                Name:"Aiko",
+                Dialogue:"*Huff* *Puff* Slow down, Aico ! You're gonna get lost running ahead like that !!! Blegh...",
+            },
+            {
+                Name: "Aiko",
+                Dialogue:"How irritating...",
             },
         ],
     },
@@ -160,44 +148,40 @@ let ch1 =
         id:6,        
         scene:[
             {
-                Name:"Person1",
-                Dialogue:"I wouldn't go so far as to say it's scary, but going around the forest would let us stay on easier terrain and could be faster in the long run.",
+                Name:"Aiko",
+                Dialogue:"Hmm actually, I think I know a good spot",
             },
             {
-                Name:"Person3",
-                Dialogue:"Mmm, that's a good point. Let's go with that then.",
+                Name:"Aiko",
+                Dialogue:"We can follow the road, until we reach the river. There's a great view over a hidden waterfall just downstream",
             },
             {
-                Name:"Person4",
-                Dialogue:"Y-yeah, that's what I meant!",
+                Name:"Aico",
+                Dialogue:"Wooo, sounds great ! Lets go right now !",
             },
             {
-                Name:"Person1",
-                Dialogue:"Of course, naturally.",
+                Name:"Aiko",
+                Dialogue:"Aico wait !",
             },
             {
-                Name:"Person4",
+                Name:"Aiko",
+                Dialogue:"Pleaseeee Aico... My legs are gonna fall off at this rate...",
+                Background:"https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
+            },
+            {
+                Name:"Aico",
+                Dialogue:"Nearly there Aiko ! You can do it !",
+            },
+            {
+                Name:"Aiko",
                 Dialogue:"...",
             },
             {
-                Name:"Person2",
-                Dialogue:"Enough bickering, we should get going",
-            },
-            {
-                Name:"",
-                Dialogue:"Several hours later...",
-            },
-            {
-                Background: "https://wallpaperaccess.com/full/836696.jpg",
-                Name:"Person4",
-                Dialogue:"Wow, look at the view!",
+                Name:"Aico",
+                Dialogue:"Aww ok... Put your arm around my shoulder",
             },
         ],
     },
-];
-let ch2 = [
-    {},
-    {},
 ];
 
 /* 
@@ -214,7 +198,7 @@ Sprite: "Normal"
             },  
 
 */
-export { ch1, ch2 };
+export { ch1 };
 
 /* 
 {
