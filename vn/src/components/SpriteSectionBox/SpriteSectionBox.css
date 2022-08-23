@@ -4,22 +4,29 @@
     position: absolute;
     bottom: 0;
     width: 100vw;
-    height: 85vh;
+    height: 90vh;
     /* margin: 5% 0 -5% 0; */
     /* justify-content: space-evenly; */
     /* Fix position to bottom just as in LSB.css - sprites are only visible from waist/thighs up (cut off by bottom of screen) */
 }
 .SpriteBox {
     margin:0 4% 0 4%;
-    border: 1px dashed darkblue;
+    border: 5px dashed cyan;
     flex:1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
 }
 .Sprite {
     max-width: 90%;
     max-height: 90%;
-    border: 2.5px solid black;
+    object-fit: cover;
+    width: auto;
+    height: auto;
+    border: 2.5px solid white;
+    
 
-    bottom: 0;
     /* object-fit: cover; */
 }
 #Aiko {
