@@ -11,14 +11,8 @@ let ch1 = [
                         Name: "Aiko",
                         Path: `/sprites/Aiko/A_All/Blazer Uniform/Aiko_Blazer_Smile.png`,
                     },
-                    {
-                        /* Name: "Aiko2",
-                        Path: `${process.env.PUBLIC_URL}/sprites/Aiko/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`, */
-                    },
-                    {
-                        /*                         Name: "AikoTest",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`, */
-                    },
+                    {},
+                    {},
                 ],
             },
             {
@@ -47,7 +41,7 @@ let ch1 = [
             },
             {
                 Name: "Aico",
-                Dialogue: "Sure, sounds fun ! Lets do it",
+                Dialogue: "Sure, sounds fun ! Lets do it !",
                 Sprites: [
                     {
                         Name: "Aiko",
@@ -185,7 +179,7 @@ let ch1 = [
             },
             {
                 Name: "Aico",
-                Dialogue: "Woweeeee we're here",
+                Dialogue: "Woweeeee we're here !!!",
                 Background: "https://wallpaperaccess.com/full/836696.jpg",
                 Sprites: [
                     {},
@@ -202,7 +196,7 @@ let ch1 = [
             },
             {
                 Name: "Aiko",
-                Dialogue:"Goodness me, the forest really does look pretty from here ! I've missed this view",
+                Dialogue:"Goodness me, the forest really does look pretty from here ! I've missed this view ...",
                 Sprites: [
                     {},
                     {
@@ -226,7 +220,7 @@ let ch1 = [
             },
             {
                 Name: "Aico",
-                Dialogue:"Aiko ? Come on, we won't be able to see the view if it gets too dark...",
+                Dialogue:"Uhhh Aiko ? Come on, we won't be able to see the view if it gets too dark...",
                 Sprites: [
                     {},
                     {

@@ -1,11 +1,13 @@
 # Planned-VN-style-game 
 
 Take a look at the deployed app [here !](https://react-visual-novel.netlify.app/)
+<br>
 
-NB: Images load notably slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be fixed at a later date !
+:warning: NB: Images load notably slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be addressed at a later date ! :warning:
 
-This repository contains the planning and code for a Visual Novel made in React. The backend for this is currently a WIP. 
+:warning: The backend for this is currently a WIP. :warning: 
 
+This repository contains the planning and code for a Visual Novel made in React.
 <br>
 
 ## Overview:

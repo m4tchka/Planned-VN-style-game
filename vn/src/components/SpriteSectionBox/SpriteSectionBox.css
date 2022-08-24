@@ -11,7 +11,7 @@
 }
 .SpriteBox {
     margin:0 4% 0 4%;
-    border: 5px dashed cyan;
+    border: 2px dashed cyan;
     flex:1;
     display: flex;
     align-items: flex-end;
@@ -25,12 +25,22 @@
     width: auto;
     height: auto;
     border: 2.5px solid white;
-    
-
+    /* object-fit: cover; */
+}
+.SpriteEmpty {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    width: auto;
+    height: auto;
+    /* border: 2.5px solid white; */
     /* object-fit: cover; */
 }
 #Aiko {
-    border: 3px solid hotpink;
+    border: 3px solid grey;
+}
+#Aico {
+   border: 3px solid hotpink; 
 }
 .test{
     border: 3px solid maroon;
