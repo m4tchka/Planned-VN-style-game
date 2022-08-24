@@ -10,7 +10,7 @@ function SpriteSectionBox({ spriteList }) {
                         id={sprite.Name}
                         className="Sprite"
                         alt={sprite.Name}
-                        src={`${process.env.PUBLIC_URL}`+ sprite.Path}
+                        src={`${process.env.PUBLIC_URL}${sprite.Path}?auto=compress`}
                     />
                 </div>
             ))}

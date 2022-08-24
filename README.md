@@ -2,7 +2,9 @@
 
 Take a look at the deployed app [here !](https://react-visual-novel.netlify.app/)
 
-This repository contains the planning and code for a Visual Novel made in React
+NB: Images load notably slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be fixed at a later date !
+
+This repository contains the planning and code for a Visual Novel made in React. The backend for this is currently a WIP. 
 
 <br>
 
@@ -28,6 +30,19 @@ A visual novel is typically a way of telling a story, with some level of interac
 - Save/ Load will save the current progress to a localStorage object. Load will change the current state to be that localStorage object - i.e. jump to the point in the story when save was pressed.
 
 ## Plan
+
+<details>
+<summary>Component Tree</summary>
+
+![Component Tree](/vn/public/readme_screenshots/component_tree.JPG)
+</details>
+<br>
+<details>
+<summary>Low-fidelity wireframe</summary>
+
+![Low-fidelity wireframe](/vn/public/readme_screenshots/low_fidelity_wireframe.JPG)
+</details>
+
 ### VN Features list:
 ---
 > ### MVP
@@ -154,8 +169,8 @@ Hierarchy:
         - Name
         - Dialogue
         - Background (optional, only when the background changes)
-        - Question [] & Options {} (optional, only at question moments)
-        - Sprites [] and sprite {} (url/ path) (optional, only when a sprite is to change)
+        - Question & Options [] of {} (optional, only at question moments)
+        - Sprites [] of sprite {} (url/ path) (optional, only when a sprite is to change)
         - Animations **TBD**
 ```js
 let ch1 = 
@@ -215,7 +230,7 @@ let ch1 =
 <br>
 
 ## Motivations:
-I enjoy playing through a route on a VN from time to time, and I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat functionally & visually similar to a real VN.
+I enjoy playing through a route on a VN from time to time, and I would like to attempt to make one myself to not only go some way towards appreciating the work that goes into these titles, but also to practice creating an app in React, Javascript (and hopefully eventually Typescript), as well as force myself to learn some actual CSS and apply that in the development process to make an app that is at least somewhat functionally & visually similar to a real VN.
 
 If you decide to try the app through the deployment (which is linked at the top of the document), I hope you enjoy the functionality of this project (because you certainly won't enjoy my storywriting skills lmao). 
 

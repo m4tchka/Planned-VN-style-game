@@ -19,6 +19,7 @@ function App() {
     const [bg, setBg] = useState("");
     const [luck, setLuck] = useState(0);
     const [sprites, setSprites] = useState([]);
+    /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
@@ -116,6 +117,23 @@ function App() {
         setLog(loadedObj.log /* .flat */);
         setLuck(loadedObj.luck)
     }
+/*     async function saveToDb () {
+        let savedObj = {
+            scene: currentScene,
+            sceneEntry: sceneArrayEntry,
+            background: bg,
+            luck: luck,
+        };
+        await fetch("localhost:4001/saves", {
+            method:"POST",
+            headers: {
+                "Content-type": "application/json",
+                // "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(savedObj),
+        });
+    } */
+	
     return (
         <div
             className="App"
