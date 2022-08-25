@@ -6,10 +6,10 @@ import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 import { LogBox } from "../LogBox/LogBox.js";
+// import { mainMenu } from "../MainMenu/MainMenu.js";
 import useLogBox from "../../hooks/useLogBox.js";
 import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
-
 function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -23,7 +23,7 @@ function App() {
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
-
+    // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
         console.log("switchSprites called");
@@ -94,7 +94,7 @@ function App() {
             luck: luck,
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
-        console.log(savedObj,"Saved to localStorage !")
+        console.log(savedObj, "Saved to localStorage !");
         // let pulledSaveFile = localStorage.getItem("key");
         // Takes k/v pair and stores it as a variable
         // localStorage.removeItem("saveFileX");
@@ -115,9 +115,9 @@ function App() {
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
-        setLuck(loadedObj.luck)
+        setLuck(loadedObj.luck);
     }
-/*     async function saveToDb () {
+    /*     async function saveToDb () {
         let savedObj = {
             scene: currentScene,
             sceneEntry: sceneArrayEntry,
@@ -133,7 +133,7 @@ function App() {
             body: JSON.stringify(savedObj),
         });
     } */
-	
+
     return (
         <div
             className="App"
@@ -146,7 +146,7 @@ function App() {
                 height: "100vh",
             }}
         >
-            <SpriteSectionBox spriteList={sprites}/>
+            <SpriteSectionBox spriteList={sprites} />
             {currentSceneObj.Question ? (
                 <>
                     <ChoiceBox
@@ -156,7 +156,7 @@ function App() {
                         resetScene={setSceneArrayEntry}
                         incrementLuck={setLuck}
                         luck={luck}
-                        addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring 
+                        addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring
                     />
                     <LowerSectionBox
                         CharacterName={currentName}

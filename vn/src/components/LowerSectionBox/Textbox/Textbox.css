@@ -1,8 +1,17 @@
 .Textbox {
     height: 70%;
-    border: 2px solid #ffa500;
+    /* border: 2px solid #ffa500; */
     margin: 1% 10% 1% 10%; 
-    background-color: rgba(0,0,0,50%);
+    /* background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0,0,0,50%)
+        10%,
+        rgba(0,0,0,50%)
+        90%,
+        transparent
+    ); */
+    /* background-color: rgba(0,0,0,50%); */
     position:relative;
     display:flex;
 }
