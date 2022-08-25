@@ -1,17 +1,17 @@
 .NameBox {
     /* border: 3px solid #ff00ff; */
     margin-right: 80%;
-    margin-left: 10%;
-    padding: 1px 3px 1px 3px;
+    margin-left: 20%;
+    padding: 1px 0px;
     position:absolute;
     width: 25%;
     height: 20%;
     max-height: 20%;
-    top: 2.5%;
-    bottom: 77.5%;
+/*     top: 2.5%;
+    bottom: 77.5%; */
     /* The following lines are only for the <p> tag */
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center; 
     /* color:white; */
 }

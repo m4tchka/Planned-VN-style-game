@@ -1,5 +1,5 @@
 .Textbox {
-    height: 70%;
+    height: 75%;
     /* border: 2px solid #ffa500; */
     margin: 1% 10% 1% 10%; 
     /* background: linear-gradient(
@@ -12,6 +12,7 @@
         transparent
     ); */
     /* background-color: rgba(0,0,0,50%); */
+    justify-content: center;
     position:relative;
     display:flex;
 }

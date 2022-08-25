@@ -4,8 +4,9 @@
     top:25%;
     bottom:0;
     max-height: 75%;
-    width: 100%;
+    width: 85%;
     height:75%;
     align-content: center;
     /* color:white; */
+    text-align: left;
 }
