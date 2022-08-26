@@ -23,7 +23,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
                     },
                 ],
             },
@@ -33,7 +33,7 @@ let ch1 = [
                 Sprites: [
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Smile.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Smile.png`,
                     },
                     {},
                     {},
@@ -45,12 +45,12 @@ let ch1 = [
                 Sprites: [
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Smile.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Smile.png`,
                     },
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Open.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Open.png`,
                     },
                 ],
             },
@@ -95,7 +95,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`,
                     },
                     {},
                 ],
@@ -106,12 +106,12 @@ let ch1 = [
                 Sprites: [
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Frown.png`,
                     },
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`,
                     },
                 ],
             },
@@ -136,7 +136,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open.png`
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open.png`
                     },
                     {},
                 ],
@@ -168,12 +168,12 @@ let ch1 = [
                 Sprites: [
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Frown.png`,
                     },
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Open.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Open.png`,
                     },
                 ],
             },
@@ -185,7 +185,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
                     },
                     {},
                 ],
@@ -201,7 +201,7 @@ let ch1 = [
                     {},
                     {
                         Name:"Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Smile.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Smile.png`,
                     },
                     {},
                 ],
@@ -213,7 +213,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open_Blush.png`,
                     },
                     {},
                 ],
@@ -225,7 +225,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Frown.png`,
                     },
                     {},
                 ],
@@ -242,7 +242,7 @@ let ch1 = [
                     {},
                     {
                         Name: "Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Closed_Frown_Blush.png`,
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Closed_Frown_Blush.png`,
                     },
                 ],
             },
@@ -262,7 +262,7 @@ let ch1 = [
                     {},
                     {
                         Name:"Aiko",
-                        Path:`/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Open.png`,
+                        Path:`/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Open.png`,
                     },
                     {},
                 ],
@@ -279,7 +279,7 @@ let ch1 = [
                     {},
                     {
                         Name:"Aico",
-                        Path:`/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open.png`
+                        Path:`/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Closed_Open.png`
                     },
                 ],
             },
@@ -289,7 +289,7 @@ let ch1 = [
                 Sprites: [
                     {
                         Name:"Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Frown.png`
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Frown.png`
                     },
                     {},
                     {},
@@ -302,7 +302,7 @@ let ch1 = [
                 Sprites: [
                     {
                         Name:"Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Closed_Frown_Blush.png`
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Closed_Frown_Blush.png`
                     },
                     {},
                     {},
@@ -314,12 +314,12 @@ let ch1 = [
                 Sprites: [
                     {
                         Name:"Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Closed_Frown_Blush.png`
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Closed_Frown_Blush.png`
                     },
                     {},
                     {
                         Name:"Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
                     },
                 ],
             },
@@ -333,11 +333,11 @@ let ch1 = [
                 Sprites: [
                     {
                         Name:"Aiko",
-                        Path: `/sprites/Aiko/B_Blazer/Aiko_B_Blazer_Closed_Frown_Blush.png`
+                        Path: `/sprites/Aiko/B_BlazerC/Aiko_B_Blazer_Closed_Frown_Blush.png`
                     },
                     {
                         Name:"Aico",
-                        Path: `/sprites/Aiko/A_AllCat/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
+                        Path: `/sprites/Aiko/A_AllCatC/Winter Uniform/Aiko_Cat_WinterSera_Smile.png`
                     },
                     {},
                 ],
