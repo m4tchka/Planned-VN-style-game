@@ -1,5 +1,5 @@
 .ReusableButtonGroup {
-    border: 3px dashed #ffc0cb;
+/*     border: 3px dashed #ffc0cb; */
     margin: 3px 30% 0px 30%;
     position: fixed;
     bottom:0;
@@ -8,8 +8,8 @@
     justify-content: space-evenly;
 }
 .FunctionButton {
-    border: 1px dashed cyan;
-    width: fit-content;
+   /*  border: 1px dashed cyan; */
+    width:auto;
     background: Transparent no-repeat;
     border: none;
     cursor: pointer;
@@ -24,7 +24,8 @@
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    
+    /* -webkit-text-stroke: 1px black; */
+    /* font: 700 16px/normal 'Open Sans', sans-serif; */
 }
 .FunctionButton:hover {
     color: #fff;

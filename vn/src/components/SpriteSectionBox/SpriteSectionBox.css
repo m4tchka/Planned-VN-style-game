@@ -1,5 +1,5 @@
 .SpriteSectionBox {
-    border: 1px dashed #862e9c;
+    /* border: 1px dashed #862e9c; */
     display: flex;
     position: absolute;
     bottom: 0;
@@ -11,7 +11,7 @@
 }
 .SpriteBox {
     margin:0 4% 0 4%;
-    border: 2px dashed cyan;
+    /* border: 2px dashed cyan; */
     flex:1;
     display: flex;
     align-items: flex-end;
@@ -24,7 +24,7 @@
     object-fit: cover;
     width: auto;
     height: auto;
-    border: 2.5px solid white;
+    /* border: 2.5px solid white; */
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3))
     /* object-fit: cover; */
 }
@@ -37,12 +37,12 @@
     /* border: 2.5px solid white; */
     /* object-fit: cover; */
 }
-#Aiko {
+/* #Aiko {
     border: 3px solid grey;
 }
 #Aico {
    border: 3px solid hotpink; 
-}
+} */
 .test{
     border: 3px solid maroon;
     max-height: 30%;
