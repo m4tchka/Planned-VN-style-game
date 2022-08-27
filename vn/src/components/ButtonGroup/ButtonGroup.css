@@ -9,4 +9,28 @@
 }
 .FunctionButton {
     border: 1px dashed cyan;
+    width: fit-content;
+    background: Transparent no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    
+}
+.FunctionButton:hover {
+    color: #fff;
+    text-shadow:
+    -1px -1px 0 skyblue,
+    1px -1px 0 skyblue,
+    -1px 1px 0 skyblue,
+    1px 1px 0 skyblue;  
 }

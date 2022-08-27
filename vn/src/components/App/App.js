@@ -57,6 +57,10 @@ function App() {
         let endOfSceneEntry = ch1[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
+        setSprites(
+            ch1[currentScene].scene.findLast((element) => element.Sprites)
+                .Sprites
+        );
         setBg(
             ch1[currentScene].scene.findLast((element) => element.Background)
                 .Background
