@@ -26,9 +26,9 @@ function App() {
     // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
-        console.log("switchSprites called");
     }
     function switchBackground() {
+        console.log("switchbg'd")
         setBg(currentSceneObj.Background);
     }
     function switchDialogue() {
@@ -96,6 +96,7 @@ function App() {
             background: bg,
             log: log,
             luck: luck,
+            sprites: sprites
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
@@ -111,7 +112,7 @@ function App() {
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
         console.log("CurrentBG: ", loadedObj.background);
-        setBg(loadedObj.background);
+        // setBg(loadedObj.background);
         setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
@@ -120,6 +121,7 @@ function App() {
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
         setLuck(loadedObj.luck);
+        setSprites(loadedObj.sprites)
     }
     /*     async function saveToDb () {
         let savedObj = {
