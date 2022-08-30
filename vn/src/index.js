@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, onSnapshot, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBD2THqXDPlwZPKN55h9qt5PK40cMqm6HI",
@@ -28,20 +28,19 @@ const db = getFirestore();
 //collection ref
 const colRef = collection(db, "testSaves");
 
-//get collection data
-getDocs(colRef)
-    .then((snapshot) => {
-        let saves = []
+//realtime collection data
+export const getSaves = onSnapshot(colRef,(snapshot)=>{
+    let saves = []
         snapshot.docs.forEach((doc)=>{
             saves.push({...doc.data(),id:doc.id})
         })
         console.log("firebase testSaves: ",saves)
-    });
-/* .catch(err => {
-    console.log(err.message)
+    return saves
 })
- */
 
+export const saveFileAdderFunction = (savefileObj) => {
+    addDoc(colRef,savefileObj)
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -11,6 +11,7 @@ import useLogBox from "../../hooks/useLogBox.js";
 import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
 import useSavePromptBox from "../../hooks/userSavePromptBox";
+import { SavePromptBox } from "../SavePromptBox/SavePromptBox";
 function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -148,6 +149,7 @@ function App() {
     function loadOnline () {
 
     }
+    const stateSnapshot = {currentScene,sceneArrayEntry,bg,log,luck,sprites}
     return (
         <div
             className="App"
@@ -187,6 +189,7 @@ function App() {
                 </>
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
+            {savePromptVisibiility ? <SavePromptBox /*SavefileList={}*/ states = {stateSnapshot}/>:<></>}
             <ButtonGroup
                 Log={toggleLogVisibility}
                 Skip={skipToEndOfCurrentScene}
@@ -196,7 +199,7 @@ function App() {
                 }}
                 Save={save}
                 Load={load}
-                OnlineSave={saveOnline}
+                OnlineSave={toggleSavePromptVisibility}
             />
         </div>
     );
