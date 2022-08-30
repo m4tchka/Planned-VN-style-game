@@ -1,7 +1,7 @@
 import "./SavePromptBox.css";
 import { saveFileAdderFunction, getSaves } from "../../index.js";
-function SavePromptBox({ /* SavefileList, */ states }) {
-    const { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
+function SavePromptBox({ states }) {
+    let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Takes the list of savefiles from Firebase - to overwrite
     // Takes the STATES themselves - to make a snapshot of and send to Firebase as a document
     let saveObj = {
