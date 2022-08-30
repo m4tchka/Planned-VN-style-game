@@ -71,23 +71,28 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
 -----
 > ### Additional features
-- [ ]  Write an actual story
-- [ ]  Remove unused sprites (huge lag on commit & push)
-- [ ]  Basic _react-testing-library_ tests
-- [ ]  Main Menu
-- [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
-- [ ]  Options menu (to set auto speed, change player name etc)
-- [ ]  Turn all components into TypeScript
-- [ ]  Some actual CSS
-- [ ]  Basic _cypress_ tests
-- [ ]  Backend
+- [ ]  Backend - Firebase
     + [ ]  Store savefiles with current dialogue
         - [ ]  Savefiles have current luck etc
         - [ ]  Savefiles have player name
         - [ ]  Savefiles have date
         - [ ]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
-+ [ ]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
+- [ ]  Main Menu - With buttons like:
+    + [ ]  Start - starts from beginning
+    + [ ]  Continue - starts from local obj save - If none, greyed out
+    + [ ]  Log in - Firebase
+        - [ ]  Displays all saves for that account and each can be loaded
+    + [ ]  Options menu (to set auto speed, change player name, fonts etc)
+    + [ ]  Exit
+- [ ]  Write an actual story
+- [ ]  Remove unused sprites (huge lag on commit & push)
+- [ ]  Basic _react-testing-library_ tests
+- [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
+- [ ]  Turn all components into TypeScript
+- [ ]  Some actual CSS
+- [ ]  Basic _cypress_ tests
+- [ ]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
 
 ### Component tree & Wireframe:
 See _"low-fid.excalidraw"_

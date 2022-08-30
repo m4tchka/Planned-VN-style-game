@@ -1,25 +1,19 @@
 .ChoiceBox {
-    border: 3px dashed #495057;
+    /* border: 3px dashed #495057; */
     margin:0 30% 0 30%;
-    width:40%;
+    width:60%;
     position:fixed;
-    top:30%;
+    top:20%;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
 
 }
-.ChoiceButton {
-    border: 1px dashed cyan;
-    display: block;
-    margin: 3% auto;
-    width: 80%;
-    height: 2.5em;
-}
 .ChoiceQuestion{
     display:block;
-    margin:2% auto;
+    margin:1.5% auto;
     font: 700 25px/40px;
+    font-size:x-large;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
@@ -27,3 +21,27 @@
     -1px 1px 0 #000,
     1px 1px 0 #000;
 } 
+.ChoiceButton {
+    border: 1px dashed cyan;
+    display: block;
+    margin: 3% auto;
+    width: 80%;
+    height: 2.5em;
+    background-color:rgba(0,0,0,0.5);
+    border-radius: 0.75em;
+    font-size:medium;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000
+}
+.ChoiceButton:hover {
+    background-color:rgba(0,0,0,0.6);
+    border: 2px solid cyan;
+}
+.ChoiceButton:active {
+    background-color:rgba(0,0,0,0.8);
+    border: 3px solid cyan;
+}

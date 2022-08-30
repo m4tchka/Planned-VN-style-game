@@ -111,12 +111,14 @@ function App() {
         console.log(bg);
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
-        console.log("CurrentBG: ", loadedObj.background);
-        // setBg(loadedObj.background);
-        setBg(
+        console.log("loadedobj bg: ", loadedObj.background);
+        console.log("findlast bg: ",ch1[loadedObj.scene].scene.findLast((element) => element.Background)
+        .Background)
+        setBg(loadedObj.background);
+        /* setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
-        );
+        ); */
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
