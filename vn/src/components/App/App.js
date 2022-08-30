@@ -10,6 +10,7 @@ import { LogBox } from "../LogBox/LogBox.js";
 import useLogBox from "../../hooks/useLogBox.js";
 import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
+import useSavePromptBox from "../../hooks/userSavePromptBox";
 function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -23,12 +24,12 @@ function App() {
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
+    const { savePromptVisibiility, toggleSavePromptVisibility } = useSavePromptBox()
     // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
     function switchBackground() {
-        console.log("switchbg'd")
         setBg(currentSceneObj.Background);
     }
     function switchDialogue() {
@@ -141,7 +142,12 @@ function App() {
             body: JSON.stringify(savedObj),
         });
     } */
+    function saveOnline () {
 
+    }
+    function loadOnline () {
+
+    }
     return (
         <div
             className="App"
@@ -190,6 +196,7 @@ function App() {
                 }}
                 Save={save}
                 Load={load}
+                OnlineSave={saveOnline}
             />
         </div>
     );
