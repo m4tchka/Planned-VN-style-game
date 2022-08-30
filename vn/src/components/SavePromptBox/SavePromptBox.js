@@ -1,5 +1,5 @@
 import "./SavePromptBox.css";
-import { saveFileAdderFunction, getSaves } from "../../index.js";
+// import { saveFileAdderFunction } from "../../index.js";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Takes the list of savefiles from Firebase - to overwrite
@@ -12,23 +12,27 @@ function SavePromptBox({ states }) {
         luck: luck,
         sprites: sprites,
     };
-    let saves = getSaves();
+/*     let saves = getSaves(); */
     return (
         <div className="save-prompt-box">
-            {saves.map((save) => {
+        <p>{saveObj.currentScene}</p>
+        <p>{saveObj.sceneEntry}</p>
+        <p>{saveObj.bg}</p>
+        <p>{saveObj.luck}</p>
+            {/* {xyz.map((save) => {
                 return (
                     <div className="savefile">
                         <p>{save.id}</p>
                     </div>
                 );
-            })}
-            <button
+            })} */}
+      {/*       <button
                 onClick={() => {
                     saveFileAdderFunction(saveObj);
                 }}
             >
                 Save
-            </button>
+            </button> */}
         </div>
     );
 }
