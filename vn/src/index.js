@@ -29,7 +29,7 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 
 //collection ref
-const colRef = collection(db, "testSaves");
+export const colRef = collection(db, "testSaves");
 
 // get collection data
 getDocs(colRef).then((snapshot) => {
@@ -42,13 +42,13 @@ getDocs(colRef).then((snapshot) => {
 });
 
 //realtime collection data
-onSnapshot(colRef, (snapshot) => {
-    let saves = [];
-    snapshot.docs.forEach((doc) => {
-        saves.push({ ...doc.data(), id: doc.id });
-    });
-    console.log("firebase testSaves: ", saves);
-});
+// onSnapshot(colRef, (snapshot) => {
+//     let saves = [];
+//     snapshot.docs.forEach((doc) => {
+//         saves.push({ ...doc.data(), id: doc.id });
+//     });
+//     console.log("firebase testSaves: ", saves);
+// });
 
 /* const saveFileAdderFunction = (savefileObj) => {
     addDoc(colRef,savefileObj)

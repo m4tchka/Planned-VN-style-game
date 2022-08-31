@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+import { useState, useEffect } from "react";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
