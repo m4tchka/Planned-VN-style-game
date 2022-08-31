@@ -1,8 +1,8 @@
 import "./SavePromptBox.css";
 import { useEffect, useState } from "react";
 // import { saveFileAdderFunction } from "../../index.js";
-import { colRef } from "../../index.js";
-import { getDocs } from "firebase/firestore";
+import { colRef,db } from "../../firebase.js";
+import { getDocs, serverTimestamp, updateDoc, doc } from "firebase/firestore";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Takes the list of savefiles from Firebase - to overwrite
@@ -15,6 +15,7 @@ function SavePromptBox({ states }) {
         log: log,
         luck: luck,
         sprites: sprites,
+        createdAt: serverTimestamp(),
     };
     console.log("saveObj (SPB): ", saveObj);
     function getSaves() {
@@ -27,11 +28,16 @@ function SavePromptBox({ states }) {
             setSavefiles(saves);
         });
     }
+    // 
     useEffect(() => {
         getSaves();
     }, []);
-    function overwrite() {
+    function overwrite(id) {
         console.log("overwrite called");
+        const docRef = doc(db,"testSaves", id)
+        updateDoc(docRef,
+            saveObj
+        )  
     }
     function save() {
         console.log("save called");
@@ -41,10 +47,10 @@ function SavePromptBox({ states }) {
         <div className="save-prompt-box">
             {savefiles.map((savefile) => {
                 return (
-                    <div  className="savefile" key={savefile.id}>
+                    <div className="savefile" key={savefile.id}>
                         <p>{savefile.id}</p>
-                        <button onClick={()=>(overwrite())}>Overwrite</button>
-                        <button onClick={()=>(save())}>Save</button>
+                        <button onClick={() => overwrite(savefile.id)}>Overwrite</button>
+                        <button onClick={() => save()}>Save</button>
                     </div>
                 );
             })}
