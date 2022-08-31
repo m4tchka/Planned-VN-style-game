@@ -1,19 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./components/App/App.js";
-import reportWebVitals from "./reportWebVitals";
-
-/* import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    onSnapshot,
-    getDocs ,query,where,
+    /* onSnapshot, */
+    getDocs /* addDoc */,query, /* where, */
     orderBy
-} from "firebase/firestore"; */
+} from "firebase/firestore";
 
-/* const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBD2THqXDPlwZPKN55h9qt5PK40cMqm6HI",
     authDomain: "vn-auth-7c6d0.firebaseapp.com",
     databaseURL:"https://vn-auth-7c6d0-default-rtdb.europe-west1.firebasedatabase.app",
@@ -27,7 +21,7 @@ import {
 initializeApp(firebaseConfig);
 
 //init services
-const db = getFirestore();
+export const db = getFirestore();
 
 //collection ref
 export const colRef = collection(db, "testSaves");
@@ -43,7 +37,7 @@ getDocs(colRef).then((snapshot) => {
 });
 
 // queries
-const q = query(colRef,orderBy("createdAt","desc")) */
+const q = query(colRef,orderBy("createdAt","desc"))
 
 //realtime collection data
 // onSnapshot(colRef, (snapshot) => {
@@ -57,15 +51,3 @@ const q = query(colRef,orderBy("createdAt","desc")) */
 /* const saveFileAdderFunction = (savefileObj) => {
     addDoc(colRef,savefileObj)
 } */
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

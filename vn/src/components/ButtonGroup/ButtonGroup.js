@@ -1,6 +1,6 @@
 import "./ButtonGroup.css";
 
-function ButtonGroup({ Log, Skip, Auto, Save, Load }) {
+function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave }) {
 
     let ButtonList = [
         {
@@ -16,12 +16,16 @@ function ButtonGroup({ Log, Skip, Auto, Save, Load }) {
             function: Auto,
         },
         {
-            name:"Save",
+            name:"L.Save",
             function: Save,
         },
         {
-            name:"Load",
+            name:"L.Load",
             function: Load,
+        },
+        {
+            name:"O.Save",
+            function: OSave
         }
     ];
     return (

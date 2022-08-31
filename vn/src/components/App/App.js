@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+import { useState, useEffect } from "react";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
@@ -10,6 +10,8 @@ import { LogBox } from "../LogBox/LogBox.js";
 import useLogBox from "../../hooks/useLogBox.js";
 import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
+import useSavePromptBox from "../../hooks/useSavePromptBox.js";
+import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -23,12 +25,13 @@ function App() {
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoModeV2, autoToggled } = useAuto();
+    const { savePromptVisibility, toggleSavePromptVisibility } =
+        useSavePromptBox();
     // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
     function switchBackground() {
-        console.log("switchbg'd")
         setBg(currentSceneObj.Background);
     }
     function switchDialogue() {
@@ -96,7 +99,7 @@ function App() {
             background: bg,
             log: log,
             luck: luck,
-            sprites: sprites
+            sprites: sprites,
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
@@ -112,8 +115,11 @@ function App() {
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
         console.log("loadedobj bg: ", loadedObj.background);
-        console.log("findlast bg: ",ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-        .Background)
+        console.log(
+            "findlast bg: ",
+            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
+                .Background
+        );
         setBg(loadedObj.background);
         /* setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
@@ -123,7 +129,7 @@ function App() {
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
         setLuck(loadedObj.luck);
-        setSprites(loadedObj.sprites)
+        setSprites(loadedObj.sprites);
     }
     /*     async function saveToDb () {
         let savedObj = {
@@ -141,7 +147,22 @@ function App() {
             body: JSON.stringify(savedObj),
         });
     } */
-
+    /*     const stateSnapshot = {
+        currentScene,
+        sceneArrayEntry,
+        bg,
+        log,
+        luck,
+        sprites,
+    }; */
+    let stateSnapshot = {
+        currentScene,
+        sceneArrayEntry,
+        bg,
+        log,
+        luck,
+        sprites,
+    };
     return (
         <div
             className="App"
@@ -181,6 +202,7 @@ function App() {
                 </>
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
+            {savePromptVisibility ? <SavePromptBox states={stateSnapshot}/> : <></>}
             <ButtonGroup
                 Log={toggleLogVisibility}
                 Skip={skipToEndOfCurrentScene}
@@ -190,6 +212,7 @@ function App() {
                 }}
                 Save={save}
                 Load={load}
+                OSave={toggleSavePromptVisibility}
             />
         </div>
     );
