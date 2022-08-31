@@ -36,7 +36,7 @@ function LoadPromptBox({ setStateFunctions }) {
                             onClick={() => {
                                 load(savefile);
                             }}
-                        ></button>
+                        >Load</button>
                     </div>
                 );
             })}

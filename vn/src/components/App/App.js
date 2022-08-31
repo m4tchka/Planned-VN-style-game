@@ -28,7 +28,7 @@ function App() {
     const { toggleAutoModeV2, autoToggled } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
-        const { loadPromptVisibility, toggleLoadPromptVisibility } =
+    const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
     // let displayMainMenu = true;
     function switchSprites() {
