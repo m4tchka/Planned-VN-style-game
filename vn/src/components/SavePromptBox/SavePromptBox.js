@@ -5,7 +5,7 @@ import { colRef,db } from "../../firebase.js";
 import { getDocs, serverTimestamp, updateDoc, doc } from "firebase/firestore";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
-    // Takes the list of savefiles from Firebase - to overwrite
+    // Fetches the list of savefiles from Firebase - to overwrite
     // Takes the STATES themselves - to make a snapshot of and send to Firebase as a document
     const [savefiles, setSavefiles] = useState([]);
     let saveObj = {
@@ -16,10 +16,9 @@ function SavePromptBox({ states }) {
         luck: luck,
         sprites: sprites,
         createdAt: serverTimestamp(),
-    };
-    console.log("saveObj (SPB): ", saveObj);
-    function getSaves() {
-        getDocs(colRef).then((snapshot) => {
+    }; 
+    useEffect(() => {
+         getDocs(colRef).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {
                 saves.push({ ...doc.data(), id: doc.id });
@@ -27,10 +26,6 @@ function SavePromptBox({ states }) {
             console.log("getdocs: ", saves);
             setSavefiles(saves);
         });
-    }
-    // 
-    useEffect(() => {
-        getSaves();
     }, []);
     function overwrite(id) {
         console.log("overwrite called");
@@ -45,6 +40,7 @@ function SavePromptBox({ states }) {
     console.log("savefiles: ", savefiles);
     return (
         <div className="save-prompt-box">
+        <h2>Save</h2>
             {savefiles.map((savefile) => {
                 return (
                     <div className="savefile" key={savefile.id}>

@@ -6,12 +6,13 @@ import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
 import { LogBox } from "../LogBox/LogBox.js";
-// import { mainMenu } from "../MainMenu/MainMenu.js";
 import useLogBox from "../../hooks/useLogBox.js";
 import useLog from "../../hooks/useLog.js";
 import useAuto from "../../hooks/useAuto.js";
 import useSavePromptBox from "../../hooks/useSavePromptBox.js";
+import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
+import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 function App() {
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -27,6 +28,8 @@ function App() {
     const { toggleAutoModeV2, autoToggled } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
+        const { loadPromptVisibility, toggleLoadPromptVisibility } =
+        useLoadPromptBox();
     // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
@@ -147,14 +150,6 @@ function App() {
             body: JSON.stringify(savedObj),
         });
     } */
-    /*     const stateSnapshot = {
-        currentScene,
-        sceneArrayEntry,
-        bg,
-        log,
-        luck,
-        sprites,
-    }; */
     let stateSnapshot = {
         currentScene,
         sceneArrayEntry,
@@ -162,6 +157,14 @@ function App() {
         log,
         luck,
         sprites,
+    };
+    let stateSetterFunctions = {
+        setCurrentScene,
+        setSceneArrayEntry,
+        setBg,
+        setLog,
+        setLuck,
+        setSprites,
     };
     return (
         <div
@@ -202,7 +205,16 @@ function App() {
                 </>
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
-            {savePromptVisibility ? <SavePromptBox states={stateSnapshot}/> : <></>}
+            {savePromptVisibility ? (
+                <SavePromptBox states={stateSnapshot} />
+            ) : (
+                <></>
+            )}
+            {loadPromptVisibility ? (
+                <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+            ) : (
+                <></>
+            )}
             <ButtonGroup
                 Log={toggleLogVisibility}
                 Skip={skipToEndOfCurrentScene}
@@ -213,6 +225,7 @@ function App() {
                 Save={save}
                 Load={load}
                 OSave={toggleSavePromptVisibility}
+                OLoad={toggleLoadPromptVisibility}
             />
         </div>
     );

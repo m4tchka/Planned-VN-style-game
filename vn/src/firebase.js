@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    /* onSnapshot, */
     getDocs /* addDoc */,query, /* where, */
     orderBy
 } from "firebase/firestore";

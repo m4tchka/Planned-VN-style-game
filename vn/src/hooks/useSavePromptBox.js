@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 function useSavePromptBox() {
-    const [savePromptVisibility, setLogVisibility] = useState(false);
+    const [savePromptVisibility, setSavePromptVisibility] = useState(false);
     function toggleSavePromptVisibility() {
-        setLogVisibility((savePromptVisibility) => !savePromptVisibility);
+        setSavePromptVisibility((savePromptVisibility) => !savePromptVisibility);
     }
     return {savePromptVisibility, toggleSavePromptVisibility};
 };
