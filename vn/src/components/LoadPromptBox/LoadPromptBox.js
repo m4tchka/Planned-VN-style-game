@@ -3,7 +3,14 @@ import { useEffect, useState } from "react";
 import { colRef } from "../../firebase.js";
 import { getDocs } from "firebase/firestore";
 function LoadPromptBox({ setStateFunctions }) {
-    let { setCurrentScene, setSceneArrayEntry, setBg, setLog, setLuck, setSprites} = setStateFunctions;
+    let {
+        setCurrentScene,
+        setSceneArrayEntry,
+        setBg,
+        setLog,
+        setLuck,
+        setSprites,
+    } = setStateFunctions;
     // Fetches the list of savefiles from Firebase
     // Takes the SETSTATE functions (to change the current states to the loaded file's states)
     const [loadfiles, setLoadfiles] = useState([]);
@@ -18,12 +25,12 @@ function LoadPromptBox({ setStateFunctions }) {
         });
     }, []);
     function load(savefile) {
-        setCurrentScene(savefile.scene)
-        setSceneArrayEntry(savefile.sceneEntry)
-        setBg(savefile.background)
-        setLog(savefile.log)
-        setLuck(savefile.luck)
-        setSprites(savefile.sprites)
+        setCurrentScene(savefile.scene);
+        setSceneArrayEntry(savefile.sceneEntry);
+        setBg(savefile.background);
+        setLog(savefile.log);
+        setLuck(savefile.luck);
+        setSprites(savefile.sprites);
     }
     return (
         <div className="load-prompt-box">
@@ -31,12 +38,27 @@ function LoadPromptBox({ setStateFunctions }) {
             {loadfiles.map((savefile) => {
                 return (
                     <div className="loadfile" key={savefile.id}>
-                        <p>{savefile.id}</p>
-                        <button
-                            onClick={() => {
-                                load(savefile);
-                            }}
-                        >Load</button>
+                        {savefile.createdAt ? (
+                            <>
+                                <p>{savefile.createdAt}</p>
+                                <button
+                                    onClick={() => {
+                                        load(savefile);
+                                    }}
+                                >
+                                    Load
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                            <p>No data</p>
+                                <button
+                                    disabled="true"
+                                >
+                                    Load
+                                </button>
+                            </>
+                        )}
                     </div>
                 );
             })}

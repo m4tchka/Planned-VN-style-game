@@ -35,3 +35,22 @@
         return <img src={imgsrc} />;
     }
     ```
+-   Q: Should I make a plan for large components/ features ?
+
+    - A: Yes
+
+-   Q: Should I make a plan for small components/ features ?
+
+    - A: ~~No~~ YES
+
+-   Q: Why aren't my installed packages working ?
+
+    - A: Because I installed them in the wrong directory (needed to be in /vn, otherwise it creates new, separate _package_, *package_lock* & _node_modules_ folders)
+
+-   Q: Why aren't my .env variables being picked up ?
+
+    - A1: Since this is a React project, .env variables need a prefix of *REACT_APP_*
+
+    - A2: Reboot server first after every change to .env  (_ctrl + c_ + _npm start_)
+
+    - A3: There should be no commas after each variable (it's not an object (at first))

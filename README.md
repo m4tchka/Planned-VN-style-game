@@ -69,14 +69,14 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [x]  Sprite switching (WORKING - Add sprite key to dialogue obj if changing sprites/ slot order)
     + [x]  Different _expressions_ for same character (Done but not implemented (just change filepath for sprite obj in sprites array to a different .png easy))
     + [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
------
+---
 > ### Additional features
-- [ ]  Backend - Firebase
-    + [ ]  Store savefiles with current dialogue
-        - [ ]  Savefiles have current luck etc
+- [x]  Backend - Firebase
+    + [x]  Store savefiles with current dialogue
+        - [x]  Savefiles have current luck etc
         - [ ]  Savefiles have player name
-        - [ ]  Savefiles have date
-        - [ ]  Savefiles can be fetched and loaded
+        - [x]  Savefiles have date created
+        - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
 - [ ]  Main Menu - With buttons like:
     + [ ]  Start - starts from beginning

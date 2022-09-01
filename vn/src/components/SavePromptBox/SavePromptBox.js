@@ -1,7 +1,7 @@
 import "./SavePromptBox.css";
 import { useEffect, useState } from "react";
 // import { saveFileAdderFunction } from "../../index.js";
-import { colRef,db } from "../../firebase.js";
+import { colRef, db } from "../../firebase.js";
 import { getDocs, serverTimestamp, updateDoc, doc } from "firebase/firestore";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
@@ -16,9 +16,9 @@ function SavePromptBox({ states }) {
         luck: luck,
         sprites: sprites,
         createdAt: serverTimestamp(),
-    }; 
+    };
     useEffect(() => {
-         getDocs(colRef).then((snapshot) => {
+        getDocs(colRef).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {
                 saves.push({ ...doc.data(), id: doc.id });
@@ -29,10 +29,8 @@ function SavePromptBox({ states }) {
     }, []);
     function overwrite(id) {
         console.log("overwrite called");
-        const docRef = doc(db,"testSaves", id)
-        updateDoc(docRef,
-            saveObj
-        )  
+        const docRef = doc(db, "testSaves", id);
+        updateDoc(docRef, saveObj);
     }
     function save() {
         console.log("save called");
@@ -40,13 +38,18 @@ function SavePromptBox({ states }) {
     console.log("savefiles: ", savefiles);
     return (
         <div className="save-prompt-box">
-        <h2>Save</h2>
+            <h2>Save</h2>
             {savefiles.map((savefile) => {
                 return (
-                    <div className="savefile" key={savefile.id}>
+                    <div className="savefile" key={savefile.createdAt}>
                         <p>{savefile.id}</p>
-                        <button onClick={() => overwrite(savefile.id)}>Overwrite</button>
-                        <button onClick={() => save()}>Save</button>
+                        {savefile.sceneEntry ? (
+                            <button onClick={() => overwrite(savefile.id)}>
+                                Overwrite
+                            </button>
+                        ) : (
+                            <button onClick={() => save()}>Save</button>
+                        )}
                     </div>
                 );
             })}
