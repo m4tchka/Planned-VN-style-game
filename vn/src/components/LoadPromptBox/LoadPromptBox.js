@@ -25,6 +25,7 @@ function LoadPromptBox({ setStateFunctions }) {
         });
     }, []);
     function load(savefile) {
+        console.log("savefile loaded: ",savefile)
         setCurrentScene(savefile.scene);
         setSceneArrayEntry(savefile.sceneEntry);
         setBg(savefile.background);
@@ -40,7 +41,15 @@ function LoadPromptBox({ setStateFunctions }) {
                     <div className="loadfile" key={savefile.id}>
                         {savefile.createdAt ? (
                             <>
-                                <p>{savefile.createdAt}</p>
+                                <p>{`${new Date(
+                                    savefile.createdAt.seconds * 1000
+                                )
+                                    .toISOString()
+                                    .substring(0, 10)} - ${new Date(
+                                    savefile.createdAt.seconds * 1000
+                                )
+                                    .toISOString()
+                                    .substring(11, 16)}`}</p>
                                 <button
                                     onClick={() => {
                                         load(savefile);
@@ -51,12 +60,8 @@ function LoadPromptBox({ setStateFunctions }) {
                             </>
                         ) : (
                             <>
-                            <p>No data</p>
-                                <button
-                                    disabled="true"
-                                >
-                                    Load
-                                </button>
+                                <p>No data</p>
+                                <button disabled={true}>Load</button>
                             </>
                         )}
                     </div>

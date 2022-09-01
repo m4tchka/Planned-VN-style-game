@@ -41,7 +41,7 @@ function SavePromptBox({ states }) {
             <h2>Save</h2>
             {savefiles.map((savefile) => {
                 return (
-                    <div className="savefile" key={savefile.createdAt}>
+                    <div className="savefile" key={savefile.id}>
                         <p>{savefile.id}</p>
                         {savefile.sceneEntry ? (
                             <button onClick={() => overwrite(savefile.id)}>
