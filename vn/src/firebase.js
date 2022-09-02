@@ -37,7 +37,7 @@ getDocs(colRef).then((snapshot) => {
 console.log("firebase api key: ",process.env)
 
 // queries
-const q = query(colRef,orderBy("createdAt","desc"))
+/* const q = query(colRef,orderBy("createdAt","desc")) */
 
 //realtime collection data
 // onSnapshot(colRef, (snapshot) => {
