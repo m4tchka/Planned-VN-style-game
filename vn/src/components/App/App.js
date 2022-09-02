@@ -208,14 +208,14 @@ function App() {
             {savePromptVisibility && !loadPromptVisibility ? (
                 <SavePromptBox states={stateSnapshot} />
             ) : savePromptVisibility && loadPromptVisibility ? (
-                toggleLoadPromptVisibility()
+                toggleLoadPromptVisibility() && <SavePromptBox states={stateSnapshot} />
             ) : (
                 <></>
             )}
             {loadPromptVisibility && !savePromptVisibility ? (
                 <LoadPromptBox setStateFunctions={stateSetterFunctions} />
             ) : loadPromptVisibility && savePromptVisibility ? (
-                toggleSavePromptVisibility()
+                toggleSavePromptVisibility() && <LoadPromptBox setStateFunctions={stateSetterFunctions} />
             ) : (
                 <></>
             )}

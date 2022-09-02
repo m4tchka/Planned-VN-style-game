@@ -2,10 +2,15 @@ import "./SavePromptBox.css";
 import { useEffect, useState } from "react";
 // import { saveFileAdderFunction } from "../../index.js";
 import { colRef, db } from "../../firebase.js";
-import { getDocs, serverTimestamp, updateDoc, doc, addDoc } from "firebase/firestore";
+import {
+    getDocs,
+    serverTimestamp,
+    updateDoc,
+    doc,
+    addDoc,
+} from "firebase/firestore";
 function SavePromptBox({ states }) {
-    let { 
-        currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
+    let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Fetches the list of savefiles from Firebase - to overwrite
     // Takes the STATES themselves - to make a snapshot of and send to Firebase as a document
     const [savefiles, setSavefiles] = useState([]);
@@ -34,15 +39,19 @@ function SavePromptBox({ states }) {
         updateDoc(docRef, saveObj);
     }
     function save() {
-        console.log("save called with saveobj: ",saveObj);
-        addDoc(colRef,saveObj)
+        console.log("save called with saveobj: ", saveObj);
+        addDoc(colRef, saveObj);
     }
     console.log("savefiles: ", savefiles);
     return (
         <div className="save-prompt-box">
-            <h2>Save</h2>
+            <h2 className="save-prompt-box-title">Save</h2>
+            <div className="savefile" id="new-savefile-slot" >
+                <p>+</p>
+                <button onClick={save}>Save new</button>
+            </div>
             {savefiles.map((savefile) => {
-                return (
+                return (    
                     <div className="savefile" key={savefile.id}>
                         {savefile.createdAt ? (
                             <>
@@ -64,9 +73,7 @@ function SavePromptBox({ states }) {
                         ) : (
                             <>
                                 <p>No data</p>
-                                <button onClick={() => save()}>
-                                    Save
-                                </button>
+                                <button onClick={() => save()}>Save</button>
                             </>
                         )}
                     </div>

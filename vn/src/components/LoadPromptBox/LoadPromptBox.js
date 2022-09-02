@@ -35,7 +35,7 @@ function LoadPromptBox({ setStateFunctions }) {
     }
     return (
         <div className="load-prompt-box">
-            <h2>Load</h2>
+            <h2 className="load-prompt-box-title">Load</h2>
             {loadfiles.map((savefile) => {
                 return (
                     <div className="loadfile" key={savefile.id}>
