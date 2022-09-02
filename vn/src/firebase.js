@@ -2,8 +2,11 @@ import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    getDocs /* addDoc */,query, /* where, */
-    orderBy
+    getDocs /* , 
+    addDoc, 
+    query, 
+    where,
+    orderBy */
 } from "firebase/firestore";
 
 const firebaseConfig = {

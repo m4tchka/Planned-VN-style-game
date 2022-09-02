@@ -78,6 +78,7 @@ A visual novel is typically a way of telling a story, with some level of interac
         - [x]  Savefiles have date created
         - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
+    + [ ] Some actual Auth
 - [ ]  Main Menu - With buttons like:
     + [ ]  Start - starts from beginning
     + [ ]  Continue - starts from local obj save - If none, greyed out
