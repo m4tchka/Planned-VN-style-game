@@ -48,7 +48,7 @@ function App() {
     }
     let updateLog = () => {
         addEntry(makeEntry(currentName, currentDialogue));
-    }
+    };
     function skipToEndOfCurrentScene() {
         let remainingObjsInArr = ch1[currentScene].scene.slice(
             sceneArrayEntry,
@@ -124,32 +124,12 @@ function App() {
                 .Background
         );
         setBg(loadedObj.background);
-        /* setBg(
-            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-                .Background
-        ); */
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
         setLuck(loadedObj.luck);
         setSprites(loadedObj.sprites);
     }
-    /*     async function saveToDb () {
-        let savedObj = {
-            scene: currentScene,
-            sceneEntry: sceneArrayEntry,
-            background: bg,
-            luck: luck,
-        };
-        await fetch("localhost:4001/saves", {
-            method:"POST",
-            headers: {
-                "Content-type": "application/json",
-                // "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify(savedObj),
-        });
-    } */
     let stateSnapshot = {
         currentScene,
         sceneArrayEntry,
@@ -208,14 +188,18 @@ function App() {
             {savePromptVisibility && !loadPromptVisibility ? (
                 <SavePromptBox states={stateSnapshot} />
             ) : savePromptVisibility && loadPromptVisibility ? (
-                toggleLoadPromptVisibility() && <SavePromptBox states={stateSnapshot} />
+                toggleLoadPromptVisibility() && (
+                    <SavePromptBox states={stateSnapshot} />
+                )
             ) : (
                 <></>
             )}
             {loadPromptVisibility && !savePromptVisibility ? (
                 <LoadPromptBox setStateFunctions={stateSetterFunctions} />
             ) : loadPromptVisibility && savePromptVisibility ? (
-                toggleSavePromptVisibility() && <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                toggleSavePromptVisibility() && (
+                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                )
             ) : (
                 <></>
             )}
@@ -235,18 +219,3 @@ function App() {
     );
 }
 export default App;
-
-/* Intended behvaviour:
-        - On click, increment array entry (which is a number)
-            + Check the new sceneArrayObj for a particular k/v
-                * If there is no "type" key and there is a dialogue key, OR the "type" key's value is Dialogue", then update currentDialogue & currentName states to be the new name & dialogue, and pass these down as props to rerender the components (i.e. change the names & dialogue onsceen)
-                * If there is no "type" and there is a "question" key, OR the type key's value is "Question", then:
-                    - Render a ChoiceBox component, 
-                        + Pass down the array of choices from the currentSceneObj, as a prop to <ChoiceBox>
-                        Map through the array of choice objects that came with the sceneArrayObj, and display those as choices within ChoiceBox, 
-*/
-
-/* Intended behaviour:
-    onClick, change scene state to a different number according to options[choice].next
-
-*/

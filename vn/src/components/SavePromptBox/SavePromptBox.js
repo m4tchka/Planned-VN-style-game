@@ -1,6 +1,5 @@
 import "./SavePromptBox.css";
 import { useEffect, useState } from "react";
-// import { saveFileAdderFunction } from "../../index.js";
 import { colRef, db } from "../../firebase.js";
 import {
     getDocs,
@@ -79,13 +78,6 @@ function SavePromptBox({ states }) {
                     </div>
                 );
             })}
-            {/*       <button
-                onClick={() => {
-                    saveFileAdderFunction(saveObj);
-                }}
-            >
-                Save
-            </button> */}
         </div>
     );
 }
