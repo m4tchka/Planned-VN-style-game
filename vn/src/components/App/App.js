@@ -48,7 +48,7 @@ function App() {
     }
     let updateLog = () => {
         addEntry(makeEntry(currentName, currentDialogue));
-    };
+    }
     function skipToEndOfCurrentScene() {
         let remainingObjsInArr = ch1[currentScene].scene.slice(
             sceneArrayEntry,
@@ -205,13 +205,17 @@ function App() {
                 </>
             )}
             {logVisibility ? <LogBox log={log} /> : <></>}
-            {savePromptVisibility ? (
+            {savePromptVisibility && !loadPromptVisibility ? (
                 <SavePromptBox states={stateSnapshot} />
+            ) : savePromptVisibility && loadPromptVisibility ? (
+                toggleLoadPromptVisibility()
             ) : (
                 <></>
             )}
-            {loadPromptVisibility ? (
+            {loadPromptVisibility && !savePromptVisibility ? (
                 <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+            ) : loadPromptVisibility && savePromptVisibility ? (
+                toggleSavePromptVisibility()
             ) : (
                 <></>
             )}

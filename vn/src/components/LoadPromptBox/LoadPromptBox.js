@@ -25,7 +25,7 @@ function LoadPromptBox({ setStateFunctions }) {
         });
     }, []);
     function load(savefile) {
-        console.log("savefile loaded: ",savefile)
+        console.log("savefile loaded: ", savefile);
         setCurrentScene(savefile.scene);
         setSceneArrayEntry(savefile.sceneEntry);
         setBg(savefile.background);
