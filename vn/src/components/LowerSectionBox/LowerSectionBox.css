@@ -7,9 +7,13 @@
     background: linear-gradient(
         to right,
         transparent,
-        rgba(255,255,255,0.8)
+        rgba(255,255,255,0.6)
         10%,
         rgba(255,255,255,0.8)
+        30%,
+        rgba(255,255,255,0.8)
+        70%,
+        rgba(255,255,255,0.6)
         90%,
         transparent
     );

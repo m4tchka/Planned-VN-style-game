@@ -1,4 +1,4 @@
-import styles from "./NameBox.module.css";
+import "./NameBox.css";
 
 function NameBox ( {CharacterName} ) {
     /* 
@@ -7,8 +7,8 @@ function NameBox ( {CharacterName} ) {
     entries in Namebox.css corresponding for each character name that will have different styling.
     */
     return (
-        <div className={styles.NameBox}>
-            <h3 className={styles.NameBar} id={styles.CharacterName}>{CharacterName}</h3>
+        <div className="NameBox">
+            <h3 className="NameBar" id={CharacterName}>{CharacterName}</h3>
         </div>
     )
 };
