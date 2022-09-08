@@ -324,7 +324,7 @@ let ch1 = [
                 ],
             },
             {
-                Name: "Aiko",
+                Name: "Aico",
                 Dialogue: "...",
             },
             {
