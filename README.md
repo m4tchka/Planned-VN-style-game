@@ -94,6 +94,8 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [ ]  Some actual CSS
 - [ ]  Basic _cypress_ tests
 - [ ]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
+    + [x]  Can make basic JSON file of a scene{} with id and a scene[] consisting of dialogue{}, with name & dialogue keys
+    + [ ]  CLI prompts for additional keys on each dialogue object, such as _Background_,_Question_,_Options[]_ (with Option{}s) 
 
 ### Component tree & Wireframe:
 See _"low-fid.excalidraw"_

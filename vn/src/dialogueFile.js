@@ -5,7 +5,8 @@ let ch1 = [
             {
                 Name: "Aiko",
                 Dialogue: "Greetings ! I'm Aiko",
-                Background: "https://wallpaperaccess.com/full/259711.jpg",
+                // Background: "https://wallpaperaccess.com/full/259711.jpg",
+                Background:`/backgrounds/peacefulCabin.jpg`,
                 Sprites: [
                     {
                         Name: "Aiko",
@@ -122,7 +123,8 @@ let ch1 = [
             {
                 Name: "",
                 Dialogue: "Some time later...",
-                Background:"https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
+                // Background:"https://img.wallpapersafari.com/desktop/1920/1080/22/18/yoGWPq.jpg",
+                Background:`/backgrounds/forestValley.jpg`,
                 Sprites: [
                     {},
                     {},
@@ -180,7 +182,8 @@ let ch1 = [
             {
                 Name: "Aico",
                 Dialogue: "Woweeeee we're here !!!",
-                Background: "https://wallpaperaccess.com/full/836696.jpg",
+                Background:`/backgrounds/cliffsidePath.jpg`,
+                // Background: "https://wallpaperaccess.com/full/836696.jpg",
                 Sprites: [
                     {},
                     {
@@ -298,7 +301,8 @@ let ch1 = [
             {
                 Name: "Aiko",
                 Dialogue:"Pleaseeee Aico... My legs are gonna fall off at this rate...",
-                Background:"https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
+                // Background:"https://img.wallpapersafari.com/desktop/1920/1080/93/59/46lIUy.jpg",
+                Background:`/backgrounds/pathThroughForest.jpg`,
                 Sprites: [
                     {
                         Name:"Aiko",
