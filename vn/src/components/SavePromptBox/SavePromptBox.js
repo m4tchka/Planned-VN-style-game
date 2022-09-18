@@ -45,12 +45,12 @@ function SavePromptBox({ states }) {
     return (
         <div className="save-prompt-box">
             <h2 className="save-prompt-box-title">Save</h2>
-            <div className="savefile" id="new-savefile-slot" >
+            <div className="savefile" id="new-savefile-slot">
                 <p>+</p>
                 <button onClick={save}>Save new</button>
             </div>
             {savefiles.map((savefile) => {
-                return (    
+                return (
                     <div className="savefile" key={savefile.id}>
                         {savefile.createdAt ? (
                             <>
