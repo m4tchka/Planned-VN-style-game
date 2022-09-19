@@ -14,6 +14,14 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 function App() {
+
+    /*TODO: 
+    Add Firebase Auth
+    Turn bottom bar to <nav> element 
+    REVIEW: Possibly add useReducer instead of so many useStates
+    Add delete save functionlity to loadPrompt
+     
+    */
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
     const [currentSceneObj, setCurrentSceneObj] = useState({});
