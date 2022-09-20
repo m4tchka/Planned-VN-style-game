@@ -1,13 +1,13 @@
-import { useState } from "react";
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
 //FIXME: 
-let urlToVisit = "https://www.youtube.com/watch?v=mXt4xuCQj24"
+
 
 function AuthenticationPrompt() {
-    const [emailInput, setEmailInput] = useState("");
-    const [pwInput, setPwInput] = useState("");
+/*     const [emailInput, setEmailInput] = useState("");
+    const [pwInput, setPwInput] = useState(""); */
 
     function handleSignUp(e) {
         e.preventDefault();
@@ -48,3 +48,4 @@ function AuthenticationPrompt() {
         </form>
     );
 }
+export default AuthenticationPrompt
