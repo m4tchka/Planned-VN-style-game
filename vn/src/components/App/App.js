@@ -13,6 +13,7 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
+import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
 function App() {
 
     /*TODO: 
@@ -165,7 +166,7 @@ function App() {
                 width: "100vw",
                 height: "100vh",
             }}
-        >
+        > <AuthenticationPrompt/>
             <SpriteSectionBox spriteList={sprites} />
             {currentSceneObj.Question ? (
                 <>

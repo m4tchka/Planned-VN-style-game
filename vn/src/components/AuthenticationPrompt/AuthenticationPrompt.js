@@ -1,20 +1,16 @@
-
+import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
-//FIXME: 
-
+//FIXME:
 
 function AuthenticationPrompt() {
-/*     const [emailInput, setEmailInput] = useState("");
-    const [pwInput, setPwInput] = useState(""); */
+    const [emailInput, setEmailInput] = useState("");
+    const [pwInput, setPwInput] = useState("");
 
-    function handleSignUp(e) {
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth);
-    }
-    function handleChange(e, setStateFunc) {
-        setStateFunc({ value: e.target.value });
+    async function handleSignUp() {
+        // e.preventDefault();
+        createUserWithEmailAndPassword(auth, emailInput, pwInput);
     }
     return (
         <form
@@ -27,25 +23,23 @@ function AuthenticationPrompt() {
                 className="input-field"
                 id="email-field"
                 name="email"
-                onChange={(e, setEmailInput) => {
-                    handleChange(e, setEmailInput);
+                placeholder="email"
+                onChange={(e) => {
+                    setEmailInput(e.target.value);
                 }}
-            >
-                Email
-            </input>
+            ></input>
             <input
+                placeholder="password"
                 type="text"
                 name="password"
                 className="input-field"
                 id="password-field"
-                onChange={(e, setPwInput) => {
-                    handleChange(e, setPwInput);
+                onChange={(e) => {
+                    setPwInput(e.target.value);
                 }}
-            >
-                Password
-            </input>
+            ></input>
             <button type="submit"></button>
         </form>
     );
 }
-export default AuthenticationPrompt
+export default AuthenticationPrompt;
