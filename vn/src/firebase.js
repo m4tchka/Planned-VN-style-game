@@ -8,7 +8,7 @@ import {
     where,
     orderBy */
 } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,EmailAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -26,7 +26,8 @@ initializeApp(firebaseConfig);
 //init services
 export const db = getFirestore();
 export const auth = getAuth()
-
+export const gProvider = new GoogleAuthProvider()
+export const eProvider = new EmailAuthProvider()
 //collection ref
 export const colRef = collection(db, "testSaves");
 
