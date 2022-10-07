@@ -1,7 +1,18 @@
-.MainMenuPage {
+.main-menu {
     width: "100vw";
     height: "100vh";
 }
-.Title {
+.title {
+    text-align: center;
     color: cyan;
+}
+.vertical-menu {
+    border: 3px solid black;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left: 20vw;
+    display: flex;
+    justify-content:center;
+    /* align-items: ;' */
 }
