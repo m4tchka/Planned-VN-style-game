@@ -4,7 +4,7 @@ import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
 } from "firebase/auth";
-import { auth, gProvider } from "../../firebase.js";
+import { auth } from "../../firebase.js";
 
 //FIXME:
 
@@ -12,6 +12,7 @@ function AuthenticationPrompt() {
     const [emailInput, setEmailInput] = useState("");
     const [pwInput, setPwInput] = useState("");
     const [user, setUser] = useState();
+    const [text, setText] = useState("");
 
     async function handleSignUp(e) {
         e.preventDefault();
@@ -21,8 +22,8 @@ function AuthenticationPrompt() {
             pwInput
         );
         if (result) {
-            const user = result.user
-            setUser(user)
+            const user = result.user;
+            setUser(user);
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
         }
@@ -48,10 +49,10 @@ function AuthenticationPrompt() {
         );
         if (result) {
             const user = result.user;
-            setUser(user)
+            setUser(user);
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-            console.log("token: ",token)
+            console.log("token: ", token);
         }
         /* 
             .then((userCredential) => {
@@ -65,7 +66,9 @@ function AuthenticationPrompt() {
             }); 
         */
     }
-    useEffect(()=>{console.log("user: ",user)})
+    useEffect(() => {
+        console.log("user: ", user);
+    });
     return (
         <>
             {!user ? (
@@ -74,6 +77,13 @@ function AuthenticationPrompt() {
                         handleSignUp(e);
                     }}
                 >
+                    <input
+                        placeholder=">text here<"
+                        onChange={(e) => {
+                            setText(e.target.value);
+                        }}
+                        value={text}
+                    ></input>
                     <input
                         type="text"
                         className="input-field"
