@@ -7,13 +7,13 @@ export default function MainMenu() {
         <div className="main-menu">
             <h1 className="title"> --- Title --- </h1>
             <div className="vertical-menu">
-                <Link to="/story">
-                    <button>Start</button>
+                <Link className="testx" to="/story">
+                    <button className="menu-button">Start</button>
                 </Link>
-                <button>Local Load</button>
-                <button>Options</button>
-                <button>About</button>
-                <button>Exit</button>
+                <button className="menu-button">Local Load</button>
+                <button className="menu-button">Options</button>
+                <button className="menu-button">About</button>
+                <button className="menu-button">Exit</button>
             </div>
             <p>Test</p>
         </div>

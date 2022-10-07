@@ -13,6 +13,16 @@
     bottom:0;
     left: 20vw;
     display: flex;
-    justify-content:center;
-    /* align-items: ;' */
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    justify-content:space-evenly;
+}
+.testx{
+    /* border: 3px solid cyan; */
+    width:100%;
+}
+.menu-button {
+    border: 1px solid green; 
+    width: 100%;
 }
