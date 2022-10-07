@@ -1,4 +1,4 @@
-function mainMenu  () {
+export default function MainMenu() {
     // TODO: React Router DOM
     // To make bg full screen, take from top-level div in App.js
     return (
@@ -11,8 +11,7 @@ function mainMenu  () {
                 <button>About</button>
                 <button>Exit</button>
             </div>
-            <p>By m4tchka</p>
+            <p>Test</p>
         </div>
-    )
+    );
 }
-export { mainMenu }

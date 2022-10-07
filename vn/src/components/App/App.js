@@ -14,7 +14,6 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 function App() {
-
     /*TODO: 
     Add Firebase Auth
     Turn bottom bar to <nav> element 
@@ -155,75 +154,79 @@ function App() {
         setSprites,
     };
     return (
-        <div
-            className="App"
-            style={{
-                backgroundImage: `url(${bg})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                width: "100vw",
-                height: "100vh",
-            }}
-        >
-            <SpriteSectionBox spriteList={sprites} />
-            {currentSceneObj.Question ? (
-                <>
-                    <ChoiceBox
-                        choiceList={currentSceneObj.Options}
-                        question={currentSceneObj.Question}
-                        handleChoice={setCurrentScene}
-                        resetScene={setSceneArrayEntry}
-                        incrementLuck={setLuck}
-                        luck={luck}
-                        addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring
-                    />
-                    <LowerSectionBox
-                        CharacterName={currentName}
-                        Dialogue={currentDialogue}
-                    />
-                </>
-            ) : (
-                <>
-                    <LowerSectionBox
-                        onClick={handleClick}
-                        CharacterName={currentName}
-                        Dialogue={currentDialogue}
-                    />
-                </>
-            )}
-            {logVisibility ? <LogBox log={log} /> : <></>}
-            {savePromptVisibility && !loadPromptVisibility ? (
-                <SavePromptBox states={stateSnapshot} />
-            ) : savePromptVisibility && loadPromptVisibility ? (
-                toggleLoadPromptVisibility() && (
-                    <SavePromptBox states={stateSnapshot} />
-                )
-            ) : (
-                <></>
-            )}
-            {loadPromptVisibility && !savePromptVisibility ? (
-                <LoadPromptBox setStateFunctions={stateSetterFunctions} />
-            ) : loadPromptVisibility && savePromptVisibility ? (
-                toggleSavePromptVisibility() && (
-                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
-                )
-            ) : (
-                <></>
-            )}
-            <ButtonGroup
-                Log={toggleLogVisibility}
-                Skip={skipToEndOfCurrentScene}
-                Auto={() => {
-                    toggleAutoModeV2(3000);
-                    console.log("Is auto toggled? ", autoToggled);
+        <>
+            <div
+                className="App"
+                style={{
+                    backgroundImage: `url(${bg})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    width: "100vw",
+                    height: "100vh",
                 }}
-                Save={save}
-                Load={load}
-                OSave={toggleSavePromptVisibility}
-                OLoad={toggleLoadPromptVisibility}
-            />
-        </div>
+            >
+                <SpriteSectionBox spriteList={sprites} />
+                {currentSceneObj.Question ? (
+                    <>
+                        <ChoiceBox
+                            choiceList={currentSceneObj.Options}
+                            question={currentSceneObj.Question}
+                            handleChoice={setCurrentScene}
+                            resetScene={setSceneArrayEntry}
+                            incrementLuck={setLuck}
+                            luck={luck}
+                            addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring
+                        />
+                        <LowerSectionBox
+                            CharacterName={currentName}
+                            Dialogue={currentDialogue}
+                        />
+                    </>
+                ) : (
+                    <>
+                        <LowerSectionBox
+                            onClick={handleClick}
+                            CharacterName={currentName}
+                            Dialogue={currentDialogue}
+                        />
+                    </>
+                )}
+                {logVisibility ? <LogBox log={log} /> : <></>}
+                {savePromptVisibility && !loadPromptVisibility ? (
+                    <SavePromptBox states={stateSnapshot} />
+                ) : savePromptVisibility && loadPromptVisibility ? (
+                    toggleLoadPromptVisibility() && (
+                        <SavePromptBox states={stateSnapshot} />
+                    )
+                ) : (
+                    <></>
+                )}
+                {loadPromptVisibility && !savePromptVisibility ? (
+                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                ) : loadPromptVisibility && savePromptVisibility ? (
+                    toggleSavePromptVisibility() && (
+                        <LoadPromptBox
+                            setStateFunctions={stateSetterFunctions}
+                        />
+                    )
+                ) : (
+                    <></>
+                )}
+                <ButtonGroup
+                    Log={toggleLogVisibility}
+                    Skip={skipToEndOfCurrentScene}
+                    Auto={() => {
+                        toggleAutoModeV2(3000);
+                        console.log("Is auto toggled? ", autoToggled);
+                    }}
+                    Save={save}
+                    Load={load}
+                    OSave={toggleSavePromptVisibility}
+                    OLoad={toggleLoadPromptVisibility}
+                />
+            </div>
+        </>
     );
 }
 export default App;
