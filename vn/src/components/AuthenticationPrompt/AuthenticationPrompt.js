@@ -66,9 +66,9 @@ function AuthenticationPrompt() {
             }); 
         */
     }
-    useEffect(() => {
+  /*   useEffect(() => {
         console.log("user: ", user);
-    });
+    }); */
     return (
         <>
             {!user ? (
