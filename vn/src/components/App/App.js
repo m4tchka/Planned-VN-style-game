@@ -14,13 +14,11 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 function App() {
-
     /*TODO: 
     Add Firebase Auth
     Turn bottom bar to <nav> element 
-    REVIEW: Possibly add useReducer instead of so many useStates
+    REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
-     
     */
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -38,7 +36,6 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
-    // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -51,7 +48,7 @@ function App() {
     function switchName() {
         setCurrentName(currentSceneObj.Name);
     }
-    function switchCurrentSceneObj1() {
+    function switchCurrentSceneObj() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     }
     let updateLog = () => {
@@ -62,12 +59,7 @@ function App() {
             sceneArrayEntry,
             ch1[currentScene].scene.length - 1
         );
-        // ROiA is an array of the remaining objects in the array, including the current dialogue obj at which skip was pressed, but not including the last dialogue object of that scene (so that log remains 1 dialogue obj behind)
-        console.log("(After) remainingObjs: ", remainingObjsInArr);
         addEntry(remainingObjsInArr);
-        // Appends ROiA to the existing log, and sets the log state to be the result
-        //The flat() method is required since the slice method returns an array (wihout it, ROiA would be appended as a nested array in "log")
-
         let endOfSceneEntry = ch1[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
@@ -82,7 +74,7 @@ function App() {
         console.log("SkipToEnd function called");
     }
     useEffect(() => {
-        switchCurrentSceneObj1();
+        switchCurrentSceneObj();
         if (currentSceneObj.Background) {
             switchBackground();
         }
@@ -114,24 +106,17 @@ function App() {
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
-        // let pulledSaveFile = localStorage.getItem("key");
-        // Takes k/v pair and stores it as a variable
-        // localStorage.removeItem("saveFileX");
-        // Removes specific k/v
-        // localStorage.clear();
-        // Clears all
     }
     function load() {
-        console.log(bg);
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
-        console.log("loadedobj bg: ", loadedObj.background);
+/*         console.log("LoadedObjBg:" ,loadedObj.background)
         console.log(
             "findlast bg: ",
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
-        );
-        setBg(loadedObj.background);
+        ); */
+        setBg(ch1[loadedObj.scene].scene.findLast((element) => element.Background).Background);
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
@@ -155,75 +140,79 @@ function App() {
         setSprites,
     };
     return (
-        <div
-            className="App"
-            style={{
-                backgroundImage: `url(${bg})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                width: "100vw",
-                height: "100vh",
-            }}
-        >
-            <SpriteSectionBox spriteList={sprites} />
-            {currentSceneObj.Question ? (
-                <>
-                    <ChoiceBox
-                        choiceList={currentSceneObj.Options}
-                        question={currentSceneObj.Question}
-                        handleChoice={setCurrentScene}
-                        resetScene={setSceneArrayEntry}
-                        incrementLuck={setLuck}
-                        luck={luck}
-                        addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring
-                    />
-                    <LowerSectionBox
-                        CharacterName={currentName}
-                        Dialogue={currentDialogue}
-                    />
-                </>
-            ) : (
-                <>
-                    <LowerSectionBox
-                        onClick={handleClick}
-                        CharacterName={currentName}
-                        Dialogue={currentDialogue}
-                    />
-                </>
-            )}
-            {logVisibility ? <LogBox log={log} /> : <></>}
-            {savePromptVisibility && !loadPromptVisibility ? (
-                <SavePromptBox states={stateSnapshot} />
-            ) : savePromptVisibility && loadPromptVisibility ? (
-                toggleLoadPromptVisibility() && (
-                    <SavePromptBox states={stateSnapshot} />
-                )
-            ) : (
-                <></>
-            )}
-            {loadPromptVisibility && !savePromptVisibility ? (
-                <LoadPromptBox setStateFunctions={stateSetterFunctions} />
-            ) : loadPromptVisibility && savePromptVisibility ? (
-                toggleSavePromptVisibility() && (
-                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
-                )
-            ) : (
-                <></>
-            )}
-            <ButtonGroup
-                Log={toggleLogVisibility}
-                Skip={skipToEndOfCurrentScene}
-                Auto={() => {
-                    toggleAutoModeV2(3000);
-                    console.log("Is auto toggled? ", autoToggled);
+        <>
+            <div
+                className="App"
+                style={{
+                    backgroundImage: `url(${bg})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    width: "100vw",
+                    height: "100vh",
                 }}
-                Save={save}
-                Load={load}
-                OSave={toggleSavePromptVisibility}
-                OLoad={toggleLoadPromptVisibility}
-            />
-        </div>
+            >
+                <SpriteSectionBox spriteList={sprites} />
+                {currentSceneObj.Question ? (
+                    <>
+                        <ChoiceBox
+                            choiceList={currentSceneObj.Options}
+                            question={currentSceneObj.Question}
+                            handleChoice={setCurrentScene}
+                            resetScene={setSceneArrayEntry}
+                            incrementLuck={setLuck}
+                            luck={luck}
+                            addChoiceToLog={{ addEntry, makeQuestionEntry }} // unnecessary destructuring
+                        />
+                        <LowerSectionBox
+                            CharacterName={currentName}
+                            Dialogue={currentDialogue}
+                        />
+                    </>
+                ) : (
+                    <>
+                        <LowerSectionBox
+                            onClick={handleClick}
+                            CharacterName={currentName}
+                            Dialogue={currentDialogue}
+                        />
+                    </>
+                )}
+                {logVisibility ? <LogBox log={log} /> : <></>}
+                {savePromptVisibility && !loadPromptVisibility ? (
+                    <SavePromptBox states={stateSnapshot} />
+                ) : savePromptVisibility && loadPromptVisibility ? (
+                    toggleLoadPromptVisibility() && (
+                        <SavePromptBox states={stateSnapshot} />
+                    )
+                ) : (
+                    <></>
+                )}
+                {loadPromptVisibility && !savePromptVisibility ? (
+                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                ) : loadPromptVisibility && savePromptVisibility ? (
+                    toggleSavePromptVisibility() && (
+                        <LoadPromptBox
+                            setStateFunctions={stateSetterFunctions}
+                        />
+                    )
+                ) : (
+                    <></>
+                )}
+                <ButtonGroup
+                    Log={toggleLogVisibility}
+                    Skip={skipToEndOfCurrentScene}
+                    Auto={() => {
+                        toggleAutoModeV2(3000);
+                        console.log("Is auto toggled? ", autoToggled);
+                    }}
+                    Save={save}
+                    Load={load}
+                    OSave={toggleSavePromptVisibility}
+                    OLoad={toggleLoadPromptVisibility}
+                />
+            </div>
+        </>
     );
 }
 export default App;
