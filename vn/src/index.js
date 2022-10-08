@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-//TODO: Add ending page AND CUSTOM STATES 
+//TODO: Add ending page AND CUSTOM STATES
 root.render(
     <React.StrictMode>
         <BrowserRouter>

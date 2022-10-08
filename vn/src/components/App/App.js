@@ -17,9 +17,8 @@ function App() {
     /*TODO: 
     Add Firebase Auth
     Turn bottom bar to <nav> element 
-    REVIEW: Possibly add useReducer instead of so many useStates
+    REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
-     
     */
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -111,12 +110,13 @@ function App() {
     function load() {
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
+/*         console.log("LoadedObjBg:" ,loadedObj.background)
         console.log(
             "findlast bg: ",
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
-        );
-        setBg(loadedObj.background);
+        ); */
+        setBg(ch1[loadedObj.scene].scene.findLast((element) => element.Background).Background);
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);
