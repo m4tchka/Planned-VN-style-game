@@ -2,7 +2,7 @@ import "./LoadPromptBox.css";
 import { useEffect, useState } from "react";
 import { colRef } from "../../firebase.js";
 import { getDocs } from "firebase/firestore";
-function LoadPromptBox({ setGameState }) {
+function LoadPromptBox({ loadGameState }) {
     // Fetches the list of savefiles from Firebase
     // Takes the SETSTATE functions (to change the current states to the loaded file's states)
     const [loadfiles, setLoadfiles] = useState([]);
@@ -16,10 +16,6 @@ function LoadPromptBox({ setGameState }) {
             setLoadfiles(saves);
         });
     }, []);
-    function load(savefile) {
-        console.log("savefile loaded: ", savefile);
-        setGameState(savefile);
-    }
     return (
         <div className="load-prompt-box">
             <h2 className="load-prompt-box-title">Load</h2>
@@ -39,7 +35,7 @@ function LoadPromptBox({ setGameState }) {
                                     .substring(11, 16)}`}</p>
                                 <button
                                     onClick={() => {
-                                        load(savefile);
+                                        loadGameState(savefile);
                                     }}
                                 >
                                     Load

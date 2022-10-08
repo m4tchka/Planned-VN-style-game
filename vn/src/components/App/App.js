@@ -102,6 +102,8 @@ function App() {
     }
     useEffect(() => {
         switchCurrentSceneObj();
+        // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
+        // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         if (currentSceneObj.Background) {
             switchBackground();
         }
@@ -147,6 +149,7 @@ function App() {
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
         );
+        //setBg(loadedObj.background);
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log);
@@ -161,7 +164,8 @@ function App() {
         luck,
         sprites,
     };
-    function setGameState(gameStateObj) {
+    function loadGameState(gameStateObj) {
+        console.log("loadGameState called with: ",gameStateObj);
         setCurrentScene(gameStateObj.scene);
         setSceneArrayEntry(gameStateObj.sceneEntry);
         setBg(gameStateObj.background);
@@ -222,12 +226,12 @@ function App() {
                 )}
                 {loadPromptVisibility && !savePromptVisibility ? (
                     <LoadPromptBox
-                        setGameState={setGameState}
+                        loadGameState={loadGameState}
                     />
                 ) : loadPromptVisibility && savePromptVisibility ? (
                     toggleSavePromptVisibility() && (
                         <LoadPromptBox
-                            setGameState={setGameState}
+                            loadGameState={loadGameState}
                         />
                     )
                 ) : (
