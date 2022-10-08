@@ -40,11 +40,25 @@ function App() {
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
     const location = useLocation();
-    if (location.state) {
-        console.log("gamestate: ", location.state.gamestate);
-    } else {
-        console.log("Should be null: ", location.state);
-    }
+    useEffect(() => {
+        if (location.state) {
+            console.log("gamestate to be loaded at start: ", location.state.gamestate);
+            let saveFile = location.state.gamestate;
+            // TODO: Turn the load function to take a parameter (the savefile to be loaded) and call all the setstate functions on the keys of the parameter.
+            setBg(
+                ch1[saveFile.scene].scene.findLast(
+                    (element) => element.Background
+                ).Background
+            );
+            setCurrentScene(saveFile.scene);
+            setSceneArrayEntry(saveFile.sceneEntry);
+            setLog(saveFile.log);
+            setLuck(saveFile.luck);
+            setSprites(saveFile.sprites);
+        } else {
+            console.log("Should be null: ", location.state);
+        }
+    },[]);
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -131,7 +145,7 @@ function App() {
         );
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
-        setLog(loadedObj.log /* .flat */);
+        setLog(loadedObj.log);
         setLuck(loadedObj.luck);
         setSprites(loadedObj.sprites);
     }
