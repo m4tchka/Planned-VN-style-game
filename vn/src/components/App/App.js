@@ -161,14 +161,14 @@ function App() {
         luck,
         sprites,
     };
-    let stateSetterFunctions = {
-        setCurrentScene,
-        setSceneArrayEntry,
-        setBg,
-        setLog,
-        setLuck,
-        setSprites,
-    };
+    function setGameState(gameStateObj) {
+        setCurrentScene(gameStateObj.scene);
+        setSceneArrayEntry(gameStateObj.sceneEntry);
+        setBg(gameStateObj.background);
+        setLog(gameStateObj.log);
+        setLuck(gameStateObj.luck);
+        setSprites(gameStateObj.sprites);
+    }
     return (
         <>
             <div
@@ -221,11 +221,13 @@ function App() {
                     <></>
                 )}
                 {loadPromptVisibility && !savePromptVisibility ? (
-                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                    <LoadPromptBox
+                        setGameState={setGameState}
+                    />
                 ) : loadPromptVisibility && savePromptVisibility ? (
                     toggleSavePromptVisibility() && (
                         <LoadPromptBox
-                            setStateFunctions={stateSetterFunctions}
+                            setGameState={setGameState}
                         />
                     )
                 ) : (
