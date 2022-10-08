@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -66,7 +66,7 @@ function AuthenticationPrompt() {
             }); 
         */
     }
-  /*   useEffect(() => {
+    /*   useEffect(() => {
         console.log("user: ", user);
     }); */
     return (
@@ -93,6 +93,7 @@ function AuthenticationPrompt() {
                         onChange={(e) => {
                             setEmailInput(e.target.value);
                         }}
+                        value={emailInput}
                     ></input>
                     <input
                         placeholder="password"
@@ -103,6 +104,7 @@ function AuthenticationPrompt() {
                         onChange={(e) => {
                             setPwInput(e.target.value);
                         }}
+                        value={pwInput}
                     ></input>
                     <button
                         type="submit"
@@ -122,7 +124,10 @@ function AuthenticationPrompt() {
                     </button>
                 </form>
             ) : (
-                <></>
+                <>
+                    <p>Signed in as {user.email}</p>
+                    <button>Sign Out</button>
+                </>
             )}
         </>
     );

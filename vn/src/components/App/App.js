@@ -43,7 +43,10 @@ function App() {
     const location = useLocation();
     useEffect(() => {
         if (location.state) {
-            console.log("gamestate to be loaded at start: ", location.state.gamestate);
+            console.log(
+                "gamestate to be loaded at start: ",
+                location.state.gamestate
+            );
             let saveFile = location.state.gamestate;
             // TODO: Turn the load function to take a parameter (the savefile to be loaded) and call all the setstate functions on the keys of the parameter.
             setBg(
@@ -59,7 +62,7 @@ function App() {
         } else {
             console.log("Should be null: ", location.state);
         }
-    },[]);
+    }, []);
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -178,7 +181,9 @@ function App() {
                     width: "100vw",
                     height: "100vh",
                 }}
-            > <AuthenticationPrompt/>
+            >
+                {" "}
+                <AuthenticationPrompt />
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.Question ? (
                     <>
