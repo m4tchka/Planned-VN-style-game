@@ -2,12 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App/App.js";
+import MainMenu from "./components/MainMenu/MainMenu";
+import AboutPage from "./components/AboutPage/AboutPage";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+//TODO: Add ending page AND CUSTOM STATES
 root.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<MainMenu />} />
+                <Route path="story" element={<App />} />
+                <Route path="about" element={<AboutPage />} />
+                {/* <Route path="ending" element={<EndPage />} /> */}
+            </Routes>
+        </BrowserRouter>
     </React.StrictMode>
 );
 
