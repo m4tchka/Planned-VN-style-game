@@ -37,7 +37,6 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
-    // let displayMainMenu = true;
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -50,7 +49,7 @@ function App() {
     function switchName() {
         setCurrentName(currentSceneObj.Name);
     }
-    function switchCurrentSceneObj1() {
+    function switchCurrentSceneObj() {
         setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
     }
     let updateLog = () => {
@@ -61,12 +60,7 @@ function App() {
             sceneArrayEntry,
             ch1[currentScene].scene.length - 1
         );
-        // ROiA is an array of the remaining objects in the array, including the current dialogue obj at which skip was pressed, but not including the last dialogue object of that scene (so that log remains 1 dialogue obj behind)
-        console.log("(After) remainingObjs: ", remainingObjsInArr);
         addEntry(remainingObjsInArr);
-        // Appends ROiA to the existing log, and sets the log state to be the result
-        //The flat() method is required since the slice method returns an array (wihout it, ROiA would be appended as a nested array in "log")
-
         let endOfSceneEntry = ch1[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
         setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
@@ -81,7 +75,7 @@ function App() {
         console.log("SkipToEnd function called");
     }
     useEffect(() => {
-        switchCurrentSceneObj1();
+        switchCurrentSceneObj();
         if (currentSceneObj.Background) {
             switchBackground();
         }
@@ -113,18 +107,10 @@ function App() {
         };
         localStorage.setItem("saveFile0", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
-        // let pulledSaveFile = localStorage.getItem("key");
-        // Takes k/v pair and stores it as a variable
-        // localStorage.removeItem("saveFileX");
-        // Removes specific k/v
-        // localStorage.clear();
-        // Clears all
     }
     function load() {
-        console.log(bg);
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
-        console.log("loadedobj bg: ", loadedObj.background);
         console.log(
             "findlast bg: ",
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
