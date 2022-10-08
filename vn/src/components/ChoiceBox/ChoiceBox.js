@@ -7,9 +7,10 @@ function ChoiceBox({
     resetScene,
     incrementLuck,
     luck,
-    addChoiceToLog
+    addChoiceToLog,
 }) {
-    const {addEntry, makeQuestionEntry} = addChoiceToLog
+    // TODO: ch1.findIndex((e)=>{return e.id==eachChoice.next}) Add more sophiscticated way of selecting next scene 
+    const { addEntry, makeQuestionEntry } = addChoiceToLog;
     return (
         <div className="ChoiceBox">
             <p className="ChoiceQuestion">{question}</p>
@@ -20,8 +21,10 @@ function ChoiceBox({
                         onClick={function () {
                             handleChoice(eachChoice.Next);
                             resetScene(0);
-                            incrementLuck(luck+eachChoice.LuckChange);
-                            addEntry(makeQuestionEntry(question,eachChoice.Text))
+                            incrementLuck(luck + eachChoice.LuckChange);
+                            addEntry(
+                                makeQuestionEntry(question, eachChoice.Text)
+                            );
                         }}
                         disabled={luck < eachChoice.MinLuck} // Ternary approach
                     >
@@ -44,7 +47,7 @@ How could I pass down a GENERIC comparison and its checker state instead of bloa
 Functional > Pretty > Fast   <<== Correct priority ??
 
 */
- 
+
 /* Prev ver - Conditional Rendering approach
 import "./ChoiceBox.css";
 
