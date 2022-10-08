@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
@@ -19,6 +20,8 @@ function App() {
     Turn bottom bar to <nav> element 
     REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
+    Possibly move save/ load logic out to a hook
+    Change sprite filenames
     */
     const [currentScene, setCurrentScene] = useState(0);
     const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
@@ -36,6 +39,12 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
+    const location = useLocation();
+    if (location.state) {
+        console.log("gamestate: ", location.state.gamestate);
+    } else {
+        console.log("Should be null: ", location.state);
+    }
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -110,13 +119,16 @@ function App() {
     function load() {
         let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
         console.log("LoadedObj: ", loadedObj);
-/*         console.log("LoadedObjBg:" ,loadedObj.background)
+        /*         console.log("LoadedObjBg:" ,loadedObj.background)
         console.log(
             "findlast bg: ",
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
         ); */
-        setBg(ch1[loadedObj.scene].scene.findLast((element) => element.Background).Background);
+        setBg(
+            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
+                .Background
+        );
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log /* .flat */);

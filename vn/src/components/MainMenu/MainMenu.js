@@ -11,7 +11,22 @@ export default function MainMenu() {
                 <Link className="menu-link" to="/story">
                     <button className="menu-button">Start</button>
                 </Link>
-                <button className="menu-button">Local Load</button>
+                <Link
+                    className="menu-link"
+                    to="/story"
+                    state={{
+                        gamestate: JSON.parse(
+                            localStorage.getItem("saveFile0")
+                        ),
+                    }}
+                >
+                    <button
+                        className="menu-button"
+                        disabled={!localStorage.getItem("saveFile0")}
+                    >
+                        Local Load
+                    </button>
+                </Link>
                 <button className="menu-button">Online Load</button>
                 <button className="menu-button">Options</button>
                 <Link className="menu-link" to="/about">
