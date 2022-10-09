@@ -165,7 +165,7 @@ function App() {
         sprites,
     };
     function loadGameState(gameStateObj) {
-        console.log("loadGameState called with: ",gameStateObj);
+        console.log("loadGameState called with: ", gameStateObj);
         setCurrentScene(gameStateObj.scene);
         setSceneArrayEntry(gameStateObj.sceneEntry);
         setBg(gameStateObj.background);
@@ -187,7 +187,7 @@ function App() {
                 }}
             >
                 {" "}
-                <AuthenticationPrompt />
+                {/* <AuthenticationPrompt /> */}
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.Question ? (
                     <>
@@ -225,14 +225,10 @@ function App() {
                     <></>
                 )}
                 {loadPromptVisibility && !savePromptVisibility ? (
-                    <LoadPromptBox
-                        loadGameState={loadGameState}
-                    />
+                    <LoadPromptBox loadGameState={loadGameState} />
                 ) : loadPromptVisibility && savePromptVisibility ? (
                     toggleSavePromptVisibility() && (
-                        <LoadPromptBox
-                            loadGameState={loadGameState}
-                        />
+                        <LoadPromptBox loadGameState={loadGameState} />
                     )
                 ) : (
                     <></>
