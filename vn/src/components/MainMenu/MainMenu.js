@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "./MainMenu.css";
-
+import SignUp from "../SignUp/SignUp";
+import useSignUpModal from "../../hooks/useSignUpModal";
 export default function MainMenu() {
+    const { showSignUpModal, toggleSignUpModal } = useSignUpModal();
     // TODO: React Router DOM
     // To make bg full screen, take from top-level div in App.js
     return (
@@ -34,6 +36,8 @@ export default function MainMenu() {
                 </Link>
                 <button className="menu-button">Exit</button>
             </div>
+            <button onClick={toggleSignUpModal}>Sign Up</button>
+            {showSignUpModal && <SignUp />}
             <p>Test</p>
         </div>
     );
