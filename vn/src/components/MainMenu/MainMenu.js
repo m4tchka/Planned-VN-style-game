@@ -49,12 +49,16 @@ export default function MainMenu() {
                 </Link>
                 <button className="menu-button">Exit</button>
             </div>
-            <div className="account-buttons">
-                <button onClick={toggleSignUpModal}>Sign Up</button>
-                <button onClick={toggleSignInModal}>Sign In</button>
+            <div className="login-buttons">
+                <button className="login-button" onClick={toggleSignUpModal}>
+                    Sign Up
+                </button>
+                <button className="login-button" onClick={toggleSignInModal}>
+                    Sign In
+                </button>
+                {showSignUpModal && <SignUp />}
+                {showSignInModal && <SignUp />}
             </div>
-            {showSignUpModal && <SignUp />}
-            {showSignInModal && <SignUp />}
             <p>Test</p>
         </div>
     );

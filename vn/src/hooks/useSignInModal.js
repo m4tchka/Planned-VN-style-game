@@ -4,7 +4,7 @@ function useSignInModal() {
     const [showSignInModal, setShowSignInModal] = useState(false);
 
     function toggleSignInModal() {
-        console.log("modal toggled: ", showSignInModal);
+        console.log("modal toggled: ", !showSignInModal);
         
         setShowSignInModal(!showSignInModal);
     }
