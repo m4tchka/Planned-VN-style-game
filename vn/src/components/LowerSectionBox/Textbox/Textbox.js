@@ -1,14 +1,17 @@
 import "./Textbox.css";
-import { DialogueBox } from "./DialogueBox/DialogueBox.js";
-import { NameBox } from "./NameBox/NameBox.js";
 
-function Textbox ( {CharacterName, Dialogue, onClick} ) {
-    
+function Textbox({ CharacterName, Dialogue, onClick }) {
     return (
-        <div className="Textbox" id="clickable-dialogue-box" onClick={onClick}>
-            <NameBox CharacterName={CharacterName}/>
-            <DialogueBox Dialogue={Dialogue}/>
+        <div className="textbox" id="clickable-dialogue-box" onClick={onClick}>
+            <div className="name-box">
+                <h3 className="name-bar" id={CharacterName}>
+                    {CharacterName}
+                </h3>
+            </div>
+            <div className="dialogue-box">
+                <p>{Dialogue}</p>
+            </div>
         </div>
-    )
-};
+    );
+}
 export { Textbox };

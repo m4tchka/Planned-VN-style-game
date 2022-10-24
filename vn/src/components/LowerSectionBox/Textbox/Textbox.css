@@ -1,4 +1,4 @@
-.Textbox {
+.textbox {
     height: 75%;
     /* border: 2px solid #ffa500; */
     margin: 1% 10% 1% 10%; 
@@ -15,4 +15,54 @@
     justify-content: center;
     position:relative;
     display:flex;
+}
+.name-box {
+    /* border: 3px solid #ff00ff; */
+    margin-right: 80%;
+    margin-left: 20%;
+    padding: 1px 0px 5px;
+    position: absolute;
+    width: 25%;
+    height: 20%;
+    max-height: 20%;
+    /*     top: 2.5%;
+    bottom: 77.5%; */
+    /* The following lines are only for the <p> tag */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* color:white; */
+}
+.name-bar {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    /* max-height: 5%; */
+}
+#Aiko {
+    color: rgba(0,168,255,0.5);
+    text-shadow: 2.25px 2.25px 0 rgba(255,0,180,0.5);
+}
+#Aico {
+    color: white;
+    text-shadow: 
+    0 0 10px #fff, 
+    0 0 20px #fff, 
+    0 0 30px #fff, 
+    0 0 40px #ff00de,
+    0 0 70px #ff00de, 
+    0 0 80px #ff00de, 
+    0 0 100px #ff00de, 
+    0 0 150px #ff00de;
+}
+.dialogue-box {
+    /* border: 3px solid red; */
+    position: absolute;
+    top:25%;
+    bottom:0;
+    max-height: 75%;
+    width: 85%;
+    height:75%;
+    align-content: center;
+    /* color:white; */
+    text-align: left;
 }
