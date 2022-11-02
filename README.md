@@ -79,12 +79,13 @@ A visual novel is typically a way of telling a story, with some level of interac
         - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
     + [ ] Some actual Auth
-- [ ]  Main Menu - With buttons like:
-    + [ ]  Start - starts from beginning
-    + [ ]  Continue - starts from local obj save - If none, greyed out
+- [x]  Main Menu - With buttons like:
+    + [x]  Start - starts from beginning
+    + [x]  Continue - starts from local obj save - If none, greyed out
     + [ ]  Log in - Firebase
         - [ ]  Displays all saves for that account and each can be loaded
     + [ ]  Options menu (to set auto speed, change player name, fonts etc)
+    + [~]  About menu
     + [ ]  Exit
 - [ ]  Write an actual story
 - [ ]  Remove unused sprites (huge lag on commit & push)
@@ -93,9 +94,9 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [ ]  Turn all components into TypeScript
 - [ ]  Some actual CSS
 - [ ]  Basic _cypress_ tests
-- [ ]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
+- [x]  CLI tool (in Go?) for writing dialogue outputting to JSON/ JS
     + [x]  Can make basic JSON file of a scene{} with id and a scene[] consisting of dialogue{}, with name & dialogue keys
-    + [ ]  CLI prompts for additional keys on each dialogue object, such as _Background_,_Question_,_Options[]_ (with Option{}s) 
+    + [x]  CLI prompts for additional keys on each dialogue object, such as _Background_,_Question_,_Options[]_ (with Option{}s) 
 
 ### Component tree & Wireframe:
 See _"low-fid.excalidraw"_

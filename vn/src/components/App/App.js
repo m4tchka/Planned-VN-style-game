@@ -121,6 +121,10 @@ function App() {
             setSceneArrayEntry(sceneArrayEntry + 1);
             updateLog();
         } else {
+            if (autoToggled) {
+                toggleAutoModeV2();
+                console.log("Auto has been toggled off automatically!")
+            }
             console.log("Please select a choice!");
         }
     }
@@ -133,11 +137,11 @@ function App() {
             luck: luck,
             sprites: sprites,
         };
-        localStorage.setItem("saveFile0", JSON.stringify(savedObj));
+        localStorage.setItem("quickSaveFile", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
     }
     function load() {
-        let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
+        let loadedObj = JSON.parse(localStorage.getItem("quickSaveFile"));
         console.log("LoadedObj: ", loadedObj);
         /*         console.log("LoadedObjBg:" ,loadedObj.background)
         console.log(
@@ -237,7 +241,8 @@ function App() {
                     Log={toggleLogVisibility}
                     Skip={skipToEndOfCurrentScene}
                     Auto={() => {
-                        toggleAutoModeV2(3000);
+                        // toggleAutoModeV2(3000);
+                        toggleAutoModeV2()
                         console.log("Is auto toggled? ", autoToggled);
                     }}
                     Save={save}

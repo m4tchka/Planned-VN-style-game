@@ -21,7 +21,7 @@ export default function MainMenu() {
             //     height: "100vh",
             // }}
         >
-            <h1 className="title"> --- Title --- </h1>
+            <h1 className="title"> Aiko's Picnic </h1>
             <div className="vertical-menu">
                 <Link className="menu-link" to="/story">
                     <button className="menu-button">Start</button>
@@ -39,7 +39,7 @@ export default function MainMenu() {
                         className="menu-button"
                         disabled={!localStorage.getItem("saveFile0")}
                     >
-                        Local Load
+                        Quick Load
                     </button>
                 </Link>
                 <button className="menu-button">Online Load</button>
