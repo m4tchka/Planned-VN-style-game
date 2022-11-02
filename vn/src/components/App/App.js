@@ -18,7 +18,6 @@ import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
 function App() {
     /*TODO: 
     Add Firebase Auth
-    Turn bottom bar to <nav> element 
     REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
     Possibly move save/ load logic out to a hook
@@ -35,7 +34,7 @@ function App() {
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { toggleAutoModeV2, autoToggled } = useAuto();
+    const { toggleAutoModeV2, autoToggled,itv } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
@@ -113,7 +112,7 @@ function App() {
         switchName();
         switchDialogue();
     });
-    function handleClick() {
+    function handleClick() { // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question
@@ -121,10 +120,10 @@ function App() {
             setSceneArrayEntry(sceneArrayEntry + 1);
             updateLog();
         } else {
-            if (autoToggled) {
+           /*  if (autoToggled) {
                 toggleAutoModeV2();
-                console.log("Auto has been toggled off automatically!")
-            }
+                console.log("Auto has been toggled off automatically!");
+            } */
             console.log("Please select a choice!");
         }
     }
@@ -143,12 +142,6 @@ function App() {
     function load() {
         let loadedObj = JSON.parse(localStorage.getItem("quickSaveFile"));
         console.log("LoadedObj: ", loadedObj);
-        /*         console.log("LoadedObjBg:" ,loadedObj.background)
-        console.log(
-            "findlast bg: ",
-            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-                .Background
-        ); */
         setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
@@ -242,7 +235,7 @@ function App() {
                     Skip={skipToEndOfCurrentScene}
                     Auto={() => {
                         // toggleAutoModeV2(3000);
-                        toggleAutoModeV2()
+                        toggleAutoModeV2();
                         console.log("Is auto toggled? ", autoToggled);
                     }}
                     Save={save}

@@ -25,7 +25,7 @@ let useAuto = () => {
             tBox.click();
         };
         if (autoToggled) {
-            setItv(setInterval(tBoxClick, 3000)); // Use a delay state instead and modify it via input element
+            setItv(setInterval(tBoxClick, 1500)); // Use a delay state instead and modify it via input element
             setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         } else {
             clearInterval(itv);
@@ -35,7 +35,7 @@ let useAuto = () => {
     return {
         autoToggled,
         toggleAutoMode,
-        toggleAutoModeV2,
+        toggleAutoModeV2,itv
     };
 };
 export default useAuto;
