@@ -34,7 +34,7 @@ function App() {
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { toggleAutoModeV2, autoToggled,itv } = useAuto();
+    const { toggleAutoModeV2, autoToggled } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
@@ -47,17 +47,7 @@ function App() {
                 location.state.gamestate
             );
             let saveFile = location.state.gamestate;
-            // TODO: Turn the load function to take a parameter (the savefile to be loaded) and call all the setstate functions on the keys of the parameter.
-            setBg(
-                ch1[saveFile.scene].scene.findLast(
-                    (element) => element.Background
-                ).Background
-            );
-            setCurrentScene(saveFile.scene);
-            setSceneArrayEntry(saveFile.sceneEntry);
-            setLog(saveFile.log);
-            setLuck(saveFile.luck);
-            setSprites(saveFile.sprites);
+            loadGameState(saveFile)
         } else {
             console.log("Should be null: ", location.state);
         }
@@ -111,6 +101,10 @@ function App() {
         }
         switchName();
         switchDialogue();
+       /*  if (currentSceneObj.Question) {
+            toggleAutoModeV2();
+            console.log("Auto has been toggled off automatically!");
+        } */
     });
     function handleClick() { // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
@@ -120,10 +114,6 @@ function App() {
             setSceneArrayEntry(sceneArrayEntry + 1);
             updateLog();
         } else {
-           /*  if (autoToggled) {
-                toggleAutoModeV2();
-                console.log("Auto has been toggled off automatically!");
-            } */
             console.log("Please select a choice!");
         }
     }

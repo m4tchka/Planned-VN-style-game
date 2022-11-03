@@ -21,7 +21,7 @@ let useAuto = () => {
         // setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         let tBox = document.getElementById("clickable-dialogue-box");
         let tBoxClick = () => {
-            console.log("clicky");
+            console.log("---clicky---");
             tBox.click();
         };
         if (autoToggled) {

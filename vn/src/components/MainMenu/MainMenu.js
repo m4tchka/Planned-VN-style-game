@@ -31,17 +31,18 @@ export default function MainMenu() {
                     to="/story"
                     state={{
                         gamestate: JSON.parse(
-                            localStorage.getItem("saveFile0")
+                            localStorage.getItem("quickSaveFile")
                         ),
                     }}
                 >
                     <button
                         className="menu-button"
-                        disabled={!localStorage.getItem("saveFile0")}
+                        disabled={!localStorage.getItem("quickSaveFile")}
                     >
                         Quick Load
                     </button>
                 </Link>
+                <button>Load</button>
                 <button className="menu-button">Online Load</button>
                 <button className="menu-button">Options</button>
                 <Link className="menu-link" to="/about">
