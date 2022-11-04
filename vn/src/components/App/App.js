@@ -18,6 +18,7 @@ import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
 function App() {
     /*TODO: 
     Add Firebase Auth
+    Separate states for sprites
     REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
     Possibly move save/ load logic out to a hook
@@ -34,7 +35,7 @@ function App() {
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { toggleAutoModeV2, autoToggled } = useAuto();
+    const { toggleAutoMode, autoToggled } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
@@ -50,6 +51,7 @@ function App() {
             loadGameState(saveFile)
         } else {
             console.log("Should be null: ", location.state);
+            //I.e. there was no game state provided at start - new game.
         }
     }, []);
     function switchSprites() {
@@ -225,7 +227,7 @@ function App() {
                     Skip={skipToEndOfCurrentScene}
                     Auto={() => {
                         // toggleAutoModeV2(3000);
-                        toggleAutoModeV2();
+                        toggleAutoMode();
                         console.log("Is auto toggled? ", autoToggled);
                     }}
                     Save={save}

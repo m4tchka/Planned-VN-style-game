@@ -8,6 +8,7 @@ import { auth } from "../../firebase.js";
 export default function SignUp() {
     const [emailInput, setEmailInput] = useState("");
     const [pwInput, setPwInput] = useState("");
+    
     async function handleSignUp(e) {
         e.preventDefault();
         let result = await createUserWithEmailAndPassword(

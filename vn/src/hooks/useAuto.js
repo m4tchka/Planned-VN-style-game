@@ -6,36 +6,25 @@ let useAuto = () => {
     const [itv, setItv] = useState();
     // Placeholder state to hold the ID from the setInterval
 
-    function toggleAutoMode(func, delay) {
-        console.log("Auto Mode toggled !");
-        // autoMode2(func, delay)
-        if (autoToggled) {
-            setInterval(func, delay);
-        } else {
-            clearInterval(func);
-        }
-        setAutoToggled((prevAutoToggle) => !prevAutoToggle);
-    }
     // Set the auto mode to be on or off.
-    function toggleAutoModeV2() {
+    function toggleAutoMode() {
         // setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         let tBox = document.getElementById("clickable-dialogue-box");
         let tBoxClick = () => {
-            console.log("---clicky---");
+            console.log("--- Click occured ---");
             tBox.click();
         };
         if (autoToggled) {
             setItv(setInterval(tBoxClick, 1500)); // Use a delay state instead and modify it via input element
-            setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         } else {
             clearInterval(itv);
-            setAutoToggled((prevAutoToggle) => !prevAutoToggle);
         }
+        setAutoToggled((prevAutoToggle) => !prevAutoToggle);
     }
     return {
         autoToggled,
         toggleAutoMode,
-        toggleAutoModeV2,itv
+        itv,
     };
 };
 export default useAuto;

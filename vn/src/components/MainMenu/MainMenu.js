@@ -3,6 +3,7 @@ import "./MainMenu.css";
 import SignUp from "../SignUp/SignUp";
 import useSignUpModal from "../../hooks/useSignUpModal";
 import useSignInModal from "../../hooks/useSignInModal";
+import SignIn from "../SignIn/SignIn";
 export default function MainMenu() {
     // const [mainMenuBG, setMainMenuBG] = useState(`/backgrounds/peacefulCabin.jpg`)
     const { showSignUpModal, toggleSignUpModal } = useSignUpModal();
@@ -58,7 +59,7 @@ export default function MainMenu() {
                     Sign In
                 </button>
                 {showSignUpModal && <SignUp />}
-                {showSignInModal && <SignUp />}
+                {showSignInModal && <SignIn />}
             </div>
             <p>Test</p>
         </div>
