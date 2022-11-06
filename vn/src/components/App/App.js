@@ -25,14 +25,25 @@ function App() {
     Possibly move save/ load logic out to a hook
     Change sprite filenames
     */
-    const [currentScene, setCurrentScene] = useState(0);
-    const [sceneArrayEntry, setSceneArrayEntry] = useState(0);
+    const location = useLocation();
+    const [currentScene, setCurrentScene] = useState(
+        location.state ? location.state.gamestate.scene : 0
+    );
+    const [sceneArrayEntry, setSceneArrayEntry] = useState(
+        location.state ? location.state.gamestate.sceneEntry : 0
+    );
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
-    const [bg, setBg] = useState("");
-    const [luck, setLuck] = useState(0);
-    const [sprites, setSprites] = useState([]);
+    const [bg, setBg] = useState(
+        location.state ? location.state.gamestate.background : 0
+    );
+    const [luck, setLuck] = useState(
+        location.state ? location.state.gamestate.luck : 0
+    );
+    const [sprites, setSprites] = useState(
+        location.state ? location.state.gamestate.sprites : []
+    );
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
@@ -41,22 +52,37 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
-    const location = useLocation();
     const signedInUser = auth.currentUser;
-    useEffect(() => {
-        console.log({signedInUser})
+    /* const loadInitialState = useCallback(() => {
         if (location.state) {
             console.log(
                 "gamestate to be loaded at start: ",
                 location.state.gamestate
             );
             let saveFile = location.state.gamestate;
-            loadGameState(saveFile)
+            loadGameState(saveFile);
         } else {
             console.log("Should be null: ", location.state);
             //I.e. there was no game state provided at start - new game.
         }
-    }, []);
+    },[location.state]);
+    useEffect(()=>{loadInitialState()},[loadInitialState]) */
+    /*  useEffect(() => {
+        if (location.state) {
+            console.log(
+                "gamestate to be loaded at start: ",
+                location.state.gamestate
+            );
+            let saveFile = location.state.gamestate;
+            loadGameState(saveFile);
+        } else {
+            console.log("Should be null: ", location.state);
+            //I.e. there was no game state provided at start - new game.
+        }
+    }, []); */
+    useEffect(() => {
+        setLog(location.state ? location.state.gamestate.log : "");
+    }, [location.state, setLog]);
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -106,12 +132,14 @@ function App() {
         }
         switchName();
         switchDialogue();
-       /*  if (currentSceneObj.Question) {
+        console.log({ signedInUser });
+        /*  if (currentSceneObj.Question) {
             toggleAutoModeV2();
             console.log("Auto has been toggled off automatically!");
         } */
     });
-    function handleClick() { // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
+    function handleClick() {
+        // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question

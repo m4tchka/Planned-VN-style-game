@@ -3,8 +3,8 @@ import "./SpriteSectionBox.css";
 function SpriteSectionBox({ spriteList }) {
     return (
         <section className="SpriteSectionBox">
-            {spriteList.map((sprite,index) => (
-                <div key = {index} className="SpriteBox">
+            {spriteList.map((sprite, index) => (
+                <div key={index} className="SpriteBox">
                     {sprite.Path ? (
                         <img
                             id={sprite.Name}
@@ -13,7 +13,7 @@ function SpriteSectionBox({ spriteList }) {
                             src={`${process.env.PUBLIC_URL}${sprite.Path}?auto=compress`}
                         />
                     ) : (
-                        <div key = {index} className="SpriteEmpty"></div>
+                        <div key={index} className="SpriteEmpty"></div>
                     )}
                 </div>
             ))}

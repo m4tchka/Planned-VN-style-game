@@ -9,14 +9,15 @@ function ChoiceBox({
     luck,
     addChoiceToLog,
 }) {
-    // TODO: ch1.findIndex((e)=>{return e.id==eachChoice.next}) Add more sophiscticated way of selecting next scene 
+    // TODO: ch1.findIndex((e)=>{return e.id==eachChoice.next}) Add more sophiscticated way of selecting next scene
     const { addEntry, makeQuestionEntry } = addChoiceToLog;
     return (
         <div className="ChoiceBox">
             <p className="ChoiceQuestion">{question}</p>
-            {choiceList.map(function (eachChoice) {
+            {choiceList.map(function (eachChoice, index) {
                 return (
                     <button
+                        key={index}
                         className="ChoiceButton"
                         onClick={function () {
                             handleChoice(eachChoice.Next);
