@@ -5,36 +5,53 @@ import { auth } from "../../firebase.js";
 export default function SignIn() {
     const [emailInput, setEmailInput] = useState("");
     const [pwInput, setPwInput] = useState("");
-
     async function handleSignIn(e) {
+        const signInForm = document.querySelector(".signin");
+        console.log(signInForm);
+        signInForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let em = signInForm.email.value;
+            let pw = signInForm.password.value;
+            signInWithEmailAndPassword(auth, em, pw)
+                .then((cred) => {
+                    console.log("User created:", cred.user);
+                    signInForm.reset();
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        });
+    }
+    /* async function handleSignIn(e) {
         e.preventDefault();
-        let result = await signInWithEmailAndPassword(
-            auth,
-            emailInput,
-            pwInput
-        );
-        if (result) {
-            const user = result.user;
-            // setUser(user);
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            console.log("token: ", token);
-        }
-        /* 
+        await signInWithEmailAndPassword(auth, emailInput, pwInput)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
+                console.log("User signed in: ", user);
                 // ...
+                // .reset()
             })
+            
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            }); 
-        */
-    }
+                console.log(error.message);
+            });
+        // let result = await signInWithEmailAndPassword(
+        //     auth,
+        //     emailInput,
+        //     pwInput
+        // )
+        // if (result) {
+        //     const user = result.user;
+        //     // setUser(user);
+        //     const credential = GoogleAuthProvider.credentialFromResult(result);
+        //     const token = credential.accessToken;
+        //     console.log("token: ", token);
+        // }
+    } */
     return (
         <>
-            <div>
+            <form className="signin">
                 <h2>Sign In</h2>
                 <input
                     type="email"
@@ -42,10 +59,10 @@ export default function SignIn() {
                     id="email-field"
                     name="email"
                     placeholder="email"
-                    onChange={(e) => {
-                        setEmailInput(e.target.value);
-                    }}
-                    value={emailInput}
+                    // onChange={(e) => {
+                    //     setEmailInput(e.target.value);
+                    // }}
+                    // value={emailInput}
                 ></input>
                 <input
                     placeholder="password"
@@ -53,10 +70,10 @@ export default function SignIn() {
                     name="password"
                     className="input-field"
                     id="password-field"
-                    onChange={(e) => {
-                        setPwInput(e.target.value);
-                    }}
-                    value={pwInput}
+                    // onChange={(e) => {
+                    //     setPwInput(e.target.value);
+                    // }}
+                    // value={pwInput}
                 ></input>
                 <button
                     type="submit"
@@ -66,7 +83,7 @@ export default function SignIn() {
                 >
                     Sign In
                 </button>
-            </div>
+            </form>
         </>
     );
 }
