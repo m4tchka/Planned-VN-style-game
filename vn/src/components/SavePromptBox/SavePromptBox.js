@@ -7,6 +7,7 @@ import {
     updateDoc,
     doc,
     addDoc,
+    /* onSnapshot, */
 } from "firebase/firestore";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
@@ -32,6 +33,20 @@ function SavePromptBox({ states }) {
             setSavefiles(saves);
         });
     }, []);
+    /* FIXME: Infinite loop with snapshot function - even when not using useEffect
+    Could pass down savePromptVisibility to this component and have it conditionally render most of the content it, with a invisible div always being rendered in app.
+        useEffect(() => {
+        onSnapshot(colRef, (snapshot) => {
+            let saves = [];
+            snapshot.docs.forEach((doc) => {
+                saves.push({ ...doc.data(), id: doc.id });
+            });
+            console.log("onSnapshot: ", saves);
+            setSavefiles(saves);
+        });
+    }, []); 
+    */
+
     function overwrite(id) {
         console.log("overwrite called");
         const docRef = doc(db, "testSaves", id);

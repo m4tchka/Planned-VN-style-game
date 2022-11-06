@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    getDocs /* , 
+    getDocs /*,
+    onSnapshot  , 
     addDoc, 
     query, 
     where,
-    orderBy */
+    orderBy */,
 } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,15 +19,16 @@ const firebaseConfig = {
     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
-}
+};
 
 //init firebase app
 initializeApp(firebaseConfig);
 
 //init services
 export const db = getFirestore();
-export const auth = getAuth()
-
+export const auth = getAuth();
+export const gProvider = new GoogleAuthProvider();
+export const eProvider = new EmailAuthProvider();
 //collection ref
 export const colRef = collection(db, "testSaves");
 
@@ -37,10 +39,17 @@ getDocs(colRef).then((snapshot) => {
         saves.push({ ...doc.data(), id: doc.id });
     });
     console.log("getdocs(fb): ", saves);
-
 });
-console.log("firebase api key: ",process.env)
 
+// realtime collection data
+/* onSnapshot(colRef, (snapshot) => {
+    let saves = [];
+    snapshot.docs.forEach((doc) => {
+        saves.push({ ...doc.data(), id: doc.id });
+    });
+    console.log("onSnapshot(fb): ", saves);
+
+}); */
 // queries
 /* const q = query(colRef,orderBy("createdAt","desc")) */
 

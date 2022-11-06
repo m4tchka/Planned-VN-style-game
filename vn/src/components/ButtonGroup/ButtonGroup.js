@@ -1,7 +1,8 @@
 import "./ButtonGroup.css";
 
 function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave, OLoad }) {
-
+    //TODO: Refactor this implementation
+    //TODO: Rename Save to QSave and add a new Save method for multiple local save fiels.
     let ButtonList = [
         {
             name:"Log",

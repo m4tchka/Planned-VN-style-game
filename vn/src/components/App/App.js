@@ -14,10 +14,12 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
+import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
+import { auth } from "../../firebase";
 function App() {
     /*TODO: 
     Add Firebase Auth
-    Turn bottom bar to <nav> element 
+    Separate states for sprites
     REVIEW: Possibly add useReducer instead of so many "switch___" functions
     Add delete save functionlity to loadPrompt
     Possibly move save/ load logic out to a hook
@@ -34,31 +36,27 @@ function App() {
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
-    const { toggleAutoModeV2, autoToggled } = useAuto();
+    const { toggleAutoMode, autoToggled } = useAuto();
     const { savePromptVisibility, toggleSavePromptVisibility } =
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
     const location = useLocation();
+    const signedInUser = auth.currentUser;
     useEffect(() => {
+        console.log({signedInUser})
         if (location.state) {
-            console.log("gamestate to be loaded at start: ", location.state.gamestate);
-            let saveFile = location.state.gamestate;
-            // TODO: Turn the load function to take a parameter (the savefile to be loaded) and call all the setstate functions on the keys of the parameter.
-            setBg(
-                ch1[saveFile.scene].scene.findLast(
-                    (element) => element.Background
-                ).Background
+            console.log(
+                "gamestate to be loaded at start: ",
+                location.state.gamestate
             );
-            setCurrentScene(saveFile.scene);
-            setSceneArrayEntry(saveFile.sceneEntry);
-            setLog(saveFile.log);
-            setLuck(saveFile.luck);
-            setSprites(saveFile.sprites);
+            let saveFile = location.state.gamestate;
+            loadGameState(saveFile)
         } else {
             console.log("Should be null: ", location.state);
+            //I.e. there was no game state provided at start - new game.
         }
-    },[]);
+    }, []);
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
@@ -98,6 +96,8 @@ function App() {
     }
     useEffect(() => {
         switchCurrentSceneObj();
+        // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
+        // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         if (currentSceneObj.Background) {
             switchBackground();
         }
@@ -106,8 +106,12 @@ function App() {
         }
         switchName();
         switchDialogue();
+       /*  if (currentSceneObj.Question) {
+            toggleAutoModeV2();
+            console.log("Auto has been toggled off automatically!");
+        } */
     });
-    function handleClick() {
+    function handleClick() { // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question
@@ -127,22 +131,17 @@ function App() {
             luck: luck,
             sprites: sprites,
         };
-        localStorage.setItem("saveFile0", JSON.stringify(savedObj));
+        localStorage.setItem("quickSaveFile", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
     }
     function load() {
-        let loadedObj = JSON.parse(localStorage.getItem("saveFile0"));
+        let loadedObj = JSON.parse(localStorage.getItem("quickSaveFile"));
         console.log("LoadedObj: ", loadedObj);
-        /*         console.log("LoadedObjBg:" ,loadedObj.background)
-        console.log(
-            "findlast bg: ",
-            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-                .Background
-        ); */
         setBg(
             ch1[loadedObj.scene].scene.findLast((element) => element.Background)
                 .Background
         );
+        //setBg(loadedObj.background);
         setCurrentScene(loadedObj.scene);
         setSceneArrayEntry(loadedObj.sceneEntry);
         setLog(loadedObj.log);
@@ -157,14 +156,15 @@ function App() {
         luck,
         sprites,
     };
-    let stateSetterFunctions = {
-        setCurrentScene,
-        setSceneArrayEntry,
-        setBg,
-        setLog,
-        setLuck,
-        setSprites,
-    };
+    function loadGameState(gameStateObj) {
+        console.log("loadGameState called with: ", gameStateObj);
+        setCurrentScene(gameStateObj.scene);
+        setSceneArrayEntry(gameStateObj.sceneEntry);
+        setBg(gameStateObj.background);
+        setLog(gameStateObj.log);
+        setLuck(gameStateObj.luck);
+        setSprites(gameStateObj.sprites);
+    }
     return (
         <>
             <div
@@ -178,6 +178,8 @@ function App() {
                     height: "100vh",
                 }}
             >
+                {" "}
+                {/* <AuthenticationPrompt /> */}
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.Question ? (
                     <>
@@ -215,12 +217,10 @@ function App() {
                     <></>
                 )}
                 {loadPromptVisibility && !savePromptVisibility ? (
-                    <LoadPromptBox setStateFunctions={stateSetterFunctions} />
+                    <LoadPromptBox loadGameState={loadGameState} />
                 ) : loadPromptVisibility && savePromptVisibility ? (
                     toggleSavePromptVisibility() && (
-                        <LoadPromptBox
-                            setStateFunctions={stateSetterFunctions}
-                        />
+                        <LoadPromptBox loadGameState={loadGameState} />
                     )
                 ) : (
                     <></>
@@ -229,7 +229,8 @@ function App() {
                     Log={toggleLogVisibility}
                     Skip={skipToEndOfCurrentScene}
                     Auto={() => {
-                        toggleAutoModeV2(3000);
+                        // toggleAutoModeV2(3000);
+                        toggleAutoMode();
                         console.log("Is auto toggled? ", autoToggled);
                     }}
                     Save={save}
