@@ -26,6 +26,7 @@ function AuthenticationPrompt() {
             setUser(user);
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
+            console.log("token: ", token);
         }
         /* 
             .then((userCredential) => {

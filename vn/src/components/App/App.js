@@ -14,7 +14,7 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
-import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
+// import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
 import { auth } from "../../firebase";
 function App() {
     /*TODO: 
