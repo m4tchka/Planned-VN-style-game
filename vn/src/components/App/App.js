@@ -15,6 +15,7 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
+import { auth } from "../../firebase";
 function App() {
     /*TODO: 
     Add Firebase Auth
@@ -41,7 +42,9 @@ function App() {
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
     const location = useLocation();
+    const signedInUser = auth.currentUser;
     useEffect(() => {
+        console.log({signedInUser})
         if (location.state) {
             console.log(
                 "gamestate to be loaded at start: ",

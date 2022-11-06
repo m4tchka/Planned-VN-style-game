@@ -1,16 +1,9 @@
-import { useState } from "react";
-import {
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
 export default function SignUp() {
-    const [emailInput, setEmailInput] = useState("");
-    const [pwInput, setPwInput] = useState("");
-    async function handleSignUp(e) {
+    async function handleSignUp() {
         const signUpForm = document.querySelector(".signup");
-        console.log(signUpForm);
         signUpForm.addEventListener("submit", (e) => {
             e.preventDefault();
             let em = signUpForm.email.value;
