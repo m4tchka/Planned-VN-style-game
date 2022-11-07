@@ -82,7 +82,7 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [x]  Main Menu - With buttons like:
     + [x]  Start - starts from beginning
     + [x]  Continue - starts from local obj save - If none, greyed out
-    + [ ]  Log in - Firebase
+    + [x]  Log in - Firebase
         - [ ]  Displays all saves for that account and each can be loaded
     + [ ]  Options menu (to set auto speed, change player name, fonts etc)
     + [~]  About menu

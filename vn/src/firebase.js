@@ -27,6 +27,7 @@ initializeApp(firebaseConfig);
 //init services
 export const db = getFirestore();
 export const auth = getAuth();
+export const user = auth.currentUser;
 export const gProvider = new GoogleAuthProvider();
 export const eProvider = new EmailAuthProvider();
 //collection ref

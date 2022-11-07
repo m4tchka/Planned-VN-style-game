@@ -9,6 +9,7 @@ import {
     addDoc,
     /* onSnapshot, */
 } from "firebase/firestore";
+import { user } from "../../firebase.js";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Fetches the list of savefiles from Firebase - to overwrite
@@ -22,6 +23,7 @@ function SavePromptBox({ states }) {
         luck: luck,
         sprites: sprites,
         createdAt: serverTimestamp(),
+        userId: user.uid,
     };
     useEffect(() => {
         getDocs(colRef).then((snapshot) => {

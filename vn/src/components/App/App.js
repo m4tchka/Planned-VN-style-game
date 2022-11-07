@@ -15,7 +15,7 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 // import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
-import { auth } from "../../firebase";
+import { user } from "../../firebase";
 function App() {
     /*TODO: 
     Add Firebase Auth
@@ -52,7 +52,6 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
-    const signedInUser = auth.currentUser;
     /* const loadInitialState = useCallback(() => {
         if (location.state) {
             console.log(
@@ -81,7 +80,7 @@ function App() {
         }
     }, []); */
     useEffect(() => {
-        setLog(location.state ? location.state.gamestate.log : "");
+        setLog(location.state ? location.state.gamestate.log : []);
     }, [location.state, setLog]);
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
@@ -132,7 +131,7 @@ function App() {
         }
         switchName();
         switchDialogue();
-        console.log({ signedInUser });
+        console.log({ user });
         /*  if (currentSceneObj.Question) {
             toggleAutoModeV2();
             console.log("Auto has been toggled off automatically!");
