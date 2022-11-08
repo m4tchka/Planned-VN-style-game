@@ -26,8 +26,7 @@ function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave, OLoad }) {
             function: Load,
         },
     ];
-    if (auth) {
-        console.log(`User ${auth.currentUser.uid} is logged in`)
+    if (auth.currentUser) {
         ButtonList.push(
             {
                 name: "O.Save",

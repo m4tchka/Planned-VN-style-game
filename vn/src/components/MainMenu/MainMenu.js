@@ -87,7 +87,11 @@ export default function MainMenu() {
                     />
                 )}
             </div>
-            <p>Test</p>
+            {isLoggedIn ? (
+                <p>User: {auth.currentUser.uid}</p>
+            ) : (
+                <p>No user found</p>
+            )}
             {isLoggedIn ? (
                 <button
                     onClick={() => {

@@ -78,12 +78,12 @@ A visual novel is typically a way of telling a story, with some level of interac
         - [x]  Savefiles have date created
         - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
-    + [ ] Some actual Auth
+    + [x] Some actual Auth
 - [x]  Main Menu - With buttons like:
     + [x]  Start - starts from beginning
     + [x]  Continue - starts from local obj save - If none, greyed out
     + [x]  Log in - Firebase
-        - [ ]  Displays all saves for that account and each can be loaded
+        - [x]  Displays all saves for that account and each can be loaded
     + [ ]  Options menu (to set auto speed, change player name, fonts etc)
     + [~]  About menu
     + [ ]  Exit
