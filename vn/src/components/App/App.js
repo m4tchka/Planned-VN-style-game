@@ -15,7 +15,7 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 // import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
-import { user } from "../../firebase";
+import { user } from "../../firebase.js";
 function App() {
     /*TODO: 
     Add Firebase Auth
@@ -194,6 +194,7 @@ function App() {
     }
     return (
         <>
+            {/* <p>{user.uid}</p> */}
             <div
                 className="App"
                 style={{
@@ -256,7 +257,6 @@ function App() {
                     Log={toggleLogVisibility}
                     Skip={skipToEndOfCurrentScene}
                     Auto={() => {
-                        // toggleAutoModeV2(3000);
                         toggleAutoMode();
                         console.log("Is auto toggled? ", autoToggled);
                     }}
