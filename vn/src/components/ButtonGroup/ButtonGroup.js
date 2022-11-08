@@ -1,4 +1,5 @@
 import "./ButtonGroup.css";
+import { auth } from "../../firebase.js";
 
 function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave, OLoad }) {
     //TODO: Refactor this implementation
@@ -24,18 +25,24 @@ function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave, OLoad }) {
             name: "L.Load",
             function: Load,
         },
-        {
-            name: "O.Save",
-            function: OSave,
-        },
-        {
-            name: "O.Load",
-            function: OLoad,
-        },
     ];
+    if (auth) {
+        console.log(`User ${auth.currentUser.uid} is logged in`)
+        ButtonList.push(
+            {
+                name: "O.Save",
+                function: OSave,
+            },
+            {
+                name: "O.Load",
+                function: OLoad,
+            }
+        );
+    }
+
     return (
         <div className="ReusableButtonGroup">
-            {ButtonList.map(function (eachRButton) {
+            {ButtonList.map((eachRButton) => {
                 return (
                     <button
                         key={eachRButton.name}

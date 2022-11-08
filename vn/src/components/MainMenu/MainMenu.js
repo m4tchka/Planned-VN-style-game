@@ -4,6 +4,8 @@ import SignUp from "../SignUp/SignUp";
 import useSignUpModal from "../../hooks/useSignUpModal";
 import useSignInModal from "../../hooks/useSignInModal";
 import SignIn from "../SignIn/SignIn";
+import { auth } from "../../firebase.js";
+import { signOut } from "firebase/auth";
 export default function MainMenu() {
     // const [mainMenuBG, setMainMenuBG] = useState(`/backgrounds/peacefulCabin.jpg`)
     const { showSignUpModal, toggleSignUpModal } = useSignUpModal();
@@ -62,6 +64,9 @@ export default function MainMenu() {
                 {showSignInModal && <SignIn />}
             </div>
             <p>Test</p>
+            {auth.currentUser ? (
+                <button onClick={()=>{signOut(auth)}}>--Log Out--</button>
+            ) : null}
         </div>
     );
 }
