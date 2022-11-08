@@ -6,7 +6,7 @@ import useSignInModal from "../../hooks/useSignInModal";
 import SignIn from "../SignIn/SignIn";
 import { auth } from "../../firebase.js";
 import { signOut } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 export default function MainMenu() {
     const [isLoggedIn, setIsLoggedIn] = useState(
         auth.currentUser ? true : false
@@ -14,11 +14,6 @@ export default function MainMenu() {
     // const [mainMenuBG, setMainMenuBG] = useState(`/backgrounds/peacefulCabin.jpg`)
     const { showSignUpModal, toggleSignUpModal } = useSignUpModal();
     const { showSignInModal, toggleSignInModal } = useSignInModal();
-/*     useEffect(() => {
-        if (auth.currentUser) {
-            setIsLoggedIn(true);
-        }
-    }); */
     // TODO: React Router DOM
     // To make bg full screen, take from top-level div in App.js
     return (
@@ -63,14 +58,34 @@ export default function MainMenu() {
                 <button className="menu-button">Exit</button>
             </div>
             <div className="login-buttons">
-                <button className="login-button" onClick={toggleSignUpModal}>
-                    Sign Up
-                </button>
-                <button className="login-button" onClick={toggleSignInModal}>
-                    Sign In
-                </button>
-                {showSignUpModal && <SignUp setIsLoggedIn={setIsLoggedIn} />}
-                {showSignInModal && <SignIn setIsLoggedIn={setIsLoggedIn} />}
+                {!isLoggedIn ? (
+                    <>
+                        <button
+                            className="login-button"
+                            onClick={toggleSignUpModal}
+                        >
+                            Sign Up
+                        </button>
+                        <button
+                            className="login-button"
+                            onClick={toggleSignInModal}
+                        >
+                            Sign In
+                        </button>
+                    </>
+                ) : null}
+                {showSignUpModal && (
+                    <SignUp
+                        setIsLoggedIn={setIsLoggedIn}
+                        toggleSignUpModal={toggleSignUpModal}
+                    />
+                )}
+                {showSignInModal && (
+                    <SignIn
+                        setIsLoggedIn={setIsLoggedIn}
+                        toggleSignInModal={toggleSignInModal}
+                    />
+                )}
             </div>
             <p>Test</p>
             {isLoggedIn ? (
