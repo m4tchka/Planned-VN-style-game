@@ -15,7 +15,7 @@ import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
 // import AuthenticationPrompt from "../AuthenticationPrompt/AuthenticationPrompt";
-import { user } from "../../firebase.js";
+import { auth } from "../../firebase.js";
 function App() {
     /*TODO: 
     Add Firebase Auth
@@ -52,33 +52,6 @@ function App() {
         useSavePromptBox();
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
-    /* const loadInitialState = useCallback(() => {
-        if (location.state) {
-            console.log(
-                "gamestate to be loaded at start: ",
-                location.state.gamestate
-            );
-            let saveFile = location.state.gamestate;
-            loadGameState(saveFile);
-        } else {
-            console.log("Should be null: ", location.state);
-            //I.e. there was no game state provided at start - new game.
-        }
-    },[location.state]);
-    useEffect(()=>{loadInitialState()},[loadInitialState]) */
-    /*  useEffect(() => {
-        if (location.state) {
-            console.log(
-                "gamestate to be loaded at start: ",
-                location.state.gamestate
-            );
-            let saveFile = location.state.gamestate;
-            loadGameState(saveFile);
-        } else {
-            console.log("Should be null: ", location.state);
-            //I.e. there was no game state provided at start - new game.
-        }
-    }, []); */
     useEffect(() => {
         setLog(location.state ? location.state.gamestate.log : []);
     }, [location.state, setLog]);
@@ -131,7 +104,7 @@ function App() {
         }
         switchName();
         switchDialogue();
-        console.log({ user });
+        console.log(auth.currentUser);
         /*  if (currentSceneObj.Question) {
             toggleAutoModeV2();
             console.log("Auto has been toggled off automatically!");
@@ -194,7 +167,6 @@ function App() {
     }
     return (
         <>
-            {/* <p>{user.uid}</p> */}
             <div
                 className="App"
                 style={{

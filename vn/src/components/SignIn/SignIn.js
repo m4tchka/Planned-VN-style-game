@@ -18,58 +18,23 @@ export default function SignIn() {
                 });
         });
     }
-    /* async function handleSignIn(e) {
-        e.preventDefault();
-        await signInWithEmailAndPassword(auth, emailInput, pwInput)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log("User signed in: ", user);
-                // ...
-                // .reset()
-            })
-            
-            .catch((error) => {
-                console.log(error.message);
-            });
-        // let result = await signInWithEmailAndPassword(
-        //     auth,
-        //     emailInput,
-        //     pwInput
-        // )
-        // if (result) {
-        //     const user = result.user;
-        //     // setUser(user);
-        //     const credential = GoogleAuthProvider.credentialFromResult(result);
-        //     const token = credential.accessToken;
-        //     console.log("token: ", token);
-        // }
-    } */
     return (
         <>
             <form className="signin">
                 <h2>Sign In</h2>
                 <input
-                    type="email"
                     className="input-field"
                     id="email-field"
                     name="email"
                     placeholder="email"
-                    // onChange={(e) => {
-                    //     setEmailInput(e.target.value);
-                    // }}
-                    // value={emailInput}
+                    type="email"
                 ></input>
                 <input
-                    placeholder="password"
-                    type="text"
-                    name="password"
                     className="input-field"
                     id="password-field"
-                    // onChange={(e) => {
-                    //     setPwInput(e.target.value);
-                    // }}
-                    // value={pwInput}
+                    name="password"
+                    placeholder="password"
+                    type="text"
                 ></input>
                 <button
                     type="submit"

@@ -27,7 +27,7 @@ initializeApp(firebaseConfig);
 //init services
 export const db = getFirestore();
 export const auth = getAuth();
-export const user = auth.currentUser;
+// export const user = auth.currentUser; NOTE: Doesn't work - must use whole auth obj otherwise doesn't "wait" for auth to be verified with firebase
 export const gProvider = new GoogleAuthProvider();
 export const eProvider = new EmailAuthProvider();
 //collection ref

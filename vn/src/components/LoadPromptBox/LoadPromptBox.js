@@ -1,13 +1,15 @@
 import "./LoadPromptBox.css";
 import { useEffect, useState } from "react";
-import { colRef,user } from "../../firebase.js";
-import { getDocs, where } from "firebase/firestore";
+import { colRef, auth } from "../../firebase.js";
+import { getDocs, where, query } from "firebase/firestore";
 function LoadPromptBox({ loadGameState }) {
     // Fetches the list of savefiles from Firebase
     // Takes the SETSTATE functions (to change the current states to the loaded file's states)
     const [loadfiles, setLoadfiles] = useState([]);
     useEffect(() => {
-        getDocs(colRef,where(`userId == ${user.uid}`)).then((snapshot) => {
+        getDocs(
+            query(colRef, where("userId", "==", auth.currentUser.uid))
+        ).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {
                 saves.push({ ...doc.data(), id: doc.id });

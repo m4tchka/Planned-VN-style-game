@@ -51,26 +51,18 @@ export default function SignUp() {
             <form className="signup">
                 <h2>Sign Up</h2>
                 <input
-                    type="email"
                     className="input-field"
                     id="email-field"
                     name="email"
                     placeholder="email"
-                    // onChange={(e) => {
-                    //     setEmailInput(e.target.value);
-                    // }}
-                    // value={emailInput}
+                    type="email"
                 ></input>
                 <input
-                    placeholder="password"
-                    type="text"
-                    name="password"
                     className="input-field"
                     id="password-field"
-                    // onChange={(e) => {
-                    //     setPwInput(e.target.value);
-                    // }}
-                    // value={pwInput}
+                    name="password"
+                    placeholder="password"
+                    type="text"
                 ></input>
                 <button
                     type="submit"
