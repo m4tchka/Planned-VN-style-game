@@ -6,10 +6,19 @@ import useSignInModal from "../../hooks/useSignInModal";
 import SignIn from "../SignIn/SignIn";
 import { auth } from "../../firebase.js";
 import { signOut } from "firebase/auth";
+import { useState, useEffect } from "react";
 export default function MainMenu() {
+    const [isLoggedIn, setIsLoggedIn] = useState(
+        auth.currentUser ? true : false
+    );
     // const [mainMenuBG, setMainMenuBG] = useState(`/backgrounds/peacefulCabin.jpg`)
     const { showSignUpModal, toggleSignUpModal } = useSignUpModal();
     const { showSignInModal, toggleSignInModal } = useSignInModal();
+/*     useEffect(() => {
+        if (auth.currentUser) {
+            setIsLoggedIn(true);
+        }
+    }); */
     // TODO: React Router DOM
     // To make bg full screen, take from top-level div in App.js
     return (
@@ -60,12 +69,19 @@ export default function MainMenu() {
                 <button className="login-button" onClick={toggleSignInModal}>
                     Sign In
                 </button>
-                {showSignUpModal && <SignUp />}
-                {showSignInModal && <SignIn />}
+                {showSignUpModal && <SignUp setIsLoggedIn={setIsLoggedIn} />}
+                {showSignInModal && <SignIn setIsLoggedIn={setIsLoggedIn} />}
             </div>
             <p>Test</p>
-            {auth.currentUser ? (
-                <button onClick={()=>{signOut(auth)}}>--Log Out--</button>
+            {isLoggedIn ? (
+                <button
+                    onClick={() => {
+                        signOut(auth);
+                        setIsLoggedIn(false);
+                    }}
+                >
+                    --Log Out--
+                </button>
             ) : null}
         </div>
     );

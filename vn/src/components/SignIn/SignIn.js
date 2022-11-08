@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
-export default function SignIn() {
+export default function SignIn({ setIsLoggedIn }) {
     async function handleSignIn() {
         const signInForm = document.querySelector(".signin");
         signInForm.addEventListener("submit", (e) => {
@@ -12,6 +12,7 @@ export default function SignIn() {
                 .then((cred) => {
                     console.log("User signed in:", cred.user);
                     signInForm.reset();
+                    setIsLoggedIn(true);
                 })
                 .catch((err) => {
                     console.log(err.message);
