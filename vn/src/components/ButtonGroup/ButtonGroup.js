@@ -18,11 +18,11 @@ function ButtonGroup({ Log, Skip, Auto, Save, Load, OSave, OLoad }) {
             function: Auto,
         },
         {
-            name: "L.Save",
+            name: "Q.Save",
             function: Save,
         },
         {
-            name: "L.Load",
+            name: "Q.Load",
             function: Load,
         },
     ];

@@ -9,6 +9,12 @@ export default function AboutPage() {
                     Welcome to react-visual-novel !{"\n"}This is the about page
                     (work in progress)
                 </p>
+                <p className="about-content">
+                    {"\n"}Frontend made with react{"\n"}Backend made with
+                    firebase
+                    {"\n"}Hosted on netlify{"\n"}
+                </p>
+                <h2>Usage: </h2>
                 <Link to="/">
                     <button>Back</button>
                 </Link>
@@ -16,3 +22,8 @@ export default function AboutPage() {
         </div>
     );
 }
+/* 
+    Frontend made with react
+    Backend made with firebase
+    Hosted on netlify
+*/

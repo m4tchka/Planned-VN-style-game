@@ -1,7 +1,7 @@
 import "./LoadPromptBox.css";
 import { useEffect, useState } from "react";
-import { colRef, auth } from "../../firebase.js";
-import { getDocs, where, query } from "firebase/firestore";
+import { colRef, auth, db } from "../../firebase.js";
+import { getDocs, where, query, deleteDoc, doc } from "firebase/firestore";
 function LoadPromptBox({ loadGameState }) {
     // Fetches the list of savefiles from Firebase
     // Takes the SETSTATE functions (to change the current states to the loaded file's states)
@@ -49,6 +49,21 @@ function LoadPromptBox({ loadGameState }) {
                                 <button disabled={true}>Load</button>
                             </>
                         )}
+                        <button
+                            onClick={() => {
+                                const docRef = doc(
+                                    db,
+                                    "testSaves",
+                                    savefile.id
+                                );
+                                console.log({docRef})
+                                console.log("Deleted file with id: ", savefile.id)
+                                deleteDoc(docRef);
+                            
+                            }}
+                        >
+                            Delete
+                        </button>
                     </div>
                 );
             })}

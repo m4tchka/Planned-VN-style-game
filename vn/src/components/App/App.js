@@ -14,7 +14,7 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
-import { auth } from "../../firebase.js";
+
 function App() {
     /*TODO: 
     Add Firebase Auth
@@ -103,7 +103,6 @@ function App() {
         }
         switchName();
         switchDialogue();
-        console.log(auth.currentUser);
         /*  if (currentSceneObj.Question) {
             toggleAutoModeV2();
             console.log("Auto has been toggled off automatically!");
