@@ -1,15 +1,16 @@
 import "./SavePromptBox.css";
 import { useEffect, useState } from "react";
-import { colRef, db } from "../../firebase.js";
+import { colRef, auth, db } from "../../firebase.js";
 import {
     getDocs,
     serverTimestamp,
     updateDoc,
     doc,
     addDoc,
+    where,
+    query,
     /* onSnapshot, */
 } from "firebase/firestore";
-import { auth } from "../../firebase.js";
 function SavePromptBox({ states }) {
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
     // Fetches the list of savefiles from Firebase - to overwrite
@@ -26,7 +27,9 @@ function SavePromptBox({ states }) {
         userId: auth.currentUser.uid,
     };
     useEffect(() => {
-        getDocs(colRef).then((snapshot) => {
+        getDocs(
+            query(colRef, where("userId", "==", auth.currentUser.uid))
+        ).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {
                 saves.push({ ...doc.data(), id: doc.id });
@@ -89,7 +92,7 @@ function SavePromptBox({ states }) {
                         ) : (
                             <>
                                 <p>No data</p>
-                                <button onClick={() => save()}>Save</button>
+                                <button onClick={save}>Save</button>
                             </>
                         )}
                     </div>

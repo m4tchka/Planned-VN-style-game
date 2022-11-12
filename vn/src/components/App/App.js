@@ -57,9 +57,7 @@ function App() {
     function switchSprites() {
         setSprites(currentSceneObj.Sprites);
     }
-    function switchBackground() {
-        setBg(currentSceneObj.Background);
-    }
+
     function switchDialogue() {
         setCurrentDialogue(currentSceneObj.Dialogue);
     }
@@ -95,9 +93,9 @@ function App() {
         switchCurrentSceneObj();
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
-        if (currentSceneObj.Background) {
-            switchBackground();
-        }
+        // if (currentSceneObj.Background) {
+        //     switchBackground();
+        // }
         if (currentSceneObj.Sprites) {
             switchSprites();
         }
@@ -108,6 +106,14 @@ function App() {
             console.log("Auto has been toggled off automatically!");
         } */
     });
+    useEffect(() => {
+        function switchBackground() {
+            setBg(currentSceneObj.Background);
+        }
+        if (currentSceneObj.Background) {
+            switchBackground();
+        }
+    }, [currentSceneObj.Background]);
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
@@ -133,18 +139,21 @@ function App() {
         console.log(savedObj, "Saved to localStorage !");
     }
     function load() {
-        let loadedObj = JSON.parse(localStorage.getItem("quickSaveFile"));
-        console.log("LoadedObj: ", loadedObj);
-        setBg(
-            ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-                .Background
+        let localLoadedGamestate = JSON.parse(
+            localStorage.getItem("quickSaveFile")
         );
-        //setBg(loadedObj.background);
-        setCurrentScene(loadedObj.scene);
-        setSceneArrayEntry(loadedObj.sceneEntry);
-        setLog(loadedObj.log);
-        setLuck(loadedObj.luck);
-        setSprites(loadedObj.sprites);
+        console.log("localLoadedObj: ", localLoadedGamestate);
+        // setBg(
+        //     ch1[loadedObj.scene].scene.findLast((element) => element.Background)
+        //         .Background
+        // );
+        // //setBg(loadedObj.background);
+        // setCurrentScene(loadedObj.scene);
+        // setSceneArrayEntry(loadedObj.sceneEntry);
+        // setLog(loadedObj.log);
+        // setLuck(loadedObj.luck);
+        // setSprites(loadedObj.sprites);
+        loadGameState(localLoadedGamestate);
     }
     let stateSnapshot = {
         currentScene,

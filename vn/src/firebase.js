@@ -34,14 +34,14 @@ export const eProvider = new EmailAuthProvider();
 export const colRef = collection(db, "testSaves");
 
 // get collection data
-getDocs(colRef).then((snapshot) => {
+/* getDocs(colRef).then((snapshot) => {
     let saves = [];
     snapshot.docs.forEach((doc) => {
         saves.push({ ...doc.data(), id: doc.id });
     });
     console.log("getdocs(fb): ", saves);
 });
-
+ */
 // realtime collection data
 /* onSnapshot(colRef, (snapshot) => {
     let saves = [];
