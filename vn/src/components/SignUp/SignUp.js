@@ -2,13 +2,13 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.js";
 
 export default function SignUp({ setIsLoggedIn, toggleSignUpModal }) {
-    async function handleSignUp() {
+    function handleSignUp() {
         const signUpForm = document.querySelector(".signup");
-        signUpForm.addEventListener("submit", (e) => {
+        signUpForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             let em = signUpForm.email.value;
             let pw = signUpForm.password.value;
-            createUserWithEmailAndPassword(auth, em, pw)
+            await createUserWithEmailAndPassword(auth, em, pw)
                 .then((cred) => {
                     console.log("User created:", cred.user);
                     signUpForm.reset();
