@@ -50,7 +50,7 @@ export default function MainMenu() {
                     </button>
                 </Link>
                 <button>Load</button>
-                <button className="menu-button">Online Load</button>
+                <button className="menu-button" disabled={!isLoggedIn}>Online Load</button>
                 <button className="menu-button">Options</button>
                 <Link className="menu-link" to="/about">
                     <button className="menu-button">About</button>

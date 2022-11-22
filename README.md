@@ -57,8 +57,8 @@ A visual novel is typically a way of telling a story, with some level of interac
         - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
         - [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [x]  Background switching
-- [x]  Skip (done, robust)
-- [x]  Log (done, robust)
+- [x]  Skip
+- [x]  Log 
     + [x]  Add skipped dialogue to log state
     + [x]  Move  logVisibility state & its logic  to a custom hook
     + [x]  Move log state & its logic to a custom hook

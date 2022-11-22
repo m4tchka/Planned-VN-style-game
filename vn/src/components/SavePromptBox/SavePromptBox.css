@@ -7,6 +7,8 @@
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
+    background-color: gray;
+    opacity: 0.8;
     /*     flex-direction: column;
     align-items: center;
     justify-content: center; */
@@ -26,4 +28,9 @@
 }
 .save-prompt-box-title {
     grid-area: 1 / 1 / 1 / 5;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
 }

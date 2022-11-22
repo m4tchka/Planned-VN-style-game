@@ -14,6 +14,7 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
+import { auth } from "../../firebase";
 
 function App() {
     /*TODO: 
@@ -143,16 +144,6 @@ function App() {
             localStorage.getItem("quickSaveFile")
         );
         console.log("localLoadedObj: ", localLoadedGamestate);
-        // setBg(
-        //     ch1[loadedObj.scene].scene.findLast((element) => element.Background)
-        //         .Background
-        // );
-        // //setBg(loadedObj.background);
-        // setCurrentScene(loadedObj.scene);
-        // setSceneArrayEntry(loadedObj.sceneEntry);
-        // setLog(loadedObj.log);
-        // setLuck(loadedObj.luck);
-        // setSprites(loadedObj.sprites);
         loadGameState(localLoadedGamestate);
     }
     let stateSnapshot = {
@@ -185,6 +176,11 @@ function App() {
                     height: "100vh",
                 }}
             >
+            {/* {auth.currentUser ? (
+                <p>User: {auth.currentUser.uid}</p>
+            ) : (
+                <p>No user found</p>
+            )} */}
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.Question ? (
                     <>

@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    getDocs /*,
+    /* getDocs ,
     onSnapshot  , 
     addDoc, 
     query, 
     where,
-    orderBy */,
+    orderBy */
 } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 
