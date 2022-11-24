@@ -14,14 +14,12 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
-import { auth } from "../../firebase";
+// import { auth } from "../../firebase";
 
 function App() {
     /*TODO: 
-    Add Firebase Auth
     Separate states for sprites
     REVIEW: Possibly add useReducer instead of so many "switch___" functions
-    Add delete save functionlity to loadPrompt
     Possibly move save/ load logic out to a hook
     Change sprite filenames
     */

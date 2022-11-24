@@ -54,8 +54,6 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Conditionally render a _choice box_ and map through an array of possible choices
     + [x]  Luck/ Standing/ Reputation/ Karma etc
         - [x]  "Min" Luck check logic - Choices being locked based on current standing/ repuation/ luck
-        - [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
-        - [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [x]  Background switching
 - [x]  Skip
 - [x]  Log 
@@ -68,7 +66,7 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Load (LOCAL ONLY) - Mostly done, bg not correctly switching when loading a previous scene on first click - second click correctly switches it back though... (works when loading a scene ahead of current position though...)
 - [x]  Sprite switching (WORKING - Add sprite key to dialogue obj if changing sprites/ slot order)
     + [x]  Different _expressions_ for same character (Done but not implemented (just change filepath for sprite obj in sprites array to a different .png easy))
-    + [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
+
 ---
 > ### Additional features
 - [x]  Backend - Firebase
@@ -87,7 +85,10 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [ ]  Options menu (to set auto speed, change player name, fonts etc)
     + [~]  About menu
     + [ ]  Exit
-- [ ]  Write an actual story
+- [ ]  Write an actual story 
+    + [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
+    + [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
+- [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
 - [ ]  Remove unused sprites (huge lag on commit & push)
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
