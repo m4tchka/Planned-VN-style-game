@@ -53,9 +53,6 @@ function App() {
     const { loadPromptVisibility, toggleLoadPromptVisibility } =
         useLoadPromptBox();
     useEffect(() => {
-        setLog(location.state ? location.state.gamestate.log : []);
-    }, [location.state, setLog]);
-    useEffect(() => {
         (function switchCurrentSceneObj() {
             setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
         })();

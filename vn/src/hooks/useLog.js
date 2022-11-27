@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 function useLog() {
-    const [log, setLog] = useState();
+    const location = useLocation();
+    const [log, setLog] = useState(location.state ? location.state.gamestate.log : []);
     function makeEntry(Name, Dialogue) {
         // let newEntry = {[`${Name}`]:Dialogue}
         let newEntry = { Name: Name, Dialogue: Dialogue };
