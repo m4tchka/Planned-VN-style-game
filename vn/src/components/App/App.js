@@ -25,7 +25,9 @@ function App() {
     */
     const location = useLocation();
     const [currentScene, setCurrentScene] = useState(
-        location.state ? location.state.gamestate.scene : 0
+        location.state
+            ? location.state.gamestate.scene
+            : ch1.findIndex((e) => e.id === 1)
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
@@ -53,19 +55,19 @@ function App() {
     useEffect(() => {
         setLog(location.state ? location.state.gamestate.log : []);
     }, [location.state, setLog]);
-    function switchSprites() {
-        setSprites(currentSceneObj.Sprites);
-    }
 
-    function switchDialogue() {
-        setCurrentDialogue(currentSceneObj.Dialogue);
-    }
-    function switchName() {
-        setCurrentName(currentSceneObj.Name);
-    }
-    function switchCurrentSceneObj() {
-        setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-    }
+    /* useEffect(() => {
+            (async ()=>{
+            // let res = await fetch("https://vn-story-api-m4tchka.koyeb.app/scenes/102")
+            let res = await fetch("http://localhost:8081/scenes/102",{
+                mode: 'cors'
+            })
+            let data = await res.json();
+            console.log("data: ",data)
+            // console.log("Current scene:",ch1[currentScene])
+        })();
+        
+        },[]) */
     let updateLog = () => {
         addEntry(makeEntry(currentName, currentDialogue));
     };
@@ -89,30 +91,44 @@ function App() {
         console.log("SkipToEnd function called");
     }
     useEffect(() => {
+        function switchCurrentSceneObj() {
+            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
+        }
         switchCurrentSceneObj();
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
-        // if (currentSceneObj.Background) {
-        //     switchBackground();
-        // }
+        function switchSprites() {
+            setSprites(currentSceneObj.Sprites);
+        }
         if (currentSceneObj.Sprites) {
             switchSprites();
         }
-        switchName();
-        switchDialogue();
-        /*  if (currentSceneObj.Question) {
-            toggleAutoModeV2();
-            console.log("Auto has been toggled off automatically!");
-        } */
-    });
-    useEffect(() => {
+        // --------
         function switchBackground() {
             setBg(currentSceneObj.Background);
         }
         if (currentSceneObj.Background) {
             switchBackground();
         }
-    }, [currentSceneObj.Background]);
+        // --------
+        function switchDialogue() {
+            setCurrentDialogue(currentSceneObj.Dialogue);
+        }
+        switchDialogue();
+        // --------
+        function switchName() {
+            setCurrentName(currentSceneObj.Name);
+        }
+        switchName();
+
+        /*  if (currentSceneObj.Question) {
+            toggleAutoModeV2();
+            console.log("Auto has been toggled off automatically!");
+        } */
+    });
+    // useEffect(() => {
+
+    // }, [currentSceneObj.Background]);
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
@@ -174,7 +190,7 @@ function App() {
                     height: "100vh",
                 }}
             >
-            {/* {auth.currentUser ? (
+                {/* {auth.currentUser ? (
                 <p>User: {auth.currentUser.uid}</p>
             ) : (
                 <p>No user found</p>
