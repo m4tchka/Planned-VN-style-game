@@ -10,9 +10,9 @@ export default function AboutPage() {
                     (work in progress)
                 </p>
                 <p className="about-content">
-                    {"\n"}Frontend made with react{"\n"}Backend made with
-                    firebase
-                    {"\n"}Hosted on netlify{"\n"}
+                    {"\n"}Frontend made with React{"\n"}Backend made with
+                    Firebase (savefiles + auth), Go (API) w/ MongoDB (chapters)
+                    {"\n"}Hosted on Netlify{"\n"}Sprites by @NoranekoGames
                 </p>
                 <h2>Usage: </h2>
                 <Link to="/">
