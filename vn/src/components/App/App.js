@@ -55,22 +55,29 @@ function App() {
     useEffect(() => {
         setLog(location.state ? location.state.gamestate.log : []);
     }, [location.state, setLog]);
-
-    /* useEffect(() => {
-            (async ()=>{
-            // let res = await fetch("https://vn-story-api-m4tchka.koyeb.app/scenes/102")
-            let res = await fetch("http://localhost:8081/scenes/102",{
-                mode: 'cors'
-            })
-            let data = await res.json();
-            console.log("data: ",data)
-            // console.log("Current scene:",ch1[currentScene])
+    useEffect(() => {
+        (function switchCurrentSceneObj() {
+            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
         })();
-        
-        },[]) */
-    let updateLog = () => {
-        addEntry(makeEntry(currentName, currentDialogue));
-    };
+        // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
+        // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
+        (function switchName() {
+            setCurrentName(currentSceneObj.Name);
+        })();
+        (function switchDialogue() {
+            setCurrentDialogue(currentSceneObj.Dialogue);
+        })();
+        if (currentSceneObj.Background) {
+            (function switchBackground() {
+                setBg(currentSceneObj.Background);
+            })();
+        }
+        if (currentSceneObj.Sprites) {
+            (function switchSprites() {
+                setSprites(currentSceneObj.Sprites);
+            })();
+        }
+    });
     function skipToEndOfCurrentScene() {
         let remainingObjsInArr = ch1[currentScene].scene.slice(
             sceneArrayEntry,
@@ -90,32 +97,6 @@ function App() {
         );
         console.log("SkipToEnd function called");
     }
-    useEffect(() => {
-        (function switchCurrentSceneObj() {
-            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
-        })()
-        // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
-        // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
-        (function switchName() {
-            setCurrentName(currentSceneObj.Name);
-        })()
-        (function switchDialogue() {
-            setCurrentDialogue(currentSceneObj.Dialogue);
-        })();
-        if (currentSceneObj.Sprites) {
-            (function switchSprites() {
-                setSprites(currentSceneObj.Sprites);
-            })();
-        }
-        if (currentSceneObj.Background) {
-            (function switchBackground() {
-                setBg(currentSceneObj.Background);
-            })();
-        }
-    });
-    // useEffect(() => {
-
-    // }, [currentSceneObj.Background]);
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
@@ -123,7 +104,7 @@ function App() {
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
-            updateLog();
+            addEntry(makeEntry(currentName, currentDialogue));
         } else {
             console.log("Please select a choice!");
         }

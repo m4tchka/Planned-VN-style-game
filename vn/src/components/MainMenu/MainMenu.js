@@ -16,6 +16,19 @@ export default function MainMenu() {
     const { showSignInModal, toggleSignInModal } = useSignInModal();
     // TODO: React Router DOM
     // To make bg full screen, take from top-level div in App.js
+    
+    /* useEffect(() => {
+            (async ()=>{
+            // let res = await fetch("https://vn-story-api-m4tchka.koyeb.app/scenes/102")
+            let res = await fetch("http://localhost:8081/scenes/102",{
+                mode: 'cors'
+            })
+            let data = await res.json();
+            console.log("data: ",data)
+            // console.log("Current scene:",ch1[currentScene])
+        })();
+        
+        },[]) */
     return (
         <div
             className="main-menu"
