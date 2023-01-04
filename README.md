@@ -89,6 +89,7 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
     + [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
+- [ ]  Combine luckChange & minLuck into an object, and change luck state into an object
 - [ ]  Remove unused sprites (huge lag on commit & push)
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)

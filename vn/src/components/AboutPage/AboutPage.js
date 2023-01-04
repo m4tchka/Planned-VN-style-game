@@ -11,7 +11,7 @@ export default function AboutPage() {
                 </p>
                 <p className="about-content">
                     {"\n"}Frontend made with React{"\n"}Backend made with
-                    Firebase (savefiles + auth), Go (API) w/ MongoDB (chapters)
+                    Firebase (savefiles + auth), Go (chapters API) w/ MongoDB (chapters)
                     {"\n"}Hosted on Netlify{"\n"}Sprites by @NoranekoGames
                 </p>
                 <h2>Usage: </h2>
@@ -21,9 +21,4 @@ export default function AboutPage() {
             </div>
         </div>
     );
-}
-/* 
-    Frontend made with react
-    Backend made with firebase
-    Hosted on netlify
-*/
+};
