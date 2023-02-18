@@ -15,6 +15,7 @@ let ch1 = [
                     {},
                     {},
                 ],
+                // Sound effects
             },
             {
                 Name: "Aiko ?",
