@@ -32,6 +32,7 @@ function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
     );
+    const [playerName,setPlayerName] = useState("TestName");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");

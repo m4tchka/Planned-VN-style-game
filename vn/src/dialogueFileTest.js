@@ -2,11 +2,13 @@ let ch1Test = {
     0: {
         id: 0,
         title: "",
+        summary:"",
         scene: [
             {
                 Name: "",
                 Dialogue: "!!!",
-                Background: `/backgrounds/pureWhite.jpg`,
+                // Background: `/backgrounds/pureWhite.jpg`,
+                Background: `/backgrounds/test.jpg`,
             },
             {
                 Name: "",
