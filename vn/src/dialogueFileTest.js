@@ -1,3 +1,4 @@
+// NOTE: Change iterator in app.js to look through object's keys instead of array
 let ch1Test = {
     0: {
         id: 0,
