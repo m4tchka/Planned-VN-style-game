@@ -2,8 +2,8 @@
 let ch1Test = {
     0: {
         id: 0,
-        title: "",
-        summary:"",
+        title: "scene0",
+        summary:"scene0 description",
         scene: [
             {
                 Name: "",
@@ -131,6 +131,9 @@ let ch1Test = {
         ],
     },
     1: {
+        id: 1,
+        title: "scene1",
+        summary:"scene1 description",
         scene: [
             {},
             {},

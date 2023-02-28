@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 import { ch1 } from "../../dialogueFile.js";
+import { ch1Test } from "../../dialogueFileTest";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
@@ -27,7 +28,7 @@ function App() {
     const [currentScene, setCurrentScene] = useState(
         location.state
             ? location.state.gamestate.scene
-            : ch1.findIndex((e) => e.id === 1)
+            : /* ch1.findIndex((e) => e.id === 1) */0
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
