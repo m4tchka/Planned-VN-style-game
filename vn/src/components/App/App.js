@@ -56,7 +56,7 @@ function App() {
         useLoadPromptBox();
     useEffect(() => {
         (function switchCurrentSceneObj() {
-            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
+            setCurrentSceneObj(ch1Test[currentScene].scene[sceneArrayEntry]);
         })();
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
@@ -78,20 +78,20 @@ function App() {
         }
     });
     function skipToEndOfCurrentScene() {
-        let remainingObjsInArr = ch1[currentScene].scene.slice(
+        let remainingObjsInArr = ch1Test[currentScene].scene.slice(
             sceneArrayEntry,
-            ch1[currentScene].scene.length - 1
+            ch1Test[currentScene].scene.length - 1
         );
         addEntry(remainingObjsInArr);
-        let endOfSceneEntry = ch1[currentScene].scene.length - 1;
+        let endOfSceneEntry = ch1Test[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
-        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
+        setCurrentSceneObj(ch1Test[currentScene].scene[endOfSceneEntry]);
         setSprites(
-            ch1[currentScene].scene.findLast((element) => element.Sprites)
+            ch1Test[currentScene].scene.findLast((element) => element.Sprites)
                 .Sprites
         );
         setBg(
-            ch1[currentScene].scene.findLast((element) => element.Background)
+            ch1Test[currentScene].scene.findLast((element) => element.Background)
                 .Background
         );
         console.log("SkipToEnd function called");
@@ -99,7 +99,7 @@ function App() {
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
-            sceneArrayEntry < ch1[currentScene].scene.length &&
+            sceneArrayEntry < ch1Test[currentScene].scene.length &&
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
