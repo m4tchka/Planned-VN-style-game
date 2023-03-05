@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
-import { ch1 } from "../../dialogueFile.js";
+// import { ch1 } from "../../dialogueFile.js";
 import { ch1Test } from "../../dialogueFileTest";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";

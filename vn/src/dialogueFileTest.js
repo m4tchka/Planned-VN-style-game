@@ -103,6 +103,9 @@ let ch1Test = {
                 Dialogue: "WHO---ARE---YOU???",
             },
             {
+                PlayerInput:true,
+            },
+            {
                 Name:"",
                 Dialogue:"",
                 Question:"Test question",
