@@ -28,12 +28,12 @@ function App() {
     const [currentScene, setCurrentScene] = useState(
         location.state
             ? location.state.gamestate.scene
-            : /* ch1.findIndex((e) => e.id === 1) */0
+            : /* ch1.findIndex((e) => e.id === 1) */ 0
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
     );
-    const [playerName,setPlayerName] = useState("TestName");
+    const [playerName, setPlayerName] = useState("TestName");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
@@ -46,6 +46,7 @@ function App() {
     const [sprites, setSprites] = useState(
         location.state ? location.state.gamestate.sprites : []
     );
+    const [inputVal, setInputVal] = useState("");
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
@@ -76,6 +77,12 @@ function App() {
                 setSprites(currentSceneObj.Sprites);
             })();
         }
+        // if (currentSceneObj.PlayerInput) {
+        //     (function setName() {
+        //         setPlayerName(prompt("What was I called again ?"));
+        //         // handleClick()
+        //     })();
+        // }
     });
     function skipToEndOfCurrentScene() {
         let remainingObjsInArr = ch1Test[currentScene].scene.slice(
@@ -91,8 +98,9 @@ function App() {
                 .Sprites
         );
         setBg(
-            ch1Test[currentScene].scene.findLast((element) => element.Background)
-                .Background
+            ch1Test[currentScene].scene.findLast(
+                (element) => element.Background
+            ).Background
         );
         console.log("SkipToEnd function called");
     }
@@ -162,7 +170,30 @@ function App() {
             ) : (
                 <p>No user found</p>
             )} */}
+                <h1>{playerName}</h1>
                 <SpriteSectionBox spriteList={sprites} />
+                {currentSceneObj.PlayerInput ? (
+                    <>
+                        <form
+                            onSubmit={(e) => {
+                                console.log("FORM SUBMITTED <<<<")
+                                // handleClick()
+                                setPlayerName(inputVal);
+                            }}
+                        >
+                            <input
+                                type="text"
+                                value={inputVal}
+                                onChange={(e) => {
+                                    e.preventDefault();
+                                    setInputVal(e.target.value);
+                                }}
+                            ></input>
+                        </form>
+                    </>
+                ) : (
+                    <></>
+                )}
                 {currentSceneObj.Question ? (
                     <>
                         <ChoiceBox

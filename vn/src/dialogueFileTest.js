@@ -104,6 +104,8 @@ let ch1Test = {
             },
             {
                 PlayerInput:true,
+                Name:"...",
+                Dialogue:"..."
             },
             {
                 Name:"",
