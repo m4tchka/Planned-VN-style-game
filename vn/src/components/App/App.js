@@ -165,20 +165,17 @@ function App() {
                     height: "100vh",
                 }}
             >
-                {/* {auth.currentUser ? (
-                <p>User: {auth.currentUser.uid}</p>
-            ) : (
-                <p>No user found</p>
-            )} */}
                 <h1>{playerName}</h1>
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.PlayerInput ? (
                     <>
                         <form
                             onSubmit={(e) => {
+                                e.preventDefault()
                                 console.log("FORM SUBMITTED <<<<")
-                                // handleClick()
+                                handleClick()
                                 setPlayerName(inputVal);
+                                setInputVal("")
                             }}
                         >
                             <input
