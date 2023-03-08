@@ -62,10 +62,15 @@ function App() {
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         (function switchName() {
-            setCurrentName(currentSceneObj.Name?currentSceneObj.Name:playerName);
+            setCurrentName(
+                currentSceneObj.Name ? currentSceneObj.Name : playerName
+            );
         })();
         (function switchDialogue() {
-            setCurrentDialogue(currentSceneObj.Dialogue);
+            let dia = currentSceneObj.Dialogue;
+            setCurrentDialogue(
+                currentSceneObj.Dialogue ? dia.replace("YourName", playerName) : dia
+            );
         })();
         if (currentSceneObj.Background) {
             (function switchBackground() {
@@ -124,6 +129,7 @@ function App() {
             log: log,
             luck: luck,
             sprites: sprites,
+            playerName: playerName,
         };
         localStorage.setItem("quickSaveFile", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
@@ -142,6 +148,7 @@ function App() {
         log,
         luck,
         sprites,
+        playerName,
     };
     function loadGameState(gameStateObj) {
         console.log("loadGameState called with: ", gameStateObj);
@@ -151,6 +158,7 @@ function App() {
         setLog(gameStateObj.log);
         setLuck(gameStateObj.luck);
         setSprites(gameStateObj.sprites);
+        setPlayerName(gameStateObj.playerName);
     }
     return (
         <>
@@ -165,17 +173,17 @@ function App() {
                     height: "100vh",
                 }}
             >
-                <h1>{playerName}</h1>
+                {/* <h1>{playerName}</h1> */}
                 <SpriteSectionBox spriteList={sprites} />
                 {currentSceneObj.PlayerInput ? (
                     <>
                         <form
                             onSubmit={(e) => {
-                                e.preventDefault()
-                                console.log("FORM SUBMITTED <<<<")
-                                handleClick()
+                                e.preventDefault();
+                                console.log("FORM SUBMITTED <<<<");
+                                handleClick();
                                 setPlayerName(inputVal);
-                                setInputVal("")
+                                setInputVal("");
                             }}
                         >
                             <input
