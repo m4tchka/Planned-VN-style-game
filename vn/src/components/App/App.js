@@ -33,7 +33,7 @@ function App() {
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
     );
-    const [playerName, setPlayerName] = useState("TestName");
+    const [playerName, setPlayerName] = useState("...");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
@@ -62,7 +62,7 @@ function App() {
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         (function switchName() {
-            setCurrentName(currentSceneObj.Name);
+            setCurrentName(currentSceneObj.Name?currentSceneObj.Name:playerName);
         })();
         (function switchDialogue() {
             setCurrentDialogue(currentSceneObj.Dialogue);

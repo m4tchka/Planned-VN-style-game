@@ -16,40 +16,40 @@ let ch1Test = {
                 Dialogue: " ... ",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "(Urgh...)",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "(Where am I ... ?)",
                 Background: `/backgrounds/peacefulCabin.jpg`,
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "Behind someone's house?",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "Huh...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "Wait...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue:
                     "How did I get here? The nearest countryside is hours away...",
             },
@@ -58,7 +58,7 @@ let ch1Test = {
                 Dialogue: "Huh! Who are you???",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "(A girl? Why is she just staring at me?)",
             },
             {
@@ -71,11 +71,11 @@ let ch1Test = {
                     "If you aren't going to say anything, then just leave!",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "Uhh... (I have no idea what to say)",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "Hello.",
             },
             {
@@ -83,7 +83,7 @@ let ch1Test = {
                 Dialogue: "...",
             },
             {
-                Name: "...",
+                Name: "",
                 Dialogue: "...",
             },
             {
@@ -104,7 +104,7 @@ let ch1Test = {
             },
             {
                 PlayerInput:true,
-                Name:"...",
+                Name:"",
                 Dialogue:"..."
             },
             {
