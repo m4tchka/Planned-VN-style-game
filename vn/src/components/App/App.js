@@ -69,7 +69,7 @@ function App() {
         (function switchDialogue() {
             let dia = currentSceneObj.Dialogue;
             setCurrentDialogue(
-                currentSceneObj.Dialogue ? dia.replace("YourName", playerName) : dia
+                currentSceneObj.Dialogue ? dia.replace("$YourName", playerName) : dia
             );
         })();
         if (currentSceneObj.Background) {
