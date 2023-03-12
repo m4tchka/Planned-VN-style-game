@@ -9,10 +9,12 @@ import {
     addDoc,
     where,
     query,
+    orderBy,
     /* onSnapshot, */
 } from "firebase/firestore";
 function SavePromptBox({ states }) {
-    let { currentScene, sceneArrayEntry, bg, log, luck, sprites, playerName } = states;
+    let { currentScene, sceneArrayEntry, bg, log, luck, sprites, playerName } =
+        states;
     // Fetches the list of savefiles from Firebase - to overwrite
     // Takes the STATES themselves - to make a snapshot of and send to Firebase as a document
     const [savefiles, setSavefiles] = useState([]);
@@ -29,7 +31,11 @@ function SavePromptBox({ states }) {
     };
     useEffect(() => {
         getDocs(
-            query(colRef, where("userId", "==", auth.currentUser.uid))
+            query(
+                colRef,
+                where("userId", "==", auth.currentUser.uid),
+                orderBy("createdAt", "desc")
+            )
         ).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {

@@ -1,14 +1,25 @@
 import "./LoadPromptBox.css";
 import { useEffect, useState } from "react";
 import { colRef, auth, db } from "../../firebase.js";
-import { getDocs, where, query, deleteDoc, doc } from "firebase/firestore";
+import {
+    getDocs,
+    doc,
+    query,
+    where,
+    orderBy,
+    deleteDoc,
+} from "firebase/firestore";
 function LoadPromptBox({ loadGameState }) {
     // Fetches the list of savefiles from Firebase
     // Takes the SETSTATE functions (to change the current states to the loaded file's states)
     const [loadfiles, setLoadfiles] = useState([]);
     useEffect(() => {
         getDocs(
-            query(colRef, where("userId", "==", auth.currentUser.uid))
+            query(
+                colRef,
+                where("userId", "==", auth.currentUser.uid),
+                orderBy("createdAt", "desc")
+            )
         ).then((snapshot) => {
             let saves = [];
             snapshot.docs.forEach((doc) => {
@@ -56,10 +67,12 @@ function LoadPromptBox({ loadGameState }) {
                                     "testSaves",
                                     savefile.id
                                 );
-                                console.log({docRef})
-                                console.log("Deleted file with id: ", savefile.id)
+                                console.log({ docRef });
+                                console.log(
+                                    "Deleted file with id: ",
+                                    savefile.id
+                                );
                                 deleteDoc(docRef);
-                            
                             }}
                         >
                             Delete
