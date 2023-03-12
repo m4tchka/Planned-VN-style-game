@@ -12,7 +12,7 @@ import {
     /* onSnapshot, */
 } from "firebase/firestore";
 function SavePromptBox({ states }) {
-    let { currentScene, sceneArrayEntry, bg, log, luck, sprites } = states;
+    let { currentScene, sceneArrayEntry, bg, log, luck, sprites, playerName } = states;
     // Fetches the list of savefiles from Firebase - to overwrite
     // Takes the STATES themselves - to make a snapshot of and send to Firebase as a document
     const [savefiles, setSavefiles] = useState([]);
@@ -23,6 +23,7 @@ function SavePromptBox({ states }) {
         log: log,
         luck: luck,
         sprites: sprites,
+        playerName: playerName,
         createdAt: serverTimestamp(),
         userId: auth.currentUser.uid,
     };

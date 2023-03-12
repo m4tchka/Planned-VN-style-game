@@ -177,7 +177,7 @@ let ch1Test = {
 			},
 			{
 				Name:"???",
-				Dialogue:"Well, I think he would know best on what to do in cases like this, so I can take you to see him, if you'd like",
+				Dialogue:"Well, I think he would know best on what to do in cases like this, so I can take you to see him, if you'd like?",
 			},
 			// Possible early branch here - refuse her and go your own way - meet different MC girl in the wilderness
 			{
@@ -186,7 +186,7 @@ let ch1Test = {
 			},
 			{
 				Name:"",
-				Dialogue:"Yes please, I think sounds like it would be best",
+				Dialogue:"Yes please, I think sounds like it would be best...",
 			},
 			{
 				Name:"",
