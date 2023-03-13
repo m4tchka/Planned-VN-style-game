@@ -72,7 +72,7 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [x]  Backend - Firebase
     + [x]  Store savefiles with current dialogue
         - [x]  Savefiles have current luck etc
-        - [ ]  Savefiles have player name
+        - [x]  Savefiles have player name
         - [x]  Savefiles have date created
         - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))

@@ -119,6 +119,32 @@ let ch1Test = {
 				Name:"???",
 				Dialogue:"You...?",
 			},
+            {
+                Name:"",
+                Dialgoue:"...",
+                Question:"(How should I answer her?)",
+                Options:[
+                    {
+                        Text:"'IDK'",
+                        Next:`1a`,
+                        LuckChange: 0,
+                        MinLuck: 0,
+                    },
+                    {
+                        Text: "Tell the truth...",
+                        Next: `1b`,
+                        LuckChange: 0,
+                        MinLuck: 0,
+                    },
+                    {
+                        Text: "I'm not sure to be honest...",
+                        Next: `1c`,
+                        LuckChange: 0,
+                        MinLuck: 0,
+                    },
+                ]
+            },
+
 			{
 				Name:"",
 				Dialogue:"It's hard to believe, but I was walking down a road near my house, and there was a bright flash of light and I ended up here.",
@@ -205,12 +231,12 @@ let ch1Test = {
 				Dialogue:"Wow... yeah, I've never heard of any of those before... this really is a totally different world...",
 			},
 			{
-				Name:"",
-				Dialogue:"",
+				Name:"asjdaslkd",
+				Dialogue:"asdasdad",
 			},
             {
-                Name:"",
-                Dialogue:"",
+              /*   Name:"",
+                Dialogue:"", */
                 Question:"Test question",
                 Options:[
                     {

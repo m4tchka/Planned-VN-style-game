@@ -13,6 +13,7 @@ import {
     /* onSnapshot, */
 } from "firebase/firestore";
 function SavePromptBox({ states }) {
+    // TODO: Look at merging SavePromptBox and LoadPromptBox into a single reusable compnoent
     let { currentScene, sceneArrayEntry, bg, log, luck, sprites, playerName } =
         states;
     // Fetches the list of savefiles from Firebase - to overwrite
