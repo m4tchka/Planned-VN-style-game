@@ -69,7 +69,9 @@ function App() {
         (function switchDialogue() {
             let dia = currentSceneObj.Dialogue;
             setCurrentDialogue(
-                currentSceneObj.Dialogue ? dia.replace("$YourName", playerName) : dia
+                currentSceneObj.Dialogue
+                    ? dia.replace("$YourName", playerName)
+                    : dia
             );
         })();
         if (currentSceneObj.Background) {
@@ -82,6 +84,9 @@ function App() {
                 setSprites(currentSceneObj.Sprites);
             })();
         }
+        // if (currentSceneObj.ForcedNext) {
+        //     (function)
+        // }
         // if (currentSceneObj.PlayerInput) {
         //     (function setName() {
         //         setPlayerName(prompt("What was I called again ?"));
@@ -113,9 +118,19 @@ function App() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             sceneArrayEntry < ch1Test[currentScene].scene.length &&
-            !currentSceneObj.Question
+            !currentSceneObj.Question &&
+            !currentSceneObj.ForcedNext
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
+            addEntry(makeEntry(currentName, currentDialogue));
+        } else if (
+            // Triggers if there is a ForcedNext property - redirecting story to a route without player choice
+            sceneArrayEntry < ch1Test[currentScene].scene.length &&
+            !currentSceneObj.Question
+        ) {
+
+            setSceneArrayEntry(0);
+            setCurrentScene(currentSceneObj.ForcedNext);
             addEntry(makeEntry(currentName, currentDialogue));
         } else {
             console.log("Please select a choice!");

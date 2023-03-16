@@ -125,27 +125,73 @@ let ch1Test = {
                 Question:"(How should I answer her?)",
                 Options:[
                     {
-                        Text:"'IDK'",
-                        Next:`1a`,
+                        Text:"Well...",
+                        Next:`0a`,
                         LuckChange: 0,
                         MinLuck: 0,
                     },
                     {
-                        Text: "Tell the truth...",
-                        Next: `1b`,
+                        Text: "(Tell the truth)",
+                        Next: `0b`,
                         LuckChange: 0,
                         MinLuck: 0,
                     },
                     {
-                        Text: "I'm not sure to be honest...",
-                        Next: `1c`,
+                        Text: "I'm not really sure to be honest...",
+                        Next: `0c`,
                         LuckChange: 0,
                         MinLuck: 0,
                     },
                 ]
             },
-
-			{
+        ],
+    },
+    '0a':{
+        id: '0a',
+        title: "scene0a",
+        summary:"scene0a description",
+        scene: [
+            {
+                Name:"",
+                Dialogue:"It's a bit of a long story, but I was walking back from the supermarket..."
+            },
+            {
+                Name:"",
+                Dialogue:"...and well-",
+            },
+            {
+                Name:"???",
+                Dialogue:"Hang on... the nearest market is almost a day's travel from here...",
+            },
+            {
+                Name:"???",
+                Dialogue:"...and what's a supermarket?"
+            },
+            {
+                Name:"???",
+                Dialogue:"Is it a new type of market?"
+            },
+            {
+                Name:"",
+                Dialogue:"(This is really strange... she doesn't know what a supermarket is, and we appear to be really far into the countryside)",
+            },
+            {
+                Name:"",
+                Dialogue:"(It was also night when I was walking home, yet it's daytime here...)"
+            },
+            {
+                Name:"",
+                Dialogue:"(This really doesn't add up...)",
+                ForcedNext:"0f",
+            },
+        ],
+    },
+    '0b':{
+        id: '0b',
+        title: "scene0b",
+        summary:"scene0b description",
+        scene: [
+            {
 				Name:"",
 				Dialogue:"It's hard to believe, but I was walking down a road near my house, and there was a bright flash of light and I ended up here.",
 			},
@@ -172,7 +218,16 @@ let ch1Test = {
 			{
 				Name:"",
 				Dialogue:"(Was this girl living under a rock? Or...)",
+                ForcedNext: "0f",
 			},
+        ],
+    },
+
+
+	
+
+    '0f':{
+        scene:[
 			{
 				Name:"",
 				Dialogue:"Where are we, by the way?",
