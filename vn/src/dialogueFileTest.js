@@ -1,7 +1,7 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
 let ch1Test = {
     0: {
-        id: 0,
+        id: '0',
         title: "scene0",
         summary:"scene0 description",
         scene: [
@@ -193,11 +193,11 @@ let ch1Test = {
         scene: [
             {
 				Name:"",
-				Dialogue:"It's hard to believe, but I was walking down a road near my house, and there was a bright flash of light and I ended up here.",
+				Dialogue:"It's hard to believe, but I was walking home at night, and suddently there was a bright flash of light and I ended up here.",
 			},
 			{
 				Name:"",
-				Dialogue:"My whole body hurts though, like I was hit by a bus or something...",
+				Dialogue:"My whole body hurts, like I was hit by a bus or something...",
 			},
 			{
 				Name:"???",
@@ -205,7 +205,7 @@ let ch1Test = {
 			},
 			{
 				Name:"",
-				Dialogue:"Huh? You know, the thing that carries lots of people along a certain route...",
+				Dialogue:"Huh? You know, the thing that carries lots of people along a particular route...",
 			},
 			{
 				Name:"???",
@@ -222,7 +222,17 @@ let ch1Test = {
 			},
         ],
     },
-
+    '0c':{
+        id:'0c',
+        title:"scene0c",
+        summary:"scene0c description",
+        scene:[
+            {
+                Name:"",
+                Dialogue:""
+            }
+        ]
+    },
 
 	
 

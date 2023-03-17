@@ -117,6 +117,7 @@ function App() {
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
+            //Normal condition, most clicks will use this logic
             sceneArrayEntry < ch1Test[currentScene].scene.length &&
             !currentSceneObj.Question &&
             !currentSceneObj.ForcedNext
@@ -128,7 +129,6 @@ function App() {
             sceneArrayEntry < ch1Test[currentScene].scene.length &&
             !currentSceneObj.Question
         ) {
-
             setSceneArrayEntry(0);
             setCurrentScene(currentSceneObj.ForcedNext);
             addEntry(makeEntry(currentName, currentDialogue));
