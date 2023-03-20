@@ -229,8 +229,21 @@ let ch1Test = {
         scene:[
             {
                 Name:"",
-                Dialogue:""
-            }
+                Dialogue:"I'm just as confused as you are...",
+            },
+            {
+                Name:"",
+                Dialogue:"There was a light that consumed my entire vision and then I must have been unconscious, since I don't remember anything after...",
+            },
+            {
+                Name:"",
+                Dialogue:"...when I woke up I was lying here in the grass.",
+            },
+            {
+                Name:"",
+                Dialogue:"I have no idea where 'here' is though...",
+                ForcedNext:"0f",
+            },
         ]
     },
 
