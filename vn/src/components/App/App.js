@@ -2,7 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
-import { ch1 } from "../../dialogueFile.js";
+// import { ch1 } from "../../dialogueFile.js";
+import { ch1Test } from "../../dialogueFileTest";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
@@ -27,11 +28,12 @@ function App() {
     const [currentScene, setCurrentScene] = useState(
         location.state
             ? location.state.gamestate.scene
-            : ch1.findIndex((e) => e.id === 1)
+            : /* ch1.findIndex((e) => e.id === 1) */ 0
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
     );
+    const [playerName, setPlayerName] = useState("...");
     const [currentSceneObj, setCurrentSceneObj] = useState({});
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
@@ -44,6 +46,7 @@ function App() {
     const [sprites, setSprites] = useState(
         location.state ? location.state.gamestate.sprites : []
     );
+    const [inputVal, setInputVal] = useState("");
     /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
@@ -54,15 +57,22 @@ function App() {
         useLoadPromptBox();
     useEffect(() => {
         (function switchCurrentSceneObj() {
-            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
+            setCurrentSceneObj(ch1Test[currentScene].scene[sceneArrayEntry]);
         })();
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         (function switchName() {
-            setCurrentName(currentSceneObj.Name);
+            setCurrentName(
+                currentSceneObj.Name ? currentSceneObj.Name : playerName
+            );
         })();
         (function switchDialogue() {
-            setCurrentDialogue(currentSceneObj.Dialogue);
+            let dia = currentSceneObj.Dialogue;
+            setCurrentDialogue(
+                currentSceneObj.Dialogue
+                    ? dia.replace("$YourName", playerName)
+                    : dia
+            );
         })();
         if (currentSceneObj.Background) {
             (function switchBackground() {
@@ -74,33 +84,53 @@ function App() {
                 setSprites(currentSceneObj.Sprites);
             })();
         }
+        // if (currentSceneObj.ForcedNext) {
+        //     (function)
+        // }
+        // if (currentSceneObj.PlayerInput) {
+        //     (function setName() {
+        //         setPlayerName(prompt("What was I called again ?"));
+        //         // handleClick()
+        //     })();
+        // }
     });
     function skipToEndOfCurrentScene() {
-        let remainingObjsInArr = ch1[currentScene].scene.slice(
+        let remainingObjsInArr = ch1Test[currentScene].scene.slice(
             sceneArrayEntry,
-            ch1[currentScene].scene.length - 1
+            ch1Test[currentScene].scene.length - 1
         );
         addEntry(remainingObjsInArr);
-        let endOfSceneEntry = ch1[currentScene].scene.length - 1;
+        let endOfSceneEntry = ch1Test[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
-        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
+        setCurrentSceneObj(ch1Test[currentScene].scene[endOfSceneEntry]);
         setSprites(
-            ch1[currentScene].scene.findLast((element) => element.Sprites)
+            ch1Test[currentScene].scene.findLast((element) => element.Sprites)
                 .Sprites
         );
         setBg(
-            ch1[currentScene].scene.findLast((element) => element.Background)
-                .Background
+            ch1Test[currentScene].scene.findLast(
+                (element) => element.Background
+            ).Background
         );
         console.log("SkipToEnd function called");
     }
     function handleClick() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
-            sceneArrayEntry < ch1[currentScene].scene.length &&
-            !currentSceneObj.Question
+            //Normal condition, most clicks will use this logic
+            sceneArrayEntry < ch1Test[currentScene].scene.length &&
+            !currentSceneObj.Question &&
+            !currentSceneObj.ForcedNext
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
+            addEntry(makeEntry(currentName, currentDialogue));
+        } else if (
+            // Triggers if there is a ForcedNext property - redirecting story to a route without player choice
+            sceneArrayEntry < ch1Test[currentScene].scene.length &&
+            !currentSceneObj.Question
+        ) {
+            setSceneArrayEntry(0);
+            setCurrentScene(currentSceneObj.ForcedNext);
             addEntry(makeEntry(currentName, currentDialogue));
         } else {
             console.log("Please select a choice!");
@@ -114,6 +144,7 @@ function App() {
             log: log,
             luck: luck,
             sprites: sprites,
+            playerName: playerName,
         };
         localStorage.setItem("quickSaveFile", JSON.stringify(savedObj));
         console.log(savedObj, "Saved to localStorage !");
@@ -132,6 +163,7 @@ function App() {
         log,
         luck,
         sprites,
+        playerName,
     };
     function loadGameState(gameStateObj) {
         console.log("loadGameState called with: ", gameStateObj);
@@ -141,6 +173,7 @@ function App() {
         setLog(gameStateObj.log);
         setLuck(gameStateObj.luck);
         setSprites(gameStateObj.sprites);
+        setPlayerName(gameStateObj.playerName);
     }
     return (
         <>
@@ -155,12 +188,32 @@ function App() {
                     height: "100vh",
                 }}
             >
-                {/* {auth.currentUser ? (
-                <p>User: {auth.currentUser.uid}</p>
-            ) : (
-                <p>No user found</p>
-            )} */}
+                {/* <h1>{playerName}</h1> */}
                 <SpriteSectionBox spriteList={sprites} />
+                {currentSceneObj.PlayerInput ? (
+                    <>
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                console.log("FORM SUBMITTED <<<<");
+                                handleClick();
+                                setPlayerName(inputVal);
+                                setInputVal("");
+                            }}
+                        >
+                            <input
+                                type="text"
+                                value={inputVal}
+                                onChange={(e) => {
+                                    e.preventDefault();
+                                    setInputVal(e.target.value);
+                                }}
+                            ></input>
+                        </form>
+                    </>
+                ) : (
+                    <></>
+                )}
                 {currentSceneObj.Question ? (
                     <>
                         <ChoiceBox

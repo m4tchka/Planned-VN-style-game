@@ -3,7 +3,7 @@
 Take a look at the deployed app [here !](https://react-visual-novel.netlify.app/)
 <br>
 
-:warning: NB: Images load notably slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be addressed at a later date ! :warning:
+:warning: NB: Images load slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be addressed at a later date ! :warning:
 
 :warning: The backend for this is currently a WIP. :warning: 
 
@@ -12,7 +12,7 @@ This repository contains the planning and code for a Visual Novel made in React.
 
 ## Overview:
 This is my attempt at a Visual Novel made in React. 
-Initially this will be just a VN, with a """"story""""; this part specifically will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
+Initially this will be just a VN, with a """"story""""; this part will ideally achive most of the functionality of a real VN, including choices, sprite switching and save/ load functionality to "bookmark" progress.
 
 In the far far future, this _may_ include a game element reminiscent of browser flash games from the mid-late 2000s, combining gameplay similar to those, with the VN-style storytelling in between. 
 
@@ -21,11 +21,11 @@ In the far far future, this _may_ include a game element reminiscent of browser 
 ## Usage: 
 A visual novel is typically a way of telling a story, with some level of interaction and _choice_ on the part of the reader, whilst also typically having sprites representing the characters appearing/ disappearing based on which character is currently "talking", as well as several buttons to view what was previously said, skip to the end of scene:
 
-- Clicking on the textbox advances the dialogue,
+- Clicking on the textbox advances the dialogue.
 
-- Clicking on a choice (if/ when they appear) goes down that "route" of the story
+- Clicking on a choice (if/ when they appear) goes down that "route" of the story.
 
-- Pressing skip skips to the end of the current scene
+- Pressing skip skips to the end of the current scene.
 
 - Pressing auto automatically clicks through the dialogue until it reaches a choice
 
@@ -72,7 +72,7 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [x]  Backend - Firebase
     + [x]  Store savefiles with current dialogue
         - [x]  Savefiles have current luck etc
-        - [ ]  Savefiles have player name
+        - [x]  Savefiles have player name
         - [x]  Savefiles have date created
         - [x]  Savefiles can be fetched and loaded
     + [ ]  Store *stories* (some structure with several chapters (+ a key indicating a self-insert story?))
@@ -89,6 +89,7 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [ ]  "Hard" difficulty - Start with less than normal "luck" = fewer availiable choices (maybe ? - More of a _storywriting_ issue) 
     + [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
+- [ ]  Combine luckChange & minLuck into an object, and change luck state into an object
 - [ ]  Remove unused sprites (huge lag on commit & push)
 - [ ]  Basic _react-testing-library_ tests
 - [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
@@ -99,8 +100,6 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [x]  Can make basic JSON file of a scene{} with id and a scene[] consisting of dialogue{}, with name & dialogue keys
     + [x]  CLI prompts for additional keys on each dialogue object, such as _Background_,_Question_,_Options[]_ (with Option{}s) 
 
-### Component tree & Wireframe:
-See _"low-fid.excalidraw"_
 
 ### Dialogue file: 
 #### Possible formats

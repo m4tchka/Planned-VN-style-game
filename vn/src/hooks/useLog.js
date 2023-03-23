@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 function useLog() {
+    // TODO: Add condition to shift oldest entry when log is above certain number of entries.
     const location = useLocation();
     const [log, setLog] = useState(location.state ? location.state.gamestate.log : []);
     function makeEntry(Name, Dialogue) {

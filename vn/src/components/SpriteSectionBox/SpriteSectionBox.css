@@ -21,6 +21,8 @@
 .Sprite {
     max-width: 90%;
     max-height: 90%;
+    min-height: 75%;
+    min-width: 75%;
     object-fit: cover;
     width: auto;
     height: auto;
