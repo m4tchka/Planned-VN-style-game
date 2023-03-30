@@ -232,11 +232,22 @@ function App() {
                     </>
                 ) : (
                     <>
-                        <LowerSectionBox
-                            onClick={handleClick}
-                            CharacterName={currentName}
-                            Dialogue={currentDialogue}
-                        />
+                        {currentSceneObj.PlayerInput ? (
+                            <>
+                                <LowerSectionBox
+                                    CharacterName={currentName}
+                                    Dialogue={currentDialogue}
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <LowerSectionBox
+                                    onClick={handleClick}
+                                    CharacterName={currentName}
+                                    Dialogue={currentDialogue}
+                                />
+                            </>
+                        )}
                     </>
                 )}
                 {logVisibility ? <LogBox log={log} /> : <></>}

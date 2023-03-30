@@ -1,6 +1,6 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
 let ch1Test = {
-    0: {
+    "0": {
         id: "0",
         title: "scene0",
         summary: "scene0 description",
@@ -243,11 +243,15 @@ let ch1Test = {
             {
                 Name: "",
                 Dialogue:
-                    "There was a light that consumed my entire vision and then I must have been unconscious, since I don't remember anything after...",
+                    "There was a light that filled my entire vision...",
+            },
+            {
+                Name:"",
+                Dialogue:"... and then I must have been unconscious, since I don't remember anything after that.",
             },
             {
                 Name: "",
-                Dialogue: "...when I woke up I was lying here in the grass.",
+                Dialogue: "When I woke up I was lying here in the grass.",
             },
             {
                 Name: "",
