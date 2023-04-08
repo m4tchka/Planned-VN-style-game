@@ -10,6 +10,7 @@ let ch1Test = {
                 Dialogue: "!!!",
                 // Background: `/backgrounds/pureWhite.jpg`,
                 Background: `/backgrounds/test.jpg`,
+                // Effects: "Flash",
             },
             {
                 Name: "",
@@ -52,6 +53,7 @@ let ch1Test = {
                 Name: "",
                 Dialogue:
                     "How did I get here? The nearest countryside is hours away...",
+                // Sounds: "Footsteps",
             },
             {
                 Name: "???",

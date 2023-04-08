@@ -5,8 +5,6 @@ Take a look at the deployed app [here !](https://react-visual-novel.netlify.app/
 
 :warning: NB: Images load slowly because they're 1500-2000px by 4000px (2-2.5 MB) and then downsized to fit, and in _.png_ format instead of _.jpeg_, this will be addressed at a later date ! :warning:
 
-:warning: The backend for this is currently a WIP. :warning: 
-
 This repository contains the planning and code for a Visual Novel made in React.
 <br>
 
@@ -90,9 +88,8 @@ A visual novel is typically a way of telling a story, with some level of interac
     + [ ]  "Max" Luck check logic - More bad choices appear at lower luck ("easily" implementable, but not seen this feature in actual VNs really)
 - [ ]  Refactor to move sprites to separate k/v pairs (instead of 1 array of all 3 sprites) - Won't force a rerender when just 1 of 3 sprites changes.
 - [ ]  Combine luckChange & minLuck into an object, and change luck state into an object
-- [ ]  Remove unused sprites (huge lag on commit & push)
 - [ ]  Basic _react-testing-library_ tests
-- [ ]  Enter & store player name (if story object of chapters will have self insert character with y/n)
+- [x]  Enter & store player name (if story object of chapters will have self insert character with y/n)
 - [ ]  Turn all components into TypeScript
 - [ ]  Some actual CSS
 - [ ]  Basic _cypress_ tests
