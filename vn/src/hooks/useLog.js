@@ -5,7 +5,6 @@ function useLog() {
     const location = useLocation();
     const [log, setLog] = useState(location.state ? location.state.gamestate.log : []);
     function makeEntry(Name, Dialogue) {
-        // let newEntry = {[`${Name}`]:Dialogue}
         let newEntry = { Name: Name, Dialogue: Dialogue };
         return newEntry;
     }

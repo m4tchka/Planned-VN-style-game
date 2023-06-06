@@ -1,6 +1,6 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
 let ch1Test = {
-    "0": {
+    0: {
         id: "0",
         title: "scene0",
         summary: "scene0 description",
@@ -244,12 +244,12 @@ let ch1Test = {
             },
             {
                 Name: "",
-                Dialogue:
-                    "There was a light that filled my entire vision...",
+                Dialogue: "There was a light that filled my entire vision...",
             },
             {
-                Name:"",
-                Dialogue:"... and then I must have been unconscious, since I don't remember anything after that.",
+                Name: "",
+                Dialogue:
+                    "... and then I must have been unconscious, since I don't remember anything after that.",
             },
             {
                 Name: "",
@@ -361,13 +361,9 @@ let ch1Test = {
                 Dialogue:
                     "Well, my name is Aiko, and I live in that cabin over there...",
             },
-
-
-            
             {
                 Name: "Aiko",
-                Dialogue:
-                    "... so if you have any questions, let me know!",
+                Dialogue: "... so if you have any questions, let me know!",
             },
             {
                 /*   Name:"",
@@ -376,19 +372,19 @@ let ch1Test = {
                 Options: [
                     {
                         Text: "Option 1",
-                        Next: 1,
+                        Next: "1",
                         LuckChange: +1,
                         MinLuck: 0,
                     },
                     {
                         Text: "Option 2",
-                        Next: 2,
+                        Next: "2",
                         LuckChange: +2,
                         MinLuck: 0,
                     },
                     {
                         Text: "Option 3",
-                        Next: 3,
+                        Next: "3",
                         LuckChange: -1,
                         MinLuck: 0,
                     },
@@ -398,7 +394,7 @@ let ch1Test = {
         ],
     },
     1: {
-        id: 1,
+        id: "1",
         title: "scene1",
         summary: "scene1 description",
         scene: [
@@ -410,19 +406,19 @@ let ch1Test = {
                 Options: [
                     {
                         Text: "Option 1",
-                        Next: 4,
+                        Next: "4",
                         LuckChange: +1,
                         MinLuck: 0,
                     },
                     {
                         Text: "Option 2",
-                        Next: 5,
+                        Next: "5",
                         LuckChange: +1,
                         MinLuck: 0,
                     },
                     {
                         Text: "Option 3",
-                        Next: 6,
+                        Next: "6",
                         LuckChange: +1,
                         MinLuck: 0,
                     },
