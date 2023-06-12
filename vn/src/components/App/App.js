@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
 // import { ch1 } from "../../dialogueFile.js";
-import { ch1Test } from "../../dialogueFile2";
+import { story } from "../../dialogueFile2";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
@@ -28,7 +28,7 @@ function App() {
     const [currentScene, setCurrentScene] = useState(
         location.state
             ? location.state.gamestate.scene
-            : /* ch1.findIndex((e) => e.id === 1) */ 0
+            : /* ch1.findIndex((e) => e.id === 1) */ "0"
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
@@ -38,7 +38,7 @@ function App() {
     const [currentName, setCurrentName] = useState("");
     const [currentDialogue, setCurrentDialogue] = useState("");
     const [bg, setBg] = useState(
-        location.state ? location.state.gamestate.background : 0
+        location.state ? location.state.gamestate.background : ""
     );
     const [luck, setLuck] = useState(
         location.state ? location.state.gamestate.luck : 0
@@ -57,7 +57,7 @@ function App() {
         useLoadPromptBox();
     useEffect(() => {
         (function switchCurrentSceneObj() {
-            setCurrentSceneObj(ch1Test[currentScene].scene[sceneArrayEntry]);
+            setCurrentSceneObj(story[currentScene].scene[sceneArrayEntry]);
         })();
         // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
@@ -95,20 +95,20 @@ function App() {
         // }
     });
     function skipToEndOfCurrentScene() {
-        let remainingObjsInArr = ch1Test[currentScene].scene.slice(
+        let remainingObjsInArr = story[currentScene].scene.slice(
             sceneArrayEntry,
-            ch1Test[currentScene].scene.length - 1
+            story[currentScene].scene.length - 1
         );
         addEntry(remainingObjsInArr);
-        let endOfSceneEntry = ch1Test[currentScene].scene.length - 1;
+        let endOfSceneEntry = story[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
-        setCurrentSceneObj(ch1Test[currentScene].scene[endOfSceneEntry]);
+        setCurrentSceneObj(story[currentScene].scene[endOfSceneEntry]);
         setSprites(
-            ch1Test[currentScene].scene.findLast((element) => element.Sprites)
+            story[currentScene].scene.findLast((element) => element.Sprites)
                 .Sprites
         );
         setBg(
-            ch1Test[currentScene].scene.findLast(
+            story[currentScene].scene.findLast(
                 (element) => element.Background
             ).Background
         );
@@ -118,7 +118,7 @@ function App() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             //Normal condition, most clicks will use this logic
-            sceneArrayEntry < ch1Test[currentScene].scene.length &&
+            sceneArrayEntry < story[currentScene].scene.length &&
             !currentSceneObj.Question &&
             !currentSceneObj.ForcedNext
         ) {
@@ -126,7 +126,7 @@ function App() {
             addEntry(makeEntry(currentName, currentDialogue));
         } else if (
             // Triggers if there is a ForcedNext property - redirecting story to a route without player choice
-            sceneArrayEntry < ch1Test[currentScene].scene.length &&
+            sceneArrayEntry < story[currentScene].scene.length &&
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(0);

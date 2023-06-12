@@ -1,9 +1,9 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
-let ch1Test = {
-    0: {
+ export const story = {
+    "0": {
         id: "0",
         title: "scene0",
-        summary: "scene0 description",
+        summary: "Aiko is introduced and meets the player ...",
         scene: [
             {
                 Name: "",
@@ -149,7 +149,6 @@ let ch1Test = {
             },
         ],
     },
-    //
     "0a": {
         id: "0a",
         title: "scene0a",
@@ -262,7 +261,6 @@ let ch1Test = {
             },
         ],
     },
-    //
     "0f": {
         scene: [
             {
@@ -362,8 +360,12 @@ let ch1Test = {
                     "Well, my name is Aiko, and I live in that cabin over there...",
             },
             {
-                Name: "Aiko",
+                1: "Aiko",
                 Dialogue: "... so if you have any questions, let me know!",
+            },
+            {
+Name: "",
+Dialogue:""
             },
             {
                 /*   Name:"",
@@ -457,4 +459,3 @@ let ch1Test = {
         ],
     },
 };
-export { ch1Test };

@@ -90,6 +90,7 @@ A visual novel is typically a way of telling a story, with some level of interac
 - [ ]  Combine luckChange & minLuck into an object, and change luck state into an object
 - [ ]  Basic _react-testing-library_ tests
 - [x]  Enter & store player name (if story object of chapters will have self insert character with y/n)
+    + [ ] Store player name as a state in a hook, and import/ destructure it directly in dialogueFile2 and import the setState function in app.js as a way to modify the state.
 - [ ]  Turn all components into TypeScript
 - [ ]  Some actual CSS
 - [ ]  Basic _cypress_ tests
