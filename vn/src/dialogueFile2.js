@@ -1,5 +1,5 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
- export const story = {
+export const story = {
     "0": {
         id: "0",
         title: "scene0",
@@ -262,6 +262,9 @@
         ],
     },
     "0f": {
+        id: "0f",
+        title: "scene0f",
+        summary: "scene0f description",
         scene: [
             {
                 Name: "",
@@ -360,40 +363,27 @@
                     "Well, my name is Aiko, and I live in that cabin over there...",
             },
             {
-                1: "Aiko",
+                Name: "Aiko",
                 Dialogue: "... so if you have any questions, let me know!",
             },
             {
-Name: "",
-Dialogue:""
+                Name: "",
+                Dialogue: "Sure, I guess I can just ask them on the journey then",
             },
             {
-                /*   Name:"",
-                Dialogue:"", */
-                Question: "Test question",
-                Options: [
-                    {
-                        Text: "Option 1",
-                        Next: "1",
-                        LuckChange: +1,
-                        MinLuck: 0,
-                    },
-                    {
-                        Text: "Option 2",
-                        Next: "2",
-                        LuckChange: +2,
-                        MinLuck: 0,
-                    },
-                    {
-                        Text: "Option 3",
-                        Next: "3",
-                        LuckChange: -1,
-                        MinLuck: 0,
-                    },
-                ],
+                Name:"Aiko",
+                Dialogue:"Okay! Shall we set off then ? The trail starts down this path behind the house."
             },
+            {
+                Name:"",
+                Dialogue:"Sure, let's go.",
+                ForcedNext: "0i",
+            }
             // --- Prompt --- (updates state etc)
         ],
+    },
+    "0i":{
+
     },
     1: {
         id: "1",
