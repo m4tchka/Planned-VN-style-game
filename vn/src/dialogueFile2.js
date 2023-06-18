@@ -383,7 +383,21 @@ export const story = {
         ],
     },
     "0i":{
+        id:"0i",
+        title:"scene0i",
+        summary:"scene0i description",
+        scene:[
+            {
+                Name:"",
+                Dialogue:"...",
+                // Background:"Forests.jpg"
+            },
+            {
+                Name:"Aiko",
+                Dialogue:"So, what is it like in your world, huh ?",
 
+            },
+        ],
     },
     1: {
         id: "1",
