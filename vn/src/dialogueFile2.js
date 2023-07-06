@@ -1,5 +1,5 @@
 // NOTE: Change iterator in app.js to look through object's keys instead of array
-export const story = {
+export const ch1 = {
     "0": {
         id: "0",
         title: "scene0",
@@ -399,7 +399,7 @@ export const story = {
             },
         ],
     },
-    1: {
+    "1": {
         id: "1",
         title: "scene1",
         summary: "scene1 description",

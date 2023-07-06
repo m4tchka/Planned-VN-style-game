@@ -2,8 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { LowerSectionBox } from "../LowerSectionBox/LowerSectionBox.js";
-// import { ch1 } from "../../dialogueFile.js";
-import { story } from "../../dialogueFile2";
+import { ch1 } from "../../dialogueFile2";
 import { SpriteSectionBox } from "../SpriteSectionBox/SpriteSectionBox.js";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup.js";
 import { ChoiceBox } from "../ChoiceBox/ChoiceBox.js";
@@ -15,7 +14,6 @@ import useSavePromptBox from "../../hooks/useSavePromptBox.js";
 import useLoadPromptBox from "../../hooks/useLoadPromptBox";
 import { SavePromptBox } from "../SavePromptBox/SavePromptBox.js";
 import { LoadPromptBox } from "../LoadPromptBox/LoadPromptBox.js";
-// import { auth } from "../../firebase";
 
 function App() {
     /*TODO: 
@@ -26,9 +24,7 @@ function App() {
     */
     const location = useLocation();
     const [currentScene, setCurrentScene] = useState(
-        location.state
-            ? location.state.gamestate.scene
-            : /* ch1.findIndex((e) => e.id === 1) */ "0"
+        location.state ? location.state.gamestate.scene : "0"
     );
     const [sceneArrayEntry, setSceneArrayEntry] = useState(
         location.state ? location.state.gamestate.sceneEntry : 0
@@ -47,7 +43,6 @@ function App() {
         location.state ? location.state.gamestate.sprites : []
     );
     const [inputVal, setInputVal] = useState("");
-    /* const [sprite1,setSprite1]=useState({}) */
     const { log, makeEntry, makeQuestionEntry, addEntry, setLog } = useLog();
     const { logVisibility, toggleLogVisibility } = useLogBox();
     const { toggleAutoMode, autoToggled } = useAuto();
@@ -57,9 +52,9 @@ function App() {
         useLoadPromptBox();
     useEffect(() => {
         (function switchCurrentSceneObj() {
-            setCurrentSceneObj(story[currentScene].scene[sceneArrayEntry]);
+            setCurrentSceneObj(ch1[currentScene].scene[sceneArrayEntry]);
         })();
-        // FIXME: when loading to a previous sceneObj in the story, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
+        // FIXME: when loading to a previous sceneObj in the ch1, if that scene obj has a background as below, it will switch to the loaded background, but then immediately flick back to the original background.
         // This problem DOES NOT occur when the currentSceneObj DOES NOT have a background key (i.e. background didn't change on the previous click)
         (function switchName() {
             setCurrentName(
@@ -84,33 +79,23 @@ function App() {
                 setSprites(currentSceneObj.Sprites);
             })();
         }
-        // if (currentSceneObj.ForcedNext) {
-        //     (function)
-        // }
-        // if (currentSceneObj.PlayerInput) {
-        //     (function setName() {
-        //         setPlayerName(prompt("What was I called again ?"));
-        //         // handleClick()
-        //     })();
-        // }
     });
     function skipToEndOfCurrentScene() {
-        let remainingObjsInArr = story[currentScene].scene.slice(
+        let remainingObjsInArr = ch1[currentScene].scene.slice(
             sceneArrayEntry,
-            story[currentScene].scene.length - 1
+            ch1[currentScene].scene.length - 1
         );
         addEntry(remainingObjsInArr);
-        let endOfSceneEntry = story[currentScene].scene.length - 1;
+        let endOfSceneEntry = ch1[currentScene].scene.length - 1;
         setSceneArrayEntry(endOfSceneEntry);
-        setCurrentSceneObj(story[currentScene].scene[endOfSceneEntry]);
+        setCurrentSceneObj(ch1[currentScene].scene[endOfSceneEntry]);
         setSprites(
-            story[currentScene].scene.findLast((element) => element.Sprites)
+            ch1[currentScene].scene.findLast((element) => element.Sprites)
                 .Sprites
         );
         setBg(
-            story[currentScene].scene.findLast(
-                (element) => element.Background
-            ).Background
+            ch1[currentScene].scene.findLast((element) => element.Background)
+                .Background
         );
         console.log("SkipToEnd function called");
     }
@@ -118,15 +103,15 @@ function App() {
         // NOTE: THIS IS NOT INVOLVED IN THE AUTO FUNCTION
         if (
             //Normal condition, most clicks will use this logic
-            sceneArrayEntry < story[currentScene].scene.length &&
+            sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question &&
             !currentSceneObj.ForcedNext
         ) {
             setSceneArrayEntry(sceneArrayEntry + 1);
             addEntry(makeEntry(currentName, currentDialogue));
         } else if (
-            // Triggers if there is a ForcedNext property - redirecting story to a route without player choice
-            sceneArrayEntry < story[currentScene].scene.length &&
+            // Triggers if there is a ForcedNext property - redirecting ch1 to a route without player choice
+            sceneArrayEntry < ch1[currentScene].scene.length &&
             !currentSceneObj.Question
         ) {
             setSceneArrayEntry(0);
