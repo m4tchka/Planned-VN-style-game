@@ -5,20 +5,27 @@ import App from "./components/App/App.js";
 import MainMenu from "./components/MainMenu/MainMenu";
 import AboutPage from "./components/AboutPage/AboutPage";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //TODO: Add ending page AND CUSTOM STATES
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <MainMenu />,
+    },
+    {
+        path: "story",
+        element: <App />,
+    },
+    {
+        path: "about",
+        element: <AboutPage />,
+    },
+]);
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route index element={<MainMenu />} />
-                <Route path="story" element={<App />} />
-                <Route path="about" element={<AboutPage />} />
-                {/* <Route path="ending" element={<EndPage />} /> */}
-            </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router} />
     </React.StrictMode>
 );
 
